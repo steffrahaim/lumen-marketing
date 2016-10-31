@@ -32,4 +32,3 @@
 
 	<?php edit_post_link( __( 'Edit', 'leftside' ), '<div class="edit-link">', '</div>' ); ?>
 </div>
-<?php get_footer(); ?>

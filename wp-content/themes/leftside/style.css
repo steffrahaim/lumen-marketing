@@ -74,6 +74,7 @@ table {
 
 .sub-menu {
 	text-align: left;
+	width: 8rem;
 }
 
 /* BODY AND CONTAINER */
@@ -85,22 +86,39 @@ body {
 	color: black; 
 	line-height:1.5em; 
 	text-align:left; 
-	word-wrap:break-word; 
-	overflow: scroll;
+	word-wrap:break-word;
+
 }
-#container {max-width:1200px; position:relative; background:white; margin:0px auto; border: 1px solid silver; }
-#container:after {content:''; display:block; height:0; clear:both;}
+#container {
+	max-width:1200px;
+	height: 100%; 
+	position:relative;  
+	margin:0px auto; 
+	border-left: 1px solid gainsboro;
+	border-right: 1px solid gainsboro;
+	
+
+	 }
+
+#container:after {
+	content:''; 
+	display:block; 
+	height:0; 
+	clear:both;
+	height: 100%;
+
+}
 
 
 /* MAIN CONTENT AREA */
 #content {
-	width: 57%; 
+	width: 60%; 
 	float: right; 
 	padding: 100px 0; 
-	margin-right: 20px;
+	padding-right: 10px;
 	/* Custom - CMR */
 	overflow-y: scroll;
-    max-height: 400px;
+    max-height: 430px;
 }
 
 
@@ -108,7 +126,7 @@ body {
 h1 {font-size:2.25em; line-height:1.25em;}
 h2 {font-size:1.80em; line-height:1.25em;}
 h3 {font-size:1.45em; line-height:1.5em;}
-h4 {text-transform: uppercase; text-decoration: underline; font-size:1em; line-height:1.5em;}
+h4 {font-variant: small-caps; text-decoration: underline; font-size:1em; line-height:1.5em;}
 h5 {font-size:1em; line-height:1.5em;}
 h6 {font-size:0.80em; line-height:2em;}
 
@@ -162,7 +180,13 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 
 
 /* SIDEBAR */
-#sidebar {width:40%; float:left; padding:0px; background: white;}
+#sidebar {
+	width:30%; 
+	float:left; 
+	padding:0px; 
+	background: white;
+	height: 100vh;
+}
 
 
 /* SIDEBAR LOGO */
@@ -292,8 +316,22 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 
 
 /* FOOTER */
-#footer {width:100%; clear:both; float:left;}
-.site-info {clear:both; text-align:left; padding:10px;}
+#footer {
+	width:100%; 
+	clear:both; 
+	float:right;
+
+}
+
+.site-info {
+	position:absolute;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    padding:0 10px;
+	font-size: .8em;
+}
 
 
 /* FOOTER WIDGET AREA */

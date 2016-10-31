@@ -7,8 +7,8 @@
 
 #wb_tree ul{
 	list-style: none;
-	text-transform: uppercase;
-	font-size: .8em;
+	font-variant: small-caps;
+	font-size: .9em;
 	line-height: 2.5em;
 }
 #wb_tree ul li{
