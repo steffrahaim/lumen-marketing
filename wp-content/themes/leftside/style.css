@@ -65,7 +65,7 @@ table {
 	border-spacing:0;
 }
 
-/* CUSTOM - CMR */
+/* CUSTOM - CMR WP PARSI TREE MENU*/
 
 #menu-primary {
 	text-align: right;
@@ -76,7 +76,12 @@ table {
 	text-align: left;
 	width: 8rem;
 }
+@media screen and (max-width:767px) {
+	.sub-menu {
+		margin-left: 30px;
+	}
 
+}
 /* BODY AND CONTAINER */
 body {
 	background: white; 
@@ -151,10 +156,8 @@ body {
 	/* Custom - CMR */
 	overflow-y: scroll;
     max-height: 100vh;
-
-/*IPAD CONTENT SIZING*/
-    padding-right:15px;
-}
+    padding-right: 15px;
+	}
 }
 
 /*LAPTOP CONTENT SIZING*/
@@ -226,7 +229,6 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 	width:25%; 
 	float:left; 
 	padding:0px; 
-	background: white;
 	height: 100vh;
 	position: fixed;
 }

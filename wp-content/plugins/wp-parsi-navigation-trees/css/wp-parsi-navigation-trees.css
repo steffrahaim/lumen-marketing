@@ -32,10 +32,7 @@
 
 /* MOBILE */
 @media screen and (max-width:767px) {
-	#wb_tree ul .sub-menu {
-	left: 80px;
-
-}
 	#wb_tree ul{
 	font-size: 7px;
+	}
 }
