@@ -95,6 +95,12 @@ body {
 
 }
 
+/*HIDE SCROLLBARS*/
+/*::-webkit-scrollbar {
+	width: 0;
+	background: transparent;
+}*/
+
 
 #container {
 	max-width:100%;
@@ -129,13 +135,20 @@ body {
 
 }
 
+/*PHONE CONTAINER SIZING*/
+@media screen and (min-width:1200px){
+	#container:after {
+		height: 100vh
+	}
+}
 
 /* MAIN CONTENT AREA */
 
 #content {
 	width: 65%; 
 	float: right; 
-	padding: 100px 0; 
+	padding-top: 100px;
+	padding-bottom: 0px;
 	padding-right: 50px;
 	margin: auto;
 }
@@ -144,8 +157,10 @@ body {
 @media screen and (max-width:767px) {
 	#content {
 		width:90%; 
-		padding:15px;
+		padding: 0px 0;
 		height: 100%;
+		margin: auto;
+		float: none;
 	}
 
 }
@@ -154,7 +169,6 @@ body {
 @media screen and (min-width:767px) {
 	#content {
 	/* Custom - CMR */
-	overflow-y: scroll;
     max-height: 100vh;
     padding-right: 15px;
 	}
