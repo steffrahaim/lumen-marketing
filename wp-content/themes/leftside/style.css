@@ -51,6 +51,10 @@ ol, ul {
 	list-style:none;
 }
 
+ul, li {
+
+
+}
 blockquote, q {
 	quotes:none;
 }
@@ -69,19 +73,26 @@ table {
 
 #menu-primary {
 	text-align: right;
-    width: 8rem;
+    width: 9rem;
 }
 
 .sub-menu {
 	text-align: left;
 	width: 8rem;
 }
-@media screen and (max-width:767px) {
-	.sub-menu {
-		margin-left: 30px;
-	}
 
+/*BOX AROUND MENU ITEMS*
+
+li:hover,
+li:focus,
+li:active {
+	text-decoration: none;
+	outline: 1px solid gainsboro;
+	display: inline;
+	cursor: pointer;
 }
+*/
+
 /* BODY AND CONTAINER */
 body {
 	background: white; 
@@ -117,9 +128,9 @@ body {
 }
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:1125px) {
 	#container{
-	max-width:1200px;
+	max-width:1125px;
 	border-left: 1px solid gainsboro;
 	border-right: 1px solid gainsboro;
 	}
@@ -135,13 +146,6 @@ body {
 
 }
 
-/*PHONE CONTAINER SIZING*/
-@media screen and (min-width:1200px){
-	#container:after {
-		height: 100vh
-	}
-}
-
 /* MAIN CONTENT AREA */
 
 #content {
@@ -149,7 +153,7 @@ body {
 	float: right; 
 	padding-top: 100px;
 	padding-bottom: 0px;
-	padding-right: 50px;
+	padding-right: 25px;
 	margin: auto;
 }
 
@@ -169,7 +173,7 @@ body {
 @media screen and (min-width:767px) {
 	#content {
 	/* Custom - CMR */
-    max-height: 100vh;
+    height: 100%;
     padding-right: 15px;
 	}
 }
@@ -177,7 +181,7 @@ body {
 /*LAPTOP CONTENT SIZING*/
 @media screen and (min-width:820px) {
 	#content {
-		padding-right: 50px;
+		padding-right: 25px;
 	}
 }
 
@@ -240,7 +244,7 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 
 /* SIDEBAR */
 #sidebar {
-	width:25%; 
+	max-width: 350px;
 	float:left; 
 	padding:0px; 
 	height: 100vh;
@@ -259,32 +263,27 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 }
 
 /* SIDEBAR LOGO */
-.logo {width:100%; text-align:left; padding:0 0 0px;}
-.logo h1 a:hover {text-decoration:none; color:#333;}
-.logo h2 {padding:5px 0; font-size:1.45em;}
+.logo {
+	width: 100%; 
+	text-align:left; 
+	padding:0 0 0px;
+}
 
+.logo h1 a:hover {
+	text-decoration:none; 
+	color:#333;
+}
+.logo h2 {
+	padding:5px 0; 
+	font-size:1.45em;
+}
 
-/* SIDEBAR MENU */
-.nav-head {clear:both; padding:10px 0;}
-.nav-head select {display:none;}
-.nav-head ul {padding:0; margin:0; z-index:999; list-style:none;}
-.nav-head ul li {list-style-type:none; position:relative; padding:0; margin:0;}
-.nav-head ul li a {text-decoration:none; padding:5px 4%; display:inline-block; width:92%;}
-.nav-head ul li:hover > a {text-decoration:none; background:#e77776; color:#fff;}
-.nav-head .current_page_item > a, .nav-head .current_page_parent > a {text-decoration:underline;}
-
-
-/* SIDEBAR SUBMENU */
-.nav-head ul ul {display:none; position:absolute; left:100%; top:0;}
-.nav-head ul ul ul {display:none; position:absolute; top:0; left:100%;}
-.nav-head ul ul a {width:15em; padding:5px 10px; background:#666; color:#ddd;}
-.nav-head ul li:hover > ul {display:block;}
-.nav-head ul li ul li {margin:0;}
-
-
-/* SIDEBAR MENU TITLE */
-.nav-head-title {background:#666; color:#ddd; padding:5px 15px; margin:0 0 10px;}
-
+@media screen and (max-width:931px){
+.logo {
+		padding: 0 0 0 0; 
+		width: 250px 
+	}
+}
 
 /* WIDGETS */
 #sidebar-widgets {
@@ -300,7 +299,7 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 
 @media screen and (max-width:920px) {
 #sidebar-widgets {
-	margin-left: -25px
+	margin-left: -10px
 }
 }
 
@@ -327,7 +326,7 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 
 
 /* PAGE */
-.page-title {clear:both; padding:0 0 10px;}
+.page-title {clear:both; padding:0 0 3px;}
 .archive-description {display:block; font-style:italic;}
 .pagelink {clear:both; display:block; margin:20px 0 10px;}
 
@@ -420,7 +419,7 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 .site-info {
 	position:absolute;
     left:0px;
-    bottom:0px;
+    bottom:30px;
     height:30px;
     width:100%;
     padding:0 10px;
@@ -461,9 +460,7 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 		background-image:none !important;}
 
 	/* SIDEBAR LOGO */
-	.logo {
-		padding: 0 0 0 0; 
-		width: 200px }
+	
 
 	.logo h1 {
 		font-size:2.25em;
