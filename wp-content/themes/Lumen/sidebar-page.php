@@ -1,6 +1,7 @@
 <?php
 /*
- * The default template for displaying pages.
+ * Template Name: Sidebar Page
+ * Description: Page template with sidebar
  */
 ?>
 
