@@ -1,27 +1,15 @@
 /*
-Theme Name: LeftSide
-Theme URI: http://www.guidovanderleest.nl/leftside
-Version: 4.3
-Author: Guido van der Leest
-Author URI: http://www.guidovanderleest.nl
-Description: LeftSide is a free, clean, minimalistic, responsive, mobile-friendly WordPress theme. Features: sidebar, sidebar navigation, footer widgets, custom header image, custom background, custom logo to replace site title and tagline. For more info please check readme file. Enjoy.
-Tags: two-columns, left-sidebar, custom-background, custom-header, custom-menu, featured-images, footer-widgets, post-formats, sticky-post, blog, editor-style, translation-ready
-License: GNU General Public License v3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: leftside
+Theme Name: Lumen
+Version: 1.1
+Author: Steff Rahaim
+Author URI: steffrahaim@gmail.com
+Description: Based on leftside theme, Copyright 2014, Guido van der Leest;
+Lumen is licensed under the GPL;
+Text Domain: Lumen
 
-LeftSide, Copyright 2014, Guido van der Leest
-LeftSide is licensed under the GPL
 */
 
 
-/* 
-RESET STYLESHEET 
-Source: http://meyerweb.com/eric/tools/css/reset
-Author: Eric Meyer
-Author URI: http://meyerweb.com/ 
-License: none (public domain) 
-*/
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
 a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, 
