@@ -59,6 +59,32 @@ table {
 }
 
 
+/*
+MOBILE BUTTON
+*/
+
+.first {
+    width: 100%;
+    height: 1000px;
+    background: #ccc;
+}
+
+.second {
+    width: 100%;
+    height: 1000px;
+    background: #999;
+}
+
+.mobile-button {
+	object-position: bottom;
+    position: fixed;
+    left: 0px;
+    bottom: 30px;
+    height: 30px;
+    padding: 0 10px;
+    font-size: .8em;
+}
+
 /*-------------------------------
 WP TREE MENU
 --------------------------------*/
@@ -107,11 +133,6 @@ body.custom-background {
     background-size: cover;
     background-position: center !important;
     margin: 0;
-}
-
-.page-template-notitle-page,
-.page-template-sidebar-page {
-	background: none !important;
 }
 
 #container {
@@ -318,11 +339,14 @@ input, select, textarea {
 	border-radius:5px;
 }
 
-input[type="submit"], input[type="reset"], input[type="button"], button {
+input[type="submit"], 
+input[type="reset"], 
+input[type="button"], 
+button {
 	cursor:pointer; 
 	border:0; 
 	padding:2px 5px; 
-	background:#e77776; 
+	background:grey; 
 	color:#fff; 
 	border-radius:5px;
 }
@@ -350,10 +374,43 @@ select {
 
 button {
 	font-size:1em; 
-	font-family:'Open Sans', sans-serif;
+	font-family:'lato', sans-serif;
 }
 
+/*-------------------------------
+SPLASH PAGE
+-------------------------------*/
+ #buttonDiv {
+        position: fixed;
+        width:200px;
+        height:200px;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -100px;
+        text-align:center;
+}
 
+#splash-button {
+   position:relative;
+   top: 75%;
+   transform: translateY(-50%);
+  font-variant: small-caps;
+  font-weight: 300;
+  background: grey;
+  color: white;
+  border-radius: 1px;
+  padding:1px 4px; 
+}
+
+body.front-page{
+	 background: url(http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/Lumen_Splash2000px.png);
+	 background-attachment: fixed !important;
+     background-clip: border-box;
+     background-size: cover;
+     background-position: center !important;
+     margin: 0;
+}
 /*-------------------------------
 SIDEBAR
 -------------------------------*/
@@ -449,14 +506,6 @@ PAGE
 .pagelink {clear:both; display:block; margin:20px 0 10px;}
  	
 
- }
-
-/*-------------------------------
-SPLASH PAGE
--------------------------------*/
- .splash-button{
- 	color: transparent;
- 	background: transparent;
  }
 
 /*-------------------------------
