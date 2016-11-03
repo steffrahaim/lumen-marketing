@@ -25,7 +25,7 @@
 
 	<?php endwhile; ?>
 
-<button class="mobile-button" type="button" onclick="smoothScroll(document.getElementById('content'))">Click Me!</button>
+<button class="mobile-button" type="button" onclick="smoothScroll(document.getElementById('content'))">Menu</button>
 
 <script>
 window.smoothScroll = function(target) {
