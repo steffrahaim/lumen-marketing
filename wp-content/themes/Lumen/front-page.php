@@ -18,7 +18,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <body class="front-page"> >
+<body <body class="front-page">
 <div id="buttonDiv">
 <button id="splash-button" type="submit" onClick="window.location.href='/lumen3.0/work'">Enter</button>
 </div>

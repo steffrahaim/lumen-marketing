@@ -9,7 +9,6 @@
 #wb_tree ul{
 	list-style: none;
 	font-variant: small-caps;
-	font-size: .95em;
 	line-height: 2.3em;
 }
 #wb_tree ul li{
@@ -24,16 +23,10 @@
 	display: none;
 	position: absolute;
 	top: -32px;
-	left: 120px;
+	left: 135px;
 	max-width: 250px;
 }
 #wb_tree .showSubMenu {
 	display: block;
 }
 
-/* MOBILE */
-@media screen and (max-width:767px) {
-	#wb_tree ul{
-	font-size: 10px;
-	}
-}

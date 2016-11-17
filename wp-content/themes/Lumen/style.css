@@ -66,11 +66,12 @@ WP TREE MENU
 #menu-primary {
 	text-align: right;
     width: 9rem;
+    font-size: .95em;
 }
 
 .sub-menu {
 	text-align: left;
-	width: 8rem;
+	width: 9rem;
 }
 
 /*BOX AROUND MENU ITEMS
@@ -168,11 +169,11 @@ MAIN CONTENT AREA
 }
 
 /* LAPTOP CONTENT SCROLL */
-@media screen and (min-width:767px) {
+@media screen and (min-width:768px) {
 	#content {
-	/* Custom - CMR */
     height: 100%;
     padding-right: 15px;
+    width: 62%;
 	}
 }
 
@@ -180,6 +181,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
+		width: 65%;
 	}
 }
 
@@ -358,7 +360,7 @@ MOBILE BUTTON
 -------------------------------*/
 
 .mobile-button {
-    position: fixed;
+    position: inherit;
     z-index: 100;
     left: 1em;
     bottom: 1em;
@@ -367,6 +369,8 @@ MOBILE BUTTON
     font-size: 1.5em;
     border-radius: 1px;
     text-transform: uppercase;
+    margin-top: .5em;
+    margin-bottom: 1.5em;
 
 }
 
@@ -390,16 +394,42 @@ SPLASH PAGE
         text-align:center;
 }
 
+@media screen and (min-width: 769px) {
+	#buttonDiv {
+	width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+
+	}
+}
+
 #splash-button {
-   position:relative;
-   top: 75%;
-   transform: translateY(-50%);
-  font-variant: small-caps;
-  font-weight: 300;
-  background: grey;
-  color: white;
-  border-radius: 1px;
-  padding:1px 4px; 
+	height: 30px;
+	padding: 0 10px;
+	font-size: 1.2em;
+	border-radius: 1px;
+	position:relative;
+	top: 120%;
+	transform: translateY(-50%);
+	text-transform: uppercase;
+	font-weight: 300;
+	background: white;
+	color: grey;
+	border: 1px solid gainsboro;
+}
+
+@media screen and (min-width: 769px) {
+	#splash-button {
+		color: transparent;
+		background: transparent;
+		height: 100%;
+    	width: 100%;
+    	top: 0;
+    	padding: 0;
+    	transform: none;
+	}
 }
 
 body.front-page{
@@ -429,14 +459,15 @@ SIDEBAR
 		background:none;
 		height: 100%;
 		position: initial;
+		padding-bottom: 10px;
 	}
 }
 
 /* SIDEBAR LOGO */
 .logo {
-	width: 100%; 
 	text-align:left; 
 	padding:0 0 0px;
+	width: 250px;
 }
 
 .logo h1 a:hover {
@@ -448,28 +479,46 @@ SIDEBAR
 	font-size:1.45em;
 }
 
-@media screen and (max-width:931px){
+
+@media screen and (min-width:920px){
 .logo {
 		padding: 0 0 0 0; 
-		width: 250px 
+		width: 300px; 
 	}
 }
 
-/* WIDGETS */
-#sidebar-widgets {
-	width:80%; 
-	float:right;
+@media screen and (min-width: 1082px) {
+	.logo {
+		width: 100%;
+	}
 }
 
-@media screen and (max-width:1090px) {
+
+/* WIDGETS */
 #sidebar-widgets {
-	float:left;
-}
+	width:85%; 
+	float:right;
 }
 
 @media screen and (max-width:920px) {
 #sidebar-widgets {
-	margin-left: -10px
+	margin-left: -20px
+}
+}
+
+@media screen and (max-width: 767px) {
+	#sidebar-widgets {
+		margin-top: -40px;
+		float:none;
+		width: none;
+		padding-left: 1em;
+		margin-left: 0 !important;
+	}
+}
+
+@media screen and (max-width:1082px) {
+#sidebar-widgets {
+	float:left;
 }
 }
 
@@ -833,15 +882,17 @@ FOOTER
 	position:absolute;
     left:0px;
     bottom:30px;
-    height:30px;
+    height:0px;
     width:100%;
     padding:0 10px;
 	font-size: .8em;
 }
 
-@media screen and (max-height: 767px){
+@media screen and (max-width: 767px){
 	.site-info{
-		display: none;
+		text-align: right;
+    	margin-left: -20px;
+    	padding: 0;
 	}
 }
 
@@ -880,13 +931,9 @@ PHONE STYLING
 
 	/* BODY AND CONTAINER */
 	body {
-		font-size:.75em; 
-		line-height:1.2em;
 		height: 100%;
 		overflow-y: scroll !important;
 	}
-
-
 
 	/* SIDEBAR LOGO */
 	
@@ -925,12 +972,6 @@ PHONE STYLING
 	/* SIDEBAR MENU TITLE */
 	.nav-head-title {
 		display:none;
-	}
-
-	/* WIDGETS */
-	#sidebar-widgets {
-		width:90%; 
-		float:right;
 	}
 
 	.widget {
