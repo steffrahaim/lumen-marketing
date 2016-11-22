@@ -20,7 +20,7 @@
 
 <body <body class="front-page">
 <div id="buttonDiv">
-<button id="splash-button" type="submit" onClick="window.location.href='/lumen3.0/work'">Enter</button>
+<button id="splash-button" type="submit" onClick="window.location.href='/lumen3.0/what-we-do'">Enter</button>
 </div>
 <body>
 <?php get_footer(); ?>
