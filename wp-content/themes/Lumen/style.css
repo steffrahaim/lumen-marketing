@@ -938,6 +938,10 @@ FOOTER
 	margin: 0px !important
 }
 
+.bx-pager li {
+
+	margin: 0 0 0 10px !important;
+}
 /*-------------------------------
 PHONE STYLING
 -------------------------------*/
