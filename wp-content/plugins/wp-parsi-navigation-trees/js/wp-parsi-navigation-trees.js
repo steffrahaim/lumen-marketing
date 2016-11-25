@@ -7,9 +7,8 @@ jQuery(document).ready(function() {
 
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
-  jQuery('#wb_tree ul li a[href="' + location + '"').siblings('span').text('-');
 
-  jQuery('#wb_tree a.toggle_menu').click(function(){}).toggle(open, closeAll);
+  jQuery('#wb_tree a.toggle_menu').click(toggle);
 
   // Open parent link if on a child page.
   const openLink = jQuery('#wb_tree ul li a').filter(
@@ -17,9 +16,9 @@ jQuery(document).ready(function() {
   )
   // I know this is a dumb selector, sorry.
   const parentLink = jQuery(openLink).parent().parent().siblings('a.toggle_menu');
-  if (openLink && parentLink) {
-    open(null, parentLink);
-    parentLink.click()
+  if (parentLink) {
+    open(parentLink);
+    openLink.addClass('active');
   }
 });
 
@@ -27,7 +26,7 @@ function drawMenu(width, childCount, childHeight) {
   var menuBranches = document.getElementById("menuBranches");
   const childrenHeight = childCount * childHeight;
   const offset = 20;
-  if (menuBranches.getContext) {
+  if (menuBranches && menuBranches.getContext) {
     var ctx = menuBranches.getContext("2d");
 
     ctx.fillStyle = "#bbb";
@@ -44,28 +43,46 @@ function drawMenu(width, childCount, childHeight) {
 
 function initializeBranches(parentLink) {
   // Precaution.
-    jQuery('#menuBranches').remove();
-    const childCount = parentLink.siblings('ul').children().length;
-    // This is just coincidental.
-    const childHeight = 26;
-    const width = 26;
-    const dimensions = 'width="' + width + '" height="' + childCount * childHeight + '"';
-    parentLink.after('<canvas id="menuBranches" style="display: none;" ' + dimensions + '></canvas>')
-    drawMenu(width, childCount, childHeight);
+  jQuery('#menuBranches').remove();
+  const childCount = parentLink.siblings('ul').children().length;
+  // This is just coincidental.
+  const childHeight = 26;
+  const width = 26;
+  const dimensions = 'width="' + width + '" height="' + childCount * childHeight + '"';
+  parentLink.after('<canvas id="menuBranches" ' + dimensions + '></canvas>'); 
+  drawMenu(width, childCount, childHeight);
+}
+
+function toggle() {
+  const closed = !jQuery(this).hasClass('active');
+  
+  closeAll();
+
+  if (closed) {
+    open(jQuery(this));
+  }
 }
 
 function closeAll() {
   jQuery('#wb_tree a').removeClass('active');
   jQuery('#menuBranches').remove();
   jQuery('#wb_tree ul .sub-menu').hide();
+  jQuery('#wb_tree ul .sub-menu li').hide();
 }
 
-function open(event, item=undefined) {
-  closeAll();
-  
-  const element = item || jQuery(this);
+function open(element) {
   initializeBranches(element);
+
   element.addClass('active');
-  element.siblings('ul').fadeIn();
+  element.siblings('ul').show();
+  queueChildren(element.siblings('ul').children('.sub-menu li'));
   element.siblings('#menuBranches').fadeIn();
+}
+
+function queueChildren(children) {
+  const duration = 750;
+  children.each((i, child) => jQuery(child)
+    .delay(duration * i)
+    .fadeIn({queue: true, duration: duration}
+  ));
 }

@@ -12,21 +12,16 @@
   clear: none;
 }
 #wb_tree ul .sub-menu {
-  display: none;
   position: absolute;
   top: -27px;
   left: 150px;
   max-width: 250px;
 }
 
+#wb_tree ul .sub-menu ul,
 #wb_tree ul .sub-menu li {
-  margin: 0;
-}
-
-.branches {
   display: none;
-  position: absolute;
-  background: #ccc;
+  margin: 0;
 }
 
 #wb_tree .showSubMenu {
@@ -35,6 +30,12 @@
 
 #wb_tree ul li span {
   margin-right: 2px;
+}
+
+.branches {
+  display: none;
+  position: absolute;
+  background: #ccc;
 }
 
 .circle {
@@ -50,12 +51,6 @@
   background: #bbb;
 }
 
-.branch { 
-  width:100%; 
-  height:1px; 
-  background: #000; }
-
-/* Actions */
 #wb_tree ul li a {
   padding: 3px 8px;
   text-decoration: none;
@@ -66,14 +61,13 @@
   border: solid 1px #ccc;
 }
 
-#menuBranches {
-  display: block;
-  position: absolute;
-  left: 124px;
-  top: -25px;
-}
-
 #wb_tree ul li a.toggle_menu.active .circle {
   display: inline-block;
 }
 
+#menuBranches {
+  /*display: none;*/
+  position: absolute;
+  left: 124px;
+  top: -25px;
+}
