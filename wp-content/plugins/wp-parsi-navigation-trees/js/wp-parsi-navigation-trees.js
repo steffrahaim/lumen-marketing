@@ -4,22 +4,33 @@ jQuery(document).ready(function(){
     .children('a')
     .addClass('toggle_menu')
     .prepend('<span>+</span>');
-    
+
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('span').text('-');
 
-  jQuery('#wb_tree a.toggle_menu').click(function(){}).toggle(open,close)});
+  jQuery('#wb_tree a.toggle_menu').click(function(){}).toggle(open,close);
 
-const open = function(){
+  // Open parent link if on a child page.
+  const openLink = jQuery('#wb_tree ul li a').filter(
+    (i, e) => jQuery(e).attr('href') && jQuery(e).attr('href').replace(/\/$/, '') == location
+  )
+  if (openLink) {
+    open(null, jQuery(openLink).parent().parent().siblings('a.toggle_menu'));
+  }
+});
+
+const open = function(event, item=undefined){
+  const element = item || jQuery(this);
   jQuery('#wb_tree ul li span').text('+')
-  jQuery(this).find('span').text('-');
+  element.find('span').text('-');
   
   jQuery('#wb_tree ul .sub-menu').hide();
-  jQuery(this).siblings('ul').fadeIn();
+  element.siblings('ul').fadeIn();
 }
 
-const close = function(){
-  jQuery(this).find('span').text('+');
-  jQuery(this).siblings('ul').fadeOut();
+const close = function(e, item=undefined){
+  const element = item || jQuery(this);
+  element.find('span').text('+');
+  element.siblings('ul').fadeOut();
 }
