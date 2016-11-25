@@ -1,9 +1,6 @@
 jQuery(document).ready(function(){
 
-  jQuery('#wb_tree ul li').has('.sub-menu')
-    .children('a')
-    .addClass('toggle_menu')
-    .prepend('<span>+</span>');
+  jQuery('#wb_tree ul li').has('.sub-menu').children('a').addClass('toggle_menu');
 
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
@@ -22,15 +19,11 @@ jQuery(document).ready(function(){
 
 const open = function(event, item=undefined){
   const element = item || jQuery(this);
-  jQuery('#wb_tree ul li span').text('+')
-  element.find('span').text('-');
-  
   jQuery('#wb_tree ul .sub-menu').hide();
   element.siblings('ul').fadeIn();
 }
 
 const close = function(e, item=undefined){
   const element = item || jQuery(this);
-  element.find('span').text('+');
   element.siblings('ul').fadeOut();
 }
