@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
   // I know this is a dumb selector, sorry.
   const parentLink = jQuery(openLink).parent().parent().siblings('a.toggle_menu');
   if (parentLink) {
-    open(parentLink);
+    open(parentLink, false);
     openLink.addClass('active');
   }
 });
@@ -70,13 +70,19 @@ function closeAll() {
   jQuery('#wb_tree ul .sub-menu li').hide();
 }
 
-function open(element) {
+function open(element, animate=true) {
   initializeBranches(element);
 
   element.addClass('active');
   element.siblings('ul').show();
-  queueChildren(element.siblings('ul').children('.sub-menu li'));
-  element.siblings('#menuBranches').fadeIn();
+  const children = element.siblings('ul').children('.sub-menu li');
+  if (animate) {
+    queueChildren(children);
+    element.siblings('#menuBranches').fadeIn();
+  } else {
+    element.siblings('ul').children('.sub-menu li').show();
+    element.siblings('#menuBranches').show();
+  }
 }
 
 function queueChildren(children) {
