@@ -30,3 +30,6 @@
 	display: block;
 }
 
+#wb_tree ul li span {
+	margin-right: 2px;
+}
