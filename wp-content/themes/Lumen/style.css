@@ -164,6 +164,7 @@ MAIN CONTENT AREA
 		height: 100%;
 		margin: auto;
 		float: none;
+		clear: both;
 	}
 
 }

@@ -70,6 +70,7 @@ function closeAll() {
   jQuery('#wb_tree ul .sub-menu li').hide();
 }
 
+
 function open(element, animate=true) {
   initializeBranches(element);
 
