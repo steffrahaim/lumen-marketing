@@ -550,15 +550,8 @@ HEADER
 PAGE 
 -------------------------------*/
 .page-title {
-	clear: both;
-    padding: 5px;
-    margin-left: auto;
-    margin-right: 0;
-    margin-bottom: 50px;
-    border: 1px solid gainsboro;
-    display: table;
-    font-variant: small-caps;
-
+    color: white;
+}
 
 .archive-description {display:block; font-style:italic;}
 .pagelink {clear:both; display:block; margin:20px 0 10px;}
@@ -955,6 +948,14 @@ FOOTER
 .bx-pager li {
 
 	margin: 0 0 0 10px !important;
+}
+
+.bx-wrapper .bx-caption {
+	padding: 10px 0 0 !important;
+}
+
+.bx-wrapper {
+	margin: 0 auto 50px !important;
 }
 /*-------------------------------
 PHONE STYLING
