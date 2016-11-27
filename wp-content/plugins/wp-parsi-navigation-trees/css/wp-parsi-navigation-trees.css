@@ -1,32 +1,73 @@
-#wb_tree span{
-	cursor: pointer;
-	display: inline-block;
-	height: 10px;
-	width: 10px;
-
-}
-
 #wb_tree ul{
-	list-style: none;
-	font-variant: small-caps;
-	line-height: 2.3em;
+  list-style: none;
+  font-variant: small-caps;
+  line-height: 2.3em;
 }
 #wb_tree ul li{
-	position: relative;
+  position: relative;
 }
 #wb_tree ul ul li{
-	position: relative;
-	float: none;
-	clear: none;
+  position: relative;
+  float: none;
+  clear: none;
 }
 #wb_tree ul .sub-menu {
-	display: none;
-	position: absolute;
-	top: -32px;
-	left: 135px;
-	max-width: 250px;
-}
-#wb_tree .showSubMenu {
-	display: block;
+  position: absolute;
+  top: -27px;
+  left: 150px;
+  max-width: 250px;
 }
 
+#wb_tree ul .sub-menu ul,
+#wb_tree ul .sub-menu li {
+  display: none;
+  margin: 0;
+}
+
+#wb_tree .showSubMenu {
+  display: block;
+}
+
+#wb_tree ul li span {
+  margin-right: 2px;
+}
+
+.branches {
+  display: none;
+  position: absolute;
+  background: #ccc;
+}
+
+.circle {
+  display: none;
+  position: absolute;
+  right: -4px;
+  top: 12px;
+  width: 4px;
+  height: 4px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background: #bbb;
+}
+
+#wb_tree ul li a {
+  padding: 3px 8px;
+  text-decoration: none;
+}
+
+#wb_tree ul li a.active,
+#wb_tree ul li a:hover {
+  border: solid 1px #ccc;
+}
+
+#wb_tree ul li a.toggle_menu.active .circle {
+  display: inline-block;
+}
+
+#menuBranches {
+  /*display: none;*/
+  position: absolute;
+  left: 124px;
+  top: -25px;
+}
