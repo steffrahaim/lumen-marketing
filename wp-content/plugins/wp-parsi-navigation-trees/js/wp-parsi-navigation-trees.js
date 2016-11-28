@@ -87,7 +87,7 @@ function open(element, animate=true) {
 }
 
 function queueChildren(children) {
-  const duration = 750;
+  const duration = 325;
   children.each((i, child) => jQuery(child)
     .delay(duration * i)
     .fadeIn({queue: true, duration: duration}

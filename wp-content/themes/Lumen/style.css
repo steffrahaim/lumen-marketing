@@ -74,18 +74,6 @@ WP TREE MENU
 	width: 9rem;
 }
 
-/*BOX AROUND MENU ITEMS
-
-li:hover,
-li:focus,
-li:active {
-	text-decoration: none;
-	outline: 1px solid gainsboro;
-	display: inline;
-	cursor: pointer;
-}
-*/
-
 /*-------------------------------
 BODY AND CONTAINER 
 --------------------------------*/
@@ -275,6 +263,7 @@ address {
 p {
 	margin:0 0 10px;
 }
+
 
 
 /*-------------------------------

@@ -58,8 +58,9 @@
 }
 
 #wb_tree ul li a.active,
-#wb_tree ul li a:hover {
-  border: solid 1px #ccc;
+#wb_tree ul li a:hover,
+#wb_tree ul li a:focus {
+  border: solid 1px #ccc !important;
 }
 
 #wb_tree ul li a.toggle_menu.active .circle {
@@ -71,4 +72,9 @@
   position: absolute;
   left: 124px;
   top: -25px;
+
+}
+
+#wb_tree ul li a:-webkit-any-link {
+  color: inherit;
 }
