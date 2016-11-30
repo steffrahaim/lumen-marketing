@@ -74,6 +74,33 @@ WP TREE MENU
 	width: 9rem;
 }
 
+@keyframes expand {
+    from {height: 0;}
+    to {height: 400px;}
+}
+@keyframes full-h {
+    from {height: 400px;}
+    to {height: auto;}
+}
+
+#Capabilities {
+	height: 0;
+	overflow-y: hidden;
+}
+
+#Contact {
+	height: 0;
+	overflow-y: hidden;
+}
+
+.div-expand {
+    animation: expand 500ms forwards linear,
+    full-h 0s 500ms forwards linear;
+    height: auto !important;
+    overflow-y: auto;
+
+}
+
 /*-------------------------------
 BODY AND CONTAINER 
 --------------------------------*/
@@ -423,13 +450,90 @@ SPLASH PAGE
 }
 
 body.front-page{
-	 background: url(http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/Lumen_Splash2000px.png);
-	 background-attachment: fixed !important;
-     background-clip: border-box;
-     background-size: cover;
-     background-position: center !important;
-     margin: 0;
+	background: url();
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
+/*Lumen Logo*/
+
+img.ri
+{
+	position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 3px;
+    object-fit: scale-down;
+    max-width: none !important
+}
+
+@media screen and (orientation:portrait){
+	img.ri{
+		height: 15%;
+	}
+}
+
+@media screen and (orientation:landscape){
+	img.ri{
+		width: 12%;
+	}
+}
+
+img.ri:empty
+{
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -92%);
+}
+
+/*Video Background*/
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    object-position: center;
+    object-fit: cover;
+}
+
+
+
+/*
+Full screen background on Div
+
+#splash-screen {
+	background: url(http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/Lumen_Splash2000px.png);
+	width: 100vw;
+	height: 100vh;
+    background-clip: border-box;
+    background-size: cover;
+    background-position: center !important;
+    margin: 0;
+}
+
+/*
+
 /*-------------------------------
 SIDEBAR
 -------------------------------*/

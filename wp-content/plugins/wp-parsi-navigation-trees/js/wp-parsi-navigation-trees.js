@@ -8,6 +8,7 @@ jQuery(document).ready(function() {
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
 
+
   jQuery('#wb_tree a.toggle_menu').click(toggle);
 
   // Open parent link if on a child page.
@@ -20,6 +21,12 @@ jQuery(document).ready(function() {
     open(parentLink, false);
     openLink.addClass('active');
   }
+jQuery("li#menu-item-2153").click(function() {
+  jQuery("#Contact").toggleClass("div-expand");
+});
+jQuery("li#menu-item-2152").click(function() {
+  jQuery("#Capabilities").toggleClass("div-expand");
+});
 });
 
 function drawMenu(width, childCount, childHeight) {
@@ -79,11 +86,15 @@ function open(element, animate=true) {
   const children = element.siblings('ul').children('.sub-menu li');
   if (animate) {
     queueChildren(children);
-    element.siblings('#menuBranches').fadeIn();
+    //element.siblings('#menuBranches').fadeIn();
+    jQuery("#menuBranches").toggleClass("branch-wipe");
   } else {
     element.siblings('ul').children('.sub-menu li').show();
     element.siblings('#menuBranches').show();
   }
+
+
+
 }
 
 function queueChildren(children) {
@@ -93,3 +104,6 @@ function queueChildren(children) {
     .fadeIn({queue: true, duration: duration}
   ));
 }
+
+
+

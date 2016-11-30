@@ -78,3 +78,15 @@
 #wb_tree ul li a:-webkit-any-link {
   color: inherit;
 }
+
+
+.branch-wipe {
+ -webkit-mask-position: 0 0;
+    -webkit-mask-size: 1px;
+    -webkit-mask-image: -webkit-gradient(linear, left center, right center, color-stop(0.00, rgba(0,0,0,1)), color-stop(0.45, rgba(0,0,0,1)), color-stop(0.50, rgba(0,0,0,0)), color-stop(0.55, rgba(0,0,0,0)), color-stop(1.00, rgba(0,0,0,0)));
+}
+
+
+
+
+}
