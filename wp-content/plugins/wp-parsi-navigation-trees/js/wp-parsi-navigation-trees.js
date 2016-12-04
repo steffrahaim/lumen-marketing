@@ -8,8 +8,7 @@ jQuery(document).ready(function() {
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
 
-
-  jQuery('#wb_tree a.toggle_menu').click(toggle);
+  jQuery('#wb_tree a.toggle_menu:not([href])').click(toggle);
 
   // Open parent link if on a child page.
   const openLink = jQuery('#wb_tree ul li a').filter(
@@ -17,8 +16,9 @@ jQuery(document).ready(function() {
   )
   // I know this is a dumb selector, sorry.
   const parentLink = jQuery(openLink).parent().parent().siblings('a.toggle_menu');
-  if (parentLink) {
-    open(parentLink, false);
+  const toOpen = parentLink.length ? parentLink : openLink;
+  if (toOpen) {
+    open(toOpen, false);
     openLink.addClass('active');
   }
 
@@ -55,6 +55,7 @@ function initializeBranches(parentLink) {
   drawMenu(width, childCount, childHeight);
 }
 
+
 function toggle() {
   const closed = !jQuery(this).hasClass('active');
   
@@ -64,6 +65,7 @@ function toggle() {
     open(jQuery(this));
   }
 }
+
 
 function closeAll() {
   jQuery('#wb_tree a').removeClass('active');
@@ -81,8 +83,7 @@ function open(element, animate=true) {
   const children = element.siblings('ul').children('.sub-menu li');
   if (animate) {
     queueChildren(children);
-    //element.siblings('#menuBranches').fadeIn();
-    jQuery("#menuBranches").toggleClass("branch-wipe");
+    //jQuery("#menuBranches").toggleClass("branch-wipe");
   } else {
     element.siblings('ul').children('.sub-menu li').show();
     element.siblings('#menuBranches').show();
