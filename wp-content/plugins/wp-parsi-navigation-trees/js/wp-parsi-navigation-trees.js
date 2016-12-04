@@ -21,12 +21,7 @@ jQuery(document).ready(function() {
     open(parentLink, false);
     openLink.addClass('active');
   }
-jQuery("li#menu-item-2153").click(function() {
-  jQuery("#Contact").toggleClass("div-expand");
-});
-jQuery("li#menu-item-2152").click(function() {
-  jQuery("#Capabilities").toggleClass("div-expand");
-});
+
 });
 
 function drawMenu(width, childCount, childHeight) {

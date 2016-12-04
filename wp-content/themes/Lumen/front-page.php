@@ -22,7 +22,7 @@
 <body class="front-page">
 <div class="fullscreen-bg">
     <video muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-        <source src="http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/Lumen_Splash2000pxNO-LOGO_25MBPS-1.mp4" type="video/mp4">
+        <source src="http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/Lumen_Splash2000pxNO-LOGO_25MBPS-2.mp4" type="video/mp4">
     </video>
 </div>
 </div id="splash-image">
