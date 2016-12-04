@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
   const parentLink = jQuery(openLink).parent().parent().siblings('a.toggle_menu');
   const toOpen = parentLink.length ? parentLink : openLink;
   if (toOpen) {
-    open(toOpen, false);
+    open(toOpen, parentLink.length ? false : true, true);
     openLink.addClass('active');
   }
 
@@ -75,14 +75,14 @@ function closeAll() {
 }
 
 
-function open(element, animate=true) {
+function open(element, animate=true, delayLoad=false) {
   initializeBranches(element);
 
   element.addClass('active');
   element.siblings('ul').show();
   const children = element.siblings('ul').children('.sub-menu li');
   if (animate) {
-    queueChildren(children);
+    queueChildren(children, delayLoad);
     //jQuery("#menuBranches").toggleClass("branch-wipe");
   } else {
     element.siblings('ul').children('.sub-menu li').show();
@@ -93,12 +93,14 @@ function open(element, animate=true) {
 
 }
 
-function queueChildren(children) {
-  const duration = 325;
-  children.each((i, child) => jQuery(child)
+function queueChildren(children, delayLoad=false) {
+  const duration = 1000;
+  // STEFFERS! Change the below from duration to a value to tweak.
+  const delayDuration = duration;
+  window.setTimeout(() => children.each((i, child) => jQuery(child)
     .delay(duration * i)
     .fadeIn({queue: true, duration: duration}
-  ));
+  )), (delayLoad ? delayDuration : 0));
 }
 
 
