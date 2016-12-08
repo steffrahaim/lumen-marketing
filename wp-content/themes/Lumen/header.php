@@ -18,6 +18,7 @@
 </head>
 
 <body <?php body_class(); ?> >
+
 <div id="container">
 	<div id="sidebar">
 		<div class="logo"> 
@@ -49,12 +50,16 @@
 		<?php } ?>
 
 		<?php get_sidebar(); ?>
+
 	</div>
 
 	<?php if ( is_front_page() ) {?> 
 	<?php if ( get_header_image() ) {?> 
+	
 		<div id="header-image">
 			<img src="<?php echo get_header_image(); ?>" class="header-img" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+
 		</div>
+
 	<?php } ?> 
 	<?php } ?>

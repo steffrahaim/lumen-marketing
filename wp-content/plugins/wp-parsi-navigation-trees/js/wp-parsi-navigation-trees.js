@@ -94,9 +94,9 @@ function open(element, animate=true, delayLoad=false) {
 }
 
 function queueChildren(children, delayLoad=false) {
-  const duration = 1000;
+  const duration = 400;
   // STEFFERS! Change the below from duration to a value to tweak.
-  const delayDuration = duration;
+  const delayDuration = 100;
   window.setTimeout(() => children.each((i, child) => jQuery(child)
     .delay(duration * i)
     .fadeIn({queue: true, duration: duration}

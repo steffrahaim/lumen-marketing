@@ -158,9 +158,15 @@ body.custom-background {
 
 }
 
+
+
 /*-------------------------------
 MAIN CONTENT AREA
 -------------------------------*/
+@keyframes logoload{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
 #content {
 	width: 65%; 
@@ -169,6 +175,9 @@ MAIN CONTENT AREA
 	padding-bottom: 25px;
 	padding-right: 25px;
 	margin: auto;
+	opacity: 0;
+	animation: logoload .2s forwards;
+	animation-delay: .2s;
 }
 
 /*PHONE CONTENT SIZING*/
@@ -180,6 +189,7 @@ MAIN CONTENT AREA
 		margin: auto;
 		float: none;
 		clear: both;
+		min-height: 300px;
 	}
 
 }
@@ -199,6 +209,34 @@ MAIN CONTENT AREA
 		padding-right: 25px;
 		width: 65%;
 	}
+}
+
+/*-------------------------------
+CUSTOM PAGE MODS
+-------------------------------*/
+
+/*RW Main Page*/
+
+@media screen and (orientation:landscape){
+.content-ri-container{
+	position: relative;
+    height: 350px;
+	}
+}
+
+@media screen and (orientation:portrait){
+.content-ri-container{
+	position: relative;
+    height: 20vh;
+	}
+}
+.content-ri{
+	position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    margin: 0px auto;
+    transform: translate(-50%, -50%);
 }
 
 /*-------------------------------
@@ -383,11 +421,11 @@ MOBILE BUTTON
     bottom: 1em;
     height: 30px;
     padding: 0 10px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     border-radius: 1px;
     text-transform: uppercase;
     margin-top: .5em;
-    margin-bottom: 1.5em;
+    margin-bottom: .5em;
 
 }
 
@@ -395,6 +433,10 @@ MOBILE BUTTON
 	.mobile-button {
 	display:none;
 	}
+}
+
+.mobile-button.hide{
+	display: none;
 }
 
 /*-------------------------------
@@ -422,6 +464,7 @@ SPLASH PAGE
 	}
 }
 
+
 #splash-button {
 	height: 30px;
 	padding: 0 10px;
@@ -439,16 +482,11 @@ SPLASH PAGE
 
 @media screen and (min-width: 769px) {
 	#splash-button {
-		color: transparent;
-		background: transparent;
-		height: 100%;
-    	width: 100%;
-    	top: 0;
-    	padding: 0;
-    	transform: none;
+    	display: none;
 	}
 }
 
+/*Front Page Still BG*/
 body.front-page{
 	background: url();
     background-attachment: fixed;
@@ -459,29 +497,65 @@ body.front-page{
 
 /*Lumen Logo*/
 
-img.ri
-{
-	position: absolute;
-    top: 10%;
-    left: 10%;
-    border-radius: 3px;
-    object-fit: scale-down;
-    max-width: none !important
+@keyframes logoload{
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
+
+#logo-link {
+		transform: scale(1);
+	    height: auto;
+	    left: 50%;
+	    top: 50%;
+	    position: absolute;
+	    transform: translate(-50%, -92%);
+	    -webkit-animation: logoload 3s; /* Safari, Chrome and Opera > 12.1 */
+	    -moz-animation: logoload 3s; /* Firefox < 16 */
+	    -ms-animation: logoload 3s; /* Internet Explorer */
+	    -o-animation: logoload 3s; /* Opera < 12.1 */
+	    animation: logoload 3s;
+}
+
+img.ri
+{
+	width: 100%
+	opacity: 1;
+	transform: scale(1);
+	animation: fade-out 1000ms forwards ease;
+
+}
+
+@keyframes fade-in {
+    from {opacity: .6; transform: scale(1);}
+    to {opacity: 1; transform: scale(1.05);}
+}
+
+@keyframes fade-out {
+    from {opacity: 1; transform: scale(1.05);}
+    to {opacity: .6; transform: scale(1);}
+}
+
+img.ri:hover,
+img.ri:focus {
+ animation: fade-in 500ms forwards ease;
+}
+
+
+
 @media screen and (orientation:portrait){
-	img.ri{
-		height: 15%;
+	#logo-link{
+		width: 15vh;
 	}
 }
 
 @media screen and (orientation:landscape){
-	img.ri{
+	#logo-link{
 		width: 12%;
 	}
 }
 
-img.ri:empty
+#logo-link:empty
 {
 	left: 50%;
 	top: 50%;
@@ -491,6 +565,7 @@ img.ri:empty
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -92%);
 }
+
 
 /*Video Background*/
 .fullscreen-bg {
@@ -1051,6 +1126,8 @@ FOOTER
 .bx-wrapper {
 	margin: 0 auto 50px !important;
 }
+
+
 /*-------------------------------
 PHONE STYLING
 -------------------------------*/

@@ -432,3 +432,24 @@ ul.bx-pager {
     text-indent: -9999px;
     z-index: 9999;
 }
+
+/*MOBILE SLIDER HEIGHT ADJUSTMENT*/
+@media screen and (max-width: 767px){
+.supsystic-slider.supsystic-slider-bx .bx-viewport, .supsystic-slider.supsystic-slider-bx .bx-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px !important;
+    top: 0;
+    left: 0;
+
+}
+
+@media screen and (min-width: 767px){
+.supsystic-slider.supsystic-slider-bx .bx-viewport, .supsystic-slider.supsystic-slider-bx .bx-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px !important;
+    top: 0;
+    left: 0;
+
+}
