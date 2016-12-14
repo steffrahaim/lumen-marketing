@@ -899,7 +899,7 @@ class SupsysticSlider_Slider_Controller extends SupsysticSlider_Core_BaseControl
 	}
 
     public function sendUsageStat($state) {
-        $apiUrl = 'http://52.39.82.40';
+        $apiUrl = 'http://updates.supsystic.com';
 
         $reqUrl = $apiUrl . '?mod=options&action=saveUsageStat&pl=rcs';
         $res = wp_remote_post($reqUrl, array(

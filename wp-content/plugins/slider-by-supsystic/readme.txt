@@ -1,9 +1,9 @@
-=== Slider by Supsystic ===
+﻿=== Slider by Supsystic ===
 Contributors: supsystic.com
 Donate link: http://supsystic.com/plugins/slider
 Tags: slider, slider plugin, carousel, coin slider, content slider, content slideshow, flex slider, video slider, horizontal slider, HTML5 slider, image slider, image slideshow, javascript, jquery, nivo slider, photo slider, posts slider, responsive, responsive slider, image slider, image, slide show, slideshow, thumbnail, thumbnails slider, wordpress slider, photo slideshow, youtube, slides, video slider
-Tested up to: 4.6.1
-Stable tag: 1.6.4
+Tested up to: 4.7
+Stable tag: 1.6.5
 
 Responsive Slider by Supsystic - the ultimate slideshow solution. Build image, video and content sliders with professional slider / slideshow templates
 
@@ -14,13 +14,13 @@ Responsive Slider by Supsystic - the ultimate slideshow solution. Build image, v
 * [WordPress Slider Plugin](http://supsystic.com/plugins/slider?utm_source=plugin&utm_medium=main&utm_campaign=slider "WordPress Slider Plugin")
 * [Slider Documentation](http://supsystic.com/slider-documentation?utm_source=plugin&utm_medium=documentation&utm_campaign=slider "Slider Documentation")
 
-[Slider by Supsystic](http://supsystic.com/plugins/slider?utm_source=wordpress&utm_medium=description&utm_campaign=slider "WordPress Slider Plugin by Supsystic") is a great way to create stunning image slider and video slider without programming skills. Fully responsive, work on any mobile device.
+[Slider by Supsystic](http://supsystic.com/plugins/slider?utm_source=wordpress&utm_medium=description&utm_campaign=slider "WordPress Slider Plugin by Supsystic") is a great way to create stunning image slider and video slider without programming skills. Plugin is fully responsive and works on any mobile devices.
 
 * [Responsive image slider](http://supsystic.com/pager-example/ "Responsive Image Slider")
 * Stunning slideshow themes
 * Easy to use slider builder interface
-* Add Slider with Shortcode
-* Set image captions and links
+* Adding Slider with Shortcode
+* Customizing captions and links for image slide
 * Content Slider
 * [Thumbnails Slider](http://supsystic.com/thumbnails-pro-example/ "Thumbnails Slider")
 * [Video Slider](http://supsystic.com/video-slider-example/ "WordPress Video Slider") (pro)
@@ -30,21 +30,21 @@ Responsive Slider by Supsystic - the ultimate slideshow solution. Build image, v
 
 [youtube https://www.youtube.com/watch?v=lK_6w4IE044]
 
-Using Slider by Supsystic, you will be able to attract more people to your site and amaze them with effective slideshows, which display your images in a marvellous way. It is rather simple - just select images you would like to show and Slider by Supsystic will create responsive slideshow, thumbnail slider or post feed slider.
+Using Slider by Supsystic, you will be able to attract more people to your site and amaze them with effective slideshows, which display your images in a marvellous way. It is simple enough - just select images you would like to show and Slider by Supsystic will create responsive slideshow, slider with thumbnails or carousel slider.
 
-If you have this slider plugin on your website, you can upload large photo galleries there in one moment. It allows you to add both pictures and videos to the slider and customize the settings using different professional slider templates and options. All these things will help you to create a fascinating sliders for every visitor of your site.
-Now impressive responsive slideshows can become a good addition to your WordPress site. Install Slider by Supsystic and visitors be delighted by beautiful pictures from your photo and video galleries!
+If you have this slider plugin on your website, you will be able to upload large photo galleries there in one moment. It allows you to add both pictures and videos to the slider and customize the settings using different professional slider templates and options. All these things will help you to create a fascinating sliders for every visitor of your site.
+Now impressive responsive slideshows can become a good addition to your WordPress site. Install Slider by Supsystic and make visitors feel delighted by beautiful pictures from your photo and video sliders!
 
-SEO optimized sliders can do a better job of getting the images and captions indexed well in the search engine. Fade, slide, rollover, slice anything you think is possible now with Slider by Supsystic plugin. We give high level of support for users and are willing to help you out even for some custom implementations in slider.
+SEO optimized sliders can do a great job of getting the images and captions indexed well in the search engine. Fade, slide, rollover, slice everything you think is possible now with Slider by Supsystic plugin. We give high level of support for our users and are ready to help you out even with some custom implementations for slider.
 
 = Slider by Supsystic Support =
 
-If you have any problem or feature request for the Responsive Images Slider by Supsystic, please [let us know](http://supsystic.com/plugins/slider?utm_source=wordpress&utm_medium=contactus&utm_campaign=slider "Contact Us")!
+If you have any problem, feature request or proposal for the Responsive Images Slider by Supsystic, please [let us know](http://supsystic.com/plugins/slider?utm_source=wordpress&utm_medium=contactus&utm_campaign=slider "Contact Us")!
 
 = Slider Translations in Your Language =
 
-You have an incredible opportunity to get PRO version of the responsive Slider plguin for FREE. All you need is to make translation of the slider plugin! It will be amazing if you take advantage of this offer!
-Availanle slider translations:
+You have an incredible opportunity to get PRO version of the responsive Slider plugin for FREE. All you need is to make translation of the Slider plugin! It will be amazing if you take advantage of this offer!
+Available slider translations:
 
 * English
 * Spanish (Mexico)
@@ -54,6 +54,9 @@ Availanle slider translations:
 * Italian
 * French
 * Russian
+* Portuguese (Brazil) 
+* Hebrew (Israel)
+* Spanish (Venezuela)
 
 
 == Screenshots ==
@@ -220,6 +223,11 @@ Important! Shortcode must be inserted in a text editor page, and not in the visu
 
 
 == Changelog ==
+
+= 1.6.5 / 13.12.2016 =
+ * Updated English language
+ * Code review and improvements
+ * Minor bug fixes
 
 = 1.6.4 / 27.09.2016 =
  * Fix conflict with easy facebook likebox plugin

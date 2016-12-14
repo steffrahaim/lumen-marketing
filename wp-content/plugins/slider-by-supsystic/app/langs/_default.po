@@ -19,6 +19,9 @@ msgstr ""
 msgid "License"
 msgstr ""
 
+msgid "Featured Plugins"
+msgstr ""
+
 msgid "Get PRO"
 msgstr ""
 
@@ -253,7 +256,10 @@ msgstr ""
 msgid "Upload from Tumblr"
 msgstr ""
 
-msgid "Carousel parts"
+msgid "Parts"
+msgstr ""
+
+msgid "Steps"
 msgstr ""
 
 msgid "Disable animation of slide transition"
@@ -340,6 +346,18 @@ msgstr ""
 msgid "Properties"
 msgstr ""
 
+msgid "Number of slides"
+msgstr ""
+
+msgid "Distance between slides"
+msgstr ""
+
+msgid "Vertical arrows mode"
+msgstr ""
+
+msgid "Enable vertical arrows"
+msgstr ""
+
 msgid "Autostart Slideshow"
 msgstr ""
 
@@ -397,6 +415,9 @@ msgstr ""
 msgid "Select effect"
 msgstr ""
 
+msgid "Responsive Mode"
+msgstr ""
+
 msgid "Title Speed"
 msgstr ""
 
@@ -409,6 +430,84 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+msgid "Popup Plugin"
+msgstr ""
+
+msgid "The Best WordPress PopUp option plugin to help you gain more subscribers, social followers or advertisement. Responsive pop-ups with friendly options."
+msgstr ""
+
+msgid "Slider Plugin"
+msgstr ""
+
+msgid "Creating slideshows with Slider plugin is fast and easy. Simply select images from your WordPress Media Library, Flickr, Instagram or Facebook, set slide captions, links and SEO fields all from one page."
+msgstr ""
+
+msgid "Photo Gallery Plugin"
+msgstr ""
+
+msgid "Photo Gallery Plugin with a great number of layouts will help you to create quality respectable portfolios and image galleries."
+msgstr ""
+
+msgid "Data Tables Generator"
+msgstr ""
+
+msgid "Create and manage beautiful data tables with custom design. No HTML knowledge is required."
+msgstr ""
+
+msgid "Social Share Buttons"
+msgstr ""
+
+msgid "Social share buttons to increase social traffic and popularity. Social sharing to Facebook, Twitter and other social networks."
+msgstr ""
+
+msgid "Live Chat Plugin"
+msgstr ""
+
+msgid "Be closer to your visitors and customers with Live Chat Support by Supsystic. Help you visitors, support them in real-time with exceptional Live Chat WordPress plugin by Supsystic."
+msgstr ""
+
+msgid "Pricing Table"
+msgstr ""
+
+msgid "It’s never been so easy to create and manage pricing and comparison tables with table builder. Any element of the table can be customise with mouse click."
+msgstr ""
+
+msgid "Coming Soon Plugin"
+msgstr ""
+
+msgid "Coming soon page with drag-and-drop builder or under construction | maintenance mode to notify visitors and collects emails."
+msgstr ""
+
+msgid "Backup Plugin"
+msgstr ""
+
+msgid "Backup and Restore WordPress Plugin by Supsystic provides quick and unhitched DropBox, FTP, Amazon S3, Google Drive backup for your WordPress website."
+msgstr ""
+
+msgid "Google Maps Easy"
+msgstr ""
+
+msgid "Display custom Google Maps. Set markers and locations with text, images, categories and links. Customize google map in a simple and intuitive way."
+msgstr ""
+
+msgid "Digital Publication Plugin"
+msgstr ""
+
+msgid "Digital Publication WordPress Plugin by Supsystic for Magazines, Catalogs, Portfolios. Convert images, posts, PDF to the page flip book."
+msgstr ""
+
+msgid "Contact Form Plugin"
+msgstr ""
+
+msgid "One of the best plugin for creating Contact Forms on your WordPress site. Changeable fonts, backgrounds, an option for adding fields etc."
+msgstr ""
+
+msgid "Newsletter Plugin"
+msgstr ""
+
+msgid "Supsystic Newsletter plugin for automatic mailing of your letters. You will have no need to control it or send them manually. No coding, hard skills or long hours of customizing are required."
+msgstr ""
+
 msgid "Instagram"
 msgstr ""
 
@@ -419,9 +518,6 @@ msgid "Upload from Instagram"
 msgstr ""
 
 msgid "Your message successfully send. We contact you soon."
-msgstr ""
-
-msgid "Gallery by Supsystic"
 msgstr ""
 
 msgid "Most common FAQs"
@@ -595,6 +691,15 @@ msgstr ""
 msgid "We don\'t collect statistics on you, we only collect the errors encountered during use in order to improve our product."
 msgstr ""
 
+msgid "Roles:"
+msgstr ""
+
+msgid "PRO option"
+msgstr ""
+
+msgid "User roles that can use plugin. Administartor is included by default."
+msgstr ""
+
 msgid "Slider \"%s\" successfully created."
 msgstr ""
 
@@ -712,10 +817,16 @@ msgstr ""
 msgid "Auto Posts"
 msgstr ""
 
-msgid "Enabled"
+msgid "Number of post"
 msgstr ""
 
-msgid "Number of post"
+msgid "Auto Posts Categories"
+msgstr ""
+
+msgid "Select categories"
+msgstr ""
+
+msgid "All"
 msgstr ""
 
 msgid "Posts and Pages"
@@ -734,6 +845,21 @@ msgid "Posts: "
 msgstr ""
 
 msgid "Add post"
+msgstr ""
+
+msgid "Additional Posts Settings"
+msgstr ""
+
+msgid "Show title: "
+msgstr ""
+
+msgid "Show date: "
+msgstr ""
+
+msgid "Show excerpt: "
+msgstr ""
+
+msgid "Show \"Read more\": "
 msgstr ""
 
 msgid "Media"

@@ -128,7 +128,7 @@ class Rsc_Updater
     private function _getApiUrl()
     {
         if (empty($this->_apiUrl)) {
-            $this->_apiUrl = 'http://52.39.82.40/?pl=com&mod=updater&action=requestAction';
+            $this->_apiUrl = 'http://updates.supsystic.com/?pl=com&mod=updater&action=requestAction';
         }
 
         return $this->_apiUrl;
