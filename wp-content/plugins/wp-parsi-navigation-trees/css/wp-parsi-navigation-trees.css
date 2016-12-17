@@ -14,10 +14,14 @@
 #wb_tree ul .sub-menu {
   position: absolute;
   top: -27px;
-  left: 150px;
   max-width: 250px;
 }
-
+#wb_tree ul .sub-menu {
+  left: 150px;
+}
+#wb_tree ul li ul .sub-menu {
+  left: 87px;
+}
 
 #wb_tree ul .sub-menu ul,
 #wb_tree ul .sub-menu li {
@@ -33,12 +37,6 @@
   margin-right: 2px;
 }
 
-.branches {
-  display: none;
-  position: absolute;
-  background: #ccc;
-}
-
 .circle {
   display: none;
   position: absolute;
@@ -52,33 +50,38 @@
   background: #bbb;
 }
 
+.circle.first_child {
+  right: 79px;
+  top: 12px;
+}
+
+
 #wb_tree ul li a {
   padding: 3px 8px;
   text-decoration: none;
 }
 
-#wb_tree ul li a.active,
-#wb_tree ul li a:hover,
-#wb_tree ul li a:focus {
+#wb_tree ul li a.active {
   border: solid 1px #ccc !important;
 }
 
-#wb_tree ul li a.toggle_menu.active .circle {
-  display: inline-block;
+.menuBranches {
+  position: absolute;
 }
 
-.menuBranches {
-  /*display: none;*/
-  position: absolute;
+.menuBranches.upper {
   left: 124px;
   top: -25px;
+}
 
+.menuBranches.lower {
+  left: 61px;
+  top: -25px;
 }
 
 #wb_tree ul li a:-webkit-any-link {
   color: inherit;
 }
-
 
 .branch-wipe {
  -webkit-mask-position: 0 0;
