@@ -67,7 +67,7 @@
   display: inline-block;
 }
 
-#menuBranches {
+.menuBranches {
   /*display: none;*/
   position: absolute;
   left: 124px;
