@@ -1,9 +1,27 @@
 jQuery(document).ready(function() {
 
+  // If we ever want more children... oy. Don't do it.
+  jQuery('#wb_tree ul li ul li ul.sub-menu')
+    .siblings('a')
+    .addClass('first_child');
+
+  jQuery('#wb_tree ul li ul li ul li')
+    .children('a')
+    .addClass('last_child')
+
   jQuery('#wb_tree ul li').has('.sub-menu')
     .children('a')
     .append('<span class="circle"></span>')
     .addClass('toggle_menu');
+
+  jQuery('#wb_tree ul.sub-menu').map((i, e) => {
+    const childCount = jQuery(e).children().length;
+    jQuery(e).css('top', (childCount - 1) * -13)
+  })
+
+  jQuery('#wb_tree ul li ul li').has('.sub-menu').has('a.first_child')
+    .children('a').children('span.circle')
+    .addClass('first_child');
 
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
@@ -11,86 +29,95 @@ jQuery(document).ready(function() {
   jQuery('#wb_tree a.toggle_menu:not([href])').click(toggle);
 
   // Open parent link if on a child page.
-  const openLink = jQuery('#wb_tree ul li a').filter(
-    (i, e) => jQuery(e).attr('href') && jQuery(e).attr('href').replace(/\/$/, '') == location
-  )
-  // I know this is a dumb selector, sorry.
-  const parentLink = jQuery(openLink).parent().parent().siblings('a.toggle_menu');
-  const toOpen = parentLink.length ? parentLink : openLink;
-  if (toOpen) {
-    open(toOpen, parentLink.length ? false : true, true);
-    openLink.addClass('active');
-  }
-
+  const openLink = jQuery('#wb_tree a.last_child').filter(
+    (i, e) =>  e.href && e.href.replace(/\/$/, '') == location
+  );
+  open(openLink, false, true);
 });
 
-function drawMenu(width, childCount, childHeight) {
-  var menuBranches = document.getElementById("menuBranches");
+function drawMenu(className, width, childCount, childHeight) {
   const childrenHeight = childCount * childHeight;
   const offset = 20;
-  if (menuBranches && menuBranches.getContext) {
-    var ctx = menuBranches.getContext("2d");
+  jQuery(`.${className}.menuBranches`).map((b, a) => {
+    if (a.getContext) {
+      var ctx = a.getContext("2d");
 
-    ctx.fillStyle = "#bbb";
-    // Horizontal
-    ctx.fillRect (0, (childHeight * 1.5), width, 1);
-    for (var i = 0; i <= childCount; i++) { 
-      ctx.fillRect (offset, (childHeight/2) + (childHeight * i), width - offset, 1);
+      ctx.fillStyle = "#bbb";
+      // Horizontal
+      const horizontal_offset = (childCount % 2 == 0) ? childHeight : childHeight/2;
+      const stem_y = childHeight * childCount / 2;
+      ctx.fillRect (0, stem_y, width - 5, 1);
+      for (var i = 0; i <= childCount; i++) { 
+        ctx.fillRect (offset, (childHeight/2) + (childHeight * i), width - offset, 1);
+      }
+
+      // Vertical
+      ctx.fillRect (offset, childHeight/2, 1, childrenHeight - childHeight);
     }
-
-    // Vertical
-    ctx.fillRect (offset, childHeight/2, 1, childrenHeight - childHeight);
-  }
+  });
 }
 
-function initializeBranches(parentLink) {
-  // Precaution.
-  jQuery('#menuBranches').remove();
-  const childCount = parentLink.siblings('ul').children().length;
+function initializeBranches(parentLink, className) {
+  const childCount = parentLink.children().length;
   // This is just coincidental.
   const childHeight = 26;
   const width = 26;
-  const dimensions = 'width="' + width + '" height="' + childCount * childHeight + '"';
-  parentLink.after('<canvas id="menuBranches" ' + dimensions + '></canvas>'); 
-  drawMenu(width, childCount, childHeight);
+  const top = (-1 * childHeight * (childCount - 1) / 2);
+  const dimensions = `width="${width}" height="${childCount * childHeight}"`;
+  const id = parentLink.parent().attr('id') || '';
+  const canvas = `<canvas class="menuBranches ${id} ${className}" style="top:${top}px;" ${dimensions}></canvas>`;
+  parentLink.after(canvas); 
+  drawMenu(className, width, childCount, childHeight);
 }
 
-
 function toggle() {
-  const closed = !jQuery(this).hasClass('active');
+  const node = jQuery(this);
+  const closed = node.hasClass('active');
   
-  closeAll();
 
-  if (closed) {
+  if (!closed) {
     open(jQuery(this));
+  } else {
+    node.removeClass('active');
   }
 }
 
-
-function closeAll() {
-  jQuery('#wb_tree a').removeClass('active');
-  jQuery('#menuBranches').remove();
-  jQuery('#wb_tree ul .sub-menu').hide();
-  jQuery('#wb_tree ul .sub-menu li').hide();
+function close(element) {
+  element.removeClass('active');
+  element.parent().children('a').children('span.circle').hide();
+  element.siblings('ul').hide();
+  element.parent().children('.menuBranches').remove();
 }
 
-
 function open(element, animate=true, delayLoad=false) {
-  initializeBranches(element);
+
+  const parent = element.parent().parent();
+
+  if (element.hasClass('last_child')) {
+    jQuery('a.last_child').map((i, c) => close(jQuery(c)));
+    const grandparent = parent.parent().parent();
+    open(parent.siblings('a'), false);
+  } else if (element.hasClass('first_child')) {
+    jQuery('a.first_child').map((i, c) => close(jQuery(c)));
+    jQuery('a.last_child').map((i, c) => close(jQuery(c)));
+    open(parent.siblings('a'), false);
+    initializeBranches(element.siblings('ul'), 'lower');
+  } else {
+    jQuery('a.toggle_menu').map((i, c) => close(jQuery(c)));
+    initializeBranches(element.siblings('ul'), 'upper');
+  }
 
   element.addClass('active');
   element.siblings('ul').show();
+  element.children('span.circle').show();
   const children = element.siblings('ul').children('.sub-menu li');
   if (animate) {
     queueChildren(children, delayLoad);
     //jQuery("#menuBranches").toggleClass("branch-wipe");
   } else {
     element.siblings('ul').children('.sub-menu li').show();
-    element.siblings('#menuBranches').show();
+    element.siblings('.menuBranches').show();
   }
-
-
-
 }
 
 function queueChildren(children, delayLoad=false) {
