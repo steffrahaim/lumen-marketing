@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 
   jQuery('#wb_tree ul li').has('.sub-menu')
     .children('a')
-    //.append('<span class="circle"></span>')
+    .append('<span class="circle"></span>')
     .addClass('toggle_menu');
 
   jQuery('#wb_tree ul.sub-menu').map((i, e) => {
@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
   })
 
   jQuery('#wb_tree ul li ul li').has('.sub-menu').has('a.first_child')
-    //.children('a').children('span.circle')
+    .children('a').children('span.circle')
     .addClass('first_child');
 
   const location = window.location.href.replace(/\/$/, '');
@@ -84,7 +84,7 @@ function toggle() {
 
 function close(element) {
   element.removeClass('active');
-  //element.parent().children('a').children('span.circle').hide();
+  element.parent().children('a').children('span.circle').hide();
   element.siblings('ul').hide();
   element.parent().children('.menuBranches').remove();
 }
