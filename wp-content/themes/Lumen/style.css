@@ -32,6 +32,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 	display:block;
 }
 
+
 body {
 	line-height:1;
 }
@@ -169,14 +170,13 @@ MAIN CONTENT AREA
 }
 
 #content {
-	width: 65%; 
 	float: right; 
-	padding-top: 50px;
+	padding-top: 160px;
 	padding-bottom: 25px;
 	padding-right: 25px;
 	margin: auto;
 	opacity: 0;
-	animation: logoload .2s forwards;
+	animation: logoload .5s forwards;
 	animation-delay: .2s;
 }
 
@@ -207,7 +207,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
-		width: 65%;
+		width: 58%;
 	}
 }
 
@@ -635,7 +635,6 @@ SIDEBAR
 /* SIDEBAR LOGO */
 .logo {
 	text-align:left; 
-	padding:0 0 0px;
 	width: 250px;
 }
 
@@ -651,7 +650,7 @@ SIDEBAR
 
 @media screen and (min-width:920px){
 .logo {
-		padding: 0 0 0 0; 
+		padding: 0 0 50px 0; 
 		width: 300px; 
 	}
 }
