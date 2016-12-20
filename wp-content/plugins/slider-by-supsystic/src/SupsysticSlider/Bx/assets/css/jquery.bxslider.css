@@ -432,3 +432,11 @@ ul.bx-pager {
     text-indent: -9999px;
     z-index: 9999;
 }
+
+@media screen and (max-width: 767px) {
+
+	.supsystic-slider.supsystic-slider-bx .bx-viewport,
+	.supsystic-slider.supsystic-slider-bx .bx-wrapper {
+	    height: 200px !important;
+	}
+}

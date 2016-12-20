@@ -61,48 +61,6 @@ table {
 
 
 /*-------------------------------
-WP TREE MENU
---------------------------------*/
-
-#menu-primary {
-	text-align: right;
-    width: 9rem;
-    font-size: .95em;
-}
-
-.sub-menu {
-	text-align: left;
-	width: 9rem;
-}
-
-@keyframes expand {
-    from {height: 0;}
-    to {height: 400px;}
-}
-@keyframes full-h {
-    from {height: 400px;}
-    to {height: auto;}
-}
-
-#Capabilities {
-	height: 0;
-	overflow-y: hidden;
-}
-
-#Contact {
-	height: 0;
-	overflow-y: hidden;
-}
-
-.div-expand {
-    animation: expand 500ms forwards linear,
-    full-h 0s 500ms forwards linear;
-    height: auto !important;
-    overflow-y: auto;
-
-}
-
-/*-------------------------------
 BODY AND CONTAINER 
 --------------------------------*/
 
@@ -160,7 +118,6 @@ body.custom-background {
 }
 
 
-
 /*-------------------------------
 MAIN CONTENT AREA
 -------------------------------*/
@@ -171,20 +128,18 @@ MAIN CONTENT AREA
 
 #content {
 	float: right; 
-	padding-top: 160px;
 	padding-bottom: 25px;
 	padding-right: 25px;
-	margin: auto;
 	opacity: 0;
-	animation: logoload .5s forwards;
-	animation-delay: .2s;
+	animation: logoload 1s forwards;
+	animation-delay: .1s;
 }
 
 /*PHONE CONTENT SIZING*/
 @media screen and (max-width:767px) {
 	#content {
 		width:90%; 
-		padding: 0px 0;
+		padding: 0px 0px 50px 0px;
 		height: 100%;
 		margin: auto;
 		float: none;
@@ -199,15 +154,17 @@ MAIN CONTENT AREA
 	#content {
     height: 100%;
     padding-right: 15px;
-    width: 62%;
+    width: 50%;
+    padding-top: 150px;
 	}
 }
+
 
 /*LAPTOP CONTENT SIZING*/
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
-		width: 58%;
+		width: 55% 
 	}
 }
 
@@ -239,6 +196,20 @@ CUSTOM PAGE MODS
     transform: translate(-50%, -50%);
 }
 
+/*Menu Page*/
+@media screen and (max-width: 766px){
+.menu-image{
+	margin-top: 0;
+
+	}
+}
+
+@media screen and (min-width: 767px){
+.menu-image{
+	margin-top: 90px;
+}
+
+}
 /*-------------------------------
 HEADINGS 
 -------------------------------*/
@@ -504,7 +475,6 @@ body.front-page{
 
 
 #logo-link {
-		transform: scale(1);
 	    height: auto;
 	    left: 50%;
 	    top: 50%;
@@ -519,21 +489,20 @@ body.front-page{
 
 img.ri
 {
-	width: 100%
+	width: 100%;
 	opacity: 1;
-	transform: scale(1);
-	animation: fade-out 1000ms forwards ease;
+	animation: fade-out 700ms forwards ease;
 
 }
 
 @keyframes fade-in {
-    from {opacity: .6; transform: scale(1);}
-    to {opacity: 1; transform: scale(1.05);}
+    from {opacity: .6;}
+    to {opacity: 1;}
 }
 
 @keyframes fade-out {
-    from {opacity: 1; transform: scale(1.05);}
-    to {opacity: .6; transform: scale(1);}
+    from {opacity: 1;}
+    to {opacity: .6;}
 }
 
 img.ri:hover,
@@ -559,11 +528,6 @@ img.ri:focus {
 {
 	left: 50%;
 	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -92%);
 }
 
 
@@ -635,53 +599,32 @@ SIDEBAR
 /* SIDEBAR LOGO */
 .logo {
 	text-align:left; 
-	width: 250px;
+	width: 350px;
 }
 
-.logo h1 a:hover {
-	text-decoration:none; 
-	color:#333;
-}
-.logo h2 {
-	padding:5px 0; 
-	font-size:1.45em;
-}
-
-
-@media screen and (min-width:920px){
+@media screen and (min-width:767px){
 .logo {
 		padding: 0 0 50px 0; 
-		width: 300px; 
 	}
 }
 
-@media screen and (min-width: 1082px) {
-	.logo {
-		width: 100%;
-	}
+@media screen and (max-width: 1040px){
+.logo {
+	width: 90%;
 }
-
+}
 
 /* WIDGETS */
 #sidebar-widgets {
-	width:85%; 
+	width:95%; 
 	float:right;
 }
 
-@media screen and (max-width:920px) {
+@media screen and (max-width:1040px) {
 #sidebar-widgets {
-	margin-left: -20px
+	margin-left: -45px;
+	transform: scale(.8);
 }
-}
-
-@media screen and (max-width: 767px) {
-	#sidebar-widgets {
-		margin-top: -40px;
-		float:none;
-		width: none;
-		padding-left: 1em;
-		margin-left: 0 !important;
-	}
 }
 
 @media screen and (max-width:1082px) {
@@ -690,16 +633,16 @@ SIDEBAR
 }
 }
 
+@media screen and (max-width: 320px) {
+	#sidebar-widgets {
+		width: 65%;
+		transform: scale(.7);
+	}
+}
+
 .widget {
 	padding:0px 0; 
 	margin: auto;
-}
-
-.widgettitle {
-	background:#666; 
-	color:#ddd; 
-	padding:5px 15px; 
-	margin:0 0 10px;
 }
 
 /*-------------------------------
@@ -1219,4 +1162,3 @@ PHONE STYLING
 		margin:0.3em 0.5em 0.3em 0;
 	}
 }
-

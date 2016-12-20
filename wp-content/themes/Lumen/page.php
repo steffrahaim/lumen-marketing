@@ -28,6 +28,7 @@
     <?php endwhile; ?>
 
 
+<?php /*
 <div id="mobile-button-container">
 <button class="mobile-button" type="button" onclick="smoothScroll(document.getElementById('sidebar'))">Menu</button>
 
@@ -64,6 +65,7 @@
 </script>
 </div>
 
-	<?/* <?php edit_post_link( __( 'Edit', 'lumen' ), '<div class="edit-link">', '</div>' ); ?> */?>
+*/
+?>
 	
 <?php get_footer(); ?>
