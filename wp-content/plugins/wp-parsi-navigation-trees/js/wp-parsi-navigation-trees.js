@@ -59,6 +59,9 @@ function drawMenu(className, width, childCount, childHeight) {
 
 function initializeBranches(parentLink, className, animate) {
   const childCount = parentLink.children().length;
+  const column = parentLink.siblings('a').hasClass('first_child') ? 1 : 0;
+  console.log(column, parentLink)
+
   // This is just coincidental.
   const childHeight = 26;
   const top = (-1 * childHeight * (childCount - 1) / 2);
@@ -71,9 +74,10 @@ function initializeBranches(parentLink, className, animate) {
       style="top:${top}px;" width="${width}" height="${height}"
     ></canvas>`;
   if (animate) {
+    const left = column == 1 ? "left:105px;" : '';
     const wiper = `
       <div class="menuBranches wiper" 
-        style="top:${top}px; width:200px; height:${height}px"
+        style="top:${top}px; ${left} width:200px; height:${height}px"
       ></div>`;
     parentLink.after(wiper); 
   }
@@ -83,13 +87,13 @@ function initializeBranches(parentLink, className, animate) {
 
 function toggle() {
   const node = jQuery(this);
-  const closed = node.hasClass('active');
+  const opened = node.hasClass('active');
   
 
-  if (!closed) {
+  if (!opened) {
     open(jQuery(this));
   } else {
-    node.removeClass('active');
+    close(node)
   }
 }
 

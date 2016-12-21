@@ -14,7 +14,7 @@
 #wb_tree ul .sub-menu {
   position: absolute;
   top: -27px;
-  max-width: 250px;
+  max-width: 200px;
 }
 #wb_tree ul .sub-menu {
   left: 165px;
@@ -51,7 +51,7 @@
 }
 
 .circle.first_child {
-  right: 36px;
+  right: 142px;
   top: 12px;
 }
 
@@ -118,7 +118,7 @@ a.toggle_menu.first_child {
     -webkit-transform: translate(0,0);    
   }
   to   { 
-    -webkit-transform: translate(10em, 0); 
+    -webkit-transform: translate(15em, 0); 
   }
 }
 
@@ -129,8 +129,8 @@ a.toggle_menu.first_child {
     transform: translate(0,0);
   }
   to {
-    -moz-transform: translate(10em,0);
-    -ms-transform: translate(10em,0);
-    transform: translate(10em,0);
+    -moz-transform: translate(15em,0);
+    -ms-transform: translate(15em,0);
+    transform: translate(15em,0);
   }
 }
