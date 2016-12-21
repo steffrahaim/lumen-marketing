@@ -57,15 +57,26 @@ function drawMenu(className, width, childCount, childHeight) {
   });
 }
 
-function initializeBranches(parentLink, className) {
+function initializeBranches(parentLink, className, animate) {
   const childCount = parentLink.children().length;
   // This is just coincidental.
   const childHeight = 26;
-  const width = 26;
   const top = (-1 * childHeight * (childCount - 1) / 2);
-  const dimensions = `width="${width}" height="${childCount * childHeight}"`;
+  const width = 26;
+  const height = childCount * childHeight;
   const id = parentLink.parent().attr('id') || '';
-  const canvas = `<canvas class="menuBranches ${id} ${className}" style="top:${top}px;" ${dimensions}></canvas>`;
+  const canvas = `
+    <canvas 
+      class="menuBranches ${id} ${className}" 
+      style="top:${top}px;" width="${width}" height="${height}"
+    ></canvas>`;
+  if (animate) {
+    const wiper = `
+      <div class="menuBranches wiper" 
+        style="top:${top}px; width:200px; height:${height}px"
+      ></div>`;
+    parentLink.after(wiper); 
+  }
   parentLink.after(canvas); 
   drawMenu(className, width, childCount, childHeight);
 }
@@ -101,23 +112,22 @@ function open(element, animate=true, delayLoad=false) {
     jQuery('a.first_child').map((i, c) => close(jQuery(c)));
     jQuery('a.last_child').map((i, c) => close(jQuery(c)));
     open(parent.siblings('a'), false);
-    initializeBranches(element.siblings('ul'), 'lower');
+    initializeBranches(element.siblings('ul'), 'lower', animate);
   } else {
     jQuery('a.toggle_menu').map((i, c) => close(jQuery(c)));
-    initializeBranches(element.siblings('ul'), 'upper');
+    initializeBranches(element.siblings('ul'), 'upper', animate);
   }
 
   element.addClass('active');
   element.siblings('ul').show();
   element.children('span.circle').show();
   const children = element.siblings('ul').children('.sub-menu li');
-  if (animate) {
-    queueChildren(children, delayLoad);
-    //jQuery("#menuBranches").toggleClass("branch-wipe");
-  } else {
-    element.siblings('ul').children('.sub-menu li').show();
-    element.siblings('.menuBranches').show();
-  }
+  // if (animate) {
+  //   //queueChildren(children, delayLoad);
+  // } else {
+  element.siblings('ul').children('.sub-menu li').show();
+  element.siblings('.menuBranches').show();
+  //}
 }
 
 

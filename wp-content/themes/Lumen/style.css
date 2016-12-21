@@ -582,6 +582,7 @@ SIDEBAR
 	padding:0px; 
 	height: 100vh;
 	position: fixed;
+	overflow: hidden;
 }
 
 /* SIDEBAR PHONE SIZING */
