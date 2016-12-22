@@ -577,7 +577,7 @@ Full screen background on Div
 SIDEBAR
 -------------------------------*/
 #sidebar {
-	max-width: 350px;
+	width: 45%;
 	float:left; 
 	padding:0px; 
 	height: 100vh;
@@ -611,9 +611,11 @@ SIDEBAR
 
 @media screen and (max-width: 1040px){
 .logo {
-	width: 90%;
+	width: 300px;
 }
 }
+
+
 
 /* WIDGETS */
 #sidebar-widgets {
