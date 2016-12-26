@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
   jQuery('#wb_tree a.toggle_menu:not([href])').click(toggle);
 
   // Open parent link if on a child page.
-  const openLink = jQuery('#wb_tree a.last_child').filter(
+  const openLink = jQuery('#wb_tree a').filter(
     (i, e) =>  e.href && e.href.replace(/\/$/, '') == location
   );
   open(openLink, false, true);
