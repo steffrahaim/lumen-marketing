@@ -134,7 +134,6 @@ function open(element, animate=true, delayLoad=false) {
   //}
 }
 
-
 function queueChildren(children, delayLoad=false) {
   const duration = 400;
   // STEFFERS! Change the below from duration to a value to tweak.

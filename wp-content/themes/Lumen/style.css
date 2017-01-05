@@ -210,6 +210,13 @@ CUSTOM PAGE MODS
 }
 
 }
+
+a.video-thumb:hover,
+a.video-thumb:focus,
+a.video-thumb:active{
+	opacity: .8;
+
+}
 /*-------------------------------
 HEADINGS 
 -------------------------------*/
@@ -1164,4 +1171,30 @@ PHONE STYLING
 		width:50%; 
 		margin:0.3em 0.5em 0.3em 0;
 	}
+}
+
+/*PDF Embed*/
+
+div.pdfemb-toolbar div {
+	font-family: lato !important;
+	font-variant: small-caps;
+	color: black !important;
+}
+
+div.pdfemb-toolbar button, div.pdfemb-toolbar button[disabled] {
+	border: none !important;
+	transform: scale(.8);
+	background-color: black !important;
+}
+
+div.pdfemb-toolbar div.pdfemb-poweredby {
+	display: none;
+}
+
+div.pdfemb-viewer {
+	border: 1px solid gainsboro !important;
+}
+
+div.pdfemb-toolbar {
+	background-color: white !important;
 }

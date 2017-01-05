@@ -144,3 +144,8 @@ a.toggle_menu.first_child {
     transform: translate(15em,0);
   }
 }
+
+/*KG Vid Plugin Styling*/
+.kgvid_wrapper {
+  margin:0px !important;
+}

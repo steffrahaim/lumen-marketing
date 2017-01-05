@@ -1,0 +1,61 @@
+/*
+CSS Name: Default Styles
+Description: NextGEN Default Gallery Stylesheet
+Author: Imagely
+Version: 2.13
+
+This stylesheet is provided to allow users the ability of overriding the default styles for all display types
+*/
+
+.ngg-gallery-thumbnail{
+	border:none;
+}
+
+.ngg-gallery-thumbnail a:hover,
+.ngg-gallery-thumbnail a:focus,
+.ngg-gallery-thumbnail a:active{
+	opacity: .8;
+	cursor: pointer;
+}
+
+.ngg-gallery-thumbnail span {
+    font-variant: small-caps;
+}
+
+#fancybox-title {
+	font-variant: small-caps;
+}
+
+.ngg-album-compactbox:after, 
+.ngg-album-compactbox:before, 
+.ngg-album-compactbox{
+border: none;
+}
+
+.ngg-albumoverview {
+	margin: 0;
+}
+
+.ngg-album-compactbox,
+.ngg-album-compact {
+	padding: 0px;
+}
+
+.ngg-album-compact h4 {
+    font-size: .9em;
+    font-weight: 500;
+    margin: 0px;
+    width: 90%;
+    font-variant: small-caps;
+    text-align: center;
+    }
+}
+
+
+.ngg-album-compact p {
+	display: none;
+}
+
+.ngg-album-gallery-image-counter{
+	display: none;
+}
