@@ -154,7 +154,7 @@ MAIN CONTENT AREA
 	#content {
     height: 100%;
     padding-right: 15px;
-    width: 50%;
+    width: 48%;
     padding-top: 150px;
 	}
 }
@@ -164,7 +164,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
-		width: 55% 
+		width: 53% 
 	}
 }
 
@@ -217,6 +217,38 @@ a.video-thumb:active{
 	opacity: .8;
 
 }
+
+/* Single Video Page - Vertical*/
+
+.v-single-video-container {
+	width: 100%; 
+	display: flex;
+}
+
+.v-single-video {
+	width: 45%; 
+	margin: 0px auto;
+}
+
+.v-single-video-caption {
+	width: 45%; 
+	margin: -4px auto;
+	font-variant: small-caps; 
+}
+
+.v-single-video-return {
+	text-align: left; 
+	font-variant: small-caps; 
+	margin-left: 15px;
+}
+
+/*Press Article Page*/
+.press-article-container{
+	border-top: 1px solid gainsboro; 
+	margin: 20px 0; 
+	padding-top:10px;
+}
+
 /*-------------------------------
 HEADINGS 
 -------------------------------*/
@@ -233,6 +265,7 @@ LINKS AND HTML TAGS
 -------------------------------*/
 a {
 	text-decoration:none;
+	color: grey;
 }
 a:hover,
 a:focus,
@@ -266,7 +299,7 @@ ins, mark {
 	font-weight:bold; 
 	background:none; 
 	text-decoration:none; 
-	color:#e77776;
+	color:grey;
 }
 
 cite, em, abbr, acronym {
@@ -607,7 +640,7 @@ SIDEBAR
 /* SIDEBAR LOGO */
 .logo {
 	text-align:left; 
-	width: 350px;
+	width: 400px;
 }
 
 @media screen and (min-width:767px){
@@ -1192,9 +1225,16 @@ div.pdfemb-toolbar div.pdfemb-poweredby {
 }
 
 div.pdfemb-viewer {
-	border: 1px solid gainsboro !important;
+	border: none !important;
+    border-top: 1px solid gainsboro !important;
 }
 
 div.pdfemb-toolbar {
 	background-color: white !important;
+}
+
+/* Video Container*/
+
+.video-js .vjs-fullscreen-control {
+	display: none;
 }

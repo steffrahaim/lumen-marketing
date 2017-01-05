@@ -59,3 +59,7 @@ border: none;
 .ngg-album-gallery-image-counter{
 	display: none;
 }
+
+.ngg-galleryoverview {
+	margin: 0 -2px;
+}
