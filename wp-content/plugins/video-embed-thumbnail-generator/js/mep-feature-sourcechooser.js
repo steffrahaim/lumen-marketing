@@ -49,19 +49,32 @@
 
 				// add to list
 				player.availableRes = new Object();
+				sources = new Array();
+
 				for (var i in this.node.children) {
+
 					var src = this.node.children[i];
 					if (src.nodeName === 'SOURCE' && src.dataset.res != undefined && src.dataset.res !== '' && (media.canPlayType(src.type) == 'probably' || media.canPlayType(src.type) == 'maybe')) {
-						player.addSourceButton(src.src, src.dataset.res, src.type, media.src == src.src);
-						player.availableRes[src.dataset.res] = src.src;
 
-						if ( src.dataset.default_res != undefined ) {
-							if ( this.currentRes != src.dataset.res ) {
-								this.changeRes(src.dataset.res);
-							}
-						}
+						sources[parseFloat(src.dataset.res)] = src;
 
 					}
+
+				}
+				sources.reverse();
+
+				for (var i in sources) {
+					var src = sources[i];
+
+					player.addSourceButton(src.src, src.dataset.res, src.type, media.src == src.src);
+					player.availableRes[src.dataset.res] = src.src;
+
+					if ( src.dataset.default_res != undefined ) {
+						if ( this.currentRes != src.dataset.res ) {
+							this.changeRes(src.dataset.res);
+						}
+					}
+
 				}
 
 			}
@@ -125,7 +138,7 @@
 						jQuery(canvas).remove();
 					});
 				}
-
+				media.preload = "metadata";
 				setTimeout(function(){ media.setSrc(src); }, 0);
 				this.currentRes = target_res;
 				jQuery(this.sourcechooserButton).find('li').removeClass('mejs-sourcechooser-selected');
