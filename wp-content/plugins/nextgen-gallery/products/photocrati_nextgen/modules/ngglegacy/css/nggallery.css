@@ -38,7 +38,8 @@ border: none;
 
 .ngg-album-compactbox,
 .ngg-album-compact {
-	padding: 0px;
+	margin: 0px !important;
+	padding: 0 3px 1px 0!important;
 }
 
 .ngg-album-compact h4 {
@@ -50,7 +51,6 @@ border: none;
     text-align: center;
     }
 }
-
 
 .ngg-album-compact p {
 	display: none;
