@@ -1,4 +1,4 @@
-<div id="supsystic-slider-{{ slider.id }}" class="supsystic-slider supsystic-slider-{{ slider.plugin }}" data-settings="{{ slider.settings|json_encode }}" data-thumbs="thumbnails-{{ slider.id }}" style="{% if slider.settings.properties.position == 'left' %}float:left;{% elseif slider.settings.properties.position == 'right' %}float:right;{% endif %}visibility:hidden;">
+<div id="supsystic-slider-{{ slider.id }}" class="supsystic-slider supsystic-slider-{{ slider.plugin }}" data-settings="{{ slider.settings|json_encode|e }}" data-thumbs="thumbnails-{{ slider.id }}" style="{% if slider.settings.properties.position == 'left' %}float:left;{% elseif slider.settings.properties.position == 'right' %}float:right;{% endif %}visibility:hidden;">
     {% if slider.settings.properties.widthType == '%' and slider.settings.properties.height %}
         {% set listHeight = 'height: 100%;' %}
         <style type="text/css">

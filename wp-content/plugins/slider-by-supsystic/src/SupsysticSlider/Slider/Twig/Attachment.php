@@ -26,7 +26,7 @@ class SupsysticSlider_Slider_Twig_Attachment extends Twig_Extension
      */
     public function getName()
     {
-        return 'Slider by Supsystic Attachments';
+        return 'SupsysticSlider_Slider_Twig_Attachment';
     }
 
     /**

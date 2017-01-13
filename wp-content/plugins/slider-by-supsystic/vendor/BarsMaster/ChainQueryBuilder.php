@@ -168,6 +168,10 @@ class BarsMaster_ChainQueryBuilder
         }
         return $this;
     }
+	public function setFields($fields) {
+		$this->_fields = is_array($fields) ? $fields : array( $fields );
+		 return $this;
+	}
 
     protected function _sanitizeValue($val, $search = false) {
         if (!is_numeric($val)) {

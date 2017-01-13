@@ -61,7 +61,7 @@
 {% endmacro %}
 
 {% macro block_folder(folder) %}
-    <li data-droppable class="gg-list-item" data-entity data-entity-id="{{ folder.id }}" data-entity-type="folder" data-entity-info="{{ folder|json_encode }}">
+    <li data-droppable class="gg-list-item" data-entity data-entity-id="{{ folder.id }}" data-entity-type="folder" data-entity-info="{{ folder|json_encode|e }}">
         <div class="gg-item" style="z-index: 0;">
             <div class="gg-check">
                 <input type="checkbox" class="gg-checkbox" data-observable>
@@ -89,7 +89,7 @@
 {% endmacro %}
 
 {% macro block_image(image) %}
-    <li class="gg-list-item" data-entity data-entity-id="{{ image.id }}" data-entity-type="photo" data-entity-info="{{ image|json_encode }}">
+    <li class="gg-list-item" data-entity data-entity-id="{{ image.id }}" data-entity-type="photo" data-entity-info="{{ image|json_encode|e }}">
         <div class="gg-item" style="z-index: 10;">
             <div class="gg-check">
                 <input type="checkbox" class="gg-checkbox" data-observable>
@@ -119,7 +119,7 @@
 {% endmacro %}
 
 {% macro list_folder(folder) %}
-    <tr data-droppable data-entity data-entity-id="{{ folder.id }}" data-entity-type="folder" data-entity-info="{{ folder|json_encode }}">
+    <tr data-droppable data-entity data-entity-id="{{ folder.id }}" data-entity-type="folder" data-entity-info="{{ folder|json_encode|e }}">
         <th scope="row" class="check-column">
             <label class="screen-reader-text" for="cb-select-{{ folder.id }}">{{ translate('Select %s')|format(folder.title) }}</label>
             <input type="checkbox" name="folder[]" id="cb-select-{{ folder.id }}" value="{{ folder.id }}" data-observable>
@@ -159,7 +159,7 @@
 
 {% macro thumbnail(image) %}
     {% spaceless %}
-    <a href="{{ image.attachment.sizes.full.url }}" dd="{{ image.attachment.sizes|json_encode() }}" data-colorbox>
+    <a href="{{ image.attachment.sizes.full.url }}" dd="{{ image.attachment.sizes|json_encode|e }}" data-colorbox>
         {% set src = image|image_size(100, 100) %}
         <img height="100" width="100" data-original="{{ src }}" class="ready-lazy" alt="{{ image.attachment.title }}">
     </a>
@@ -239,7 +239,7 @@
 
 {% macro idImage(image) %}
     {% spaceless %}
-    <div data-entity data-entity-id="{{ image.id }}" data-entity-type="photo" data-entity-info="{{ image|json_encode }}">
+    <div data-entity data-entity-id="{{ image.id }}" data-entity-type="photo" data-entity-info="{{ image|json_encode|e }}">
         <label class="screen-reader-text" for="cb-select-{{ image.id }}">{{ translate('Select %s')|format(image.attachment.title) }}</label>
         <input type="checkbox" name="image[]" id="cb-select-{{ image.id }}" value="{{ image.id }}" data-observable>
     </div>
@@ -248,7 +248,7 @@
 
 {% macro idVideo(video) %}
     {% spaceless %}
-        <div data-entity data-entity-id="{{ video.id }}" data-entity-type="video" data-entity-info="{{ video|json_encode }}">
+        <div data-entity data-entity-id="{{ video.id }}" data-entity-type="video" data-entity-info="{{ video|json_encode|e }}">
             <label class="screen-reader-text" for="cb-select-{{ video.id }}">{{ translate('Select %s')|format(video.attachment.title) }}</label>
             <input type="checkbox" name="image[]" id="cb-select-{{ video.id }}" value="{{ video.id }}" data-observable>
         </div>

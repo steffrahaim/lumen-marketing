@@ -27,7 +27,7 @@
         <ul class="ssl-photos" data-sortable data-container="block">
             {% for image in images %}
                 <li class="ssl-list-item" data-entity data-entity-type="photo"
-                    data-entity-info="{{ image|json_encode }}">
+                    data-entity-info="{{ image|json_encode|e }}">
                     <div class="gg-check" style="position: absolute; top: 14px; left: 14px;">
                         <input type="checkbox" value="{{ image }}" class="gg-checkbox" data-observable>
                     </div>

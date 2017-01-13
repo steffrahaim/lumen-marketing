@@ -1,5 +1,5 @@
 <!-- Slider by Supsystic -->
-<div id="supsystic-slider-{{ slider.id }}" class="supsystic-slider supsystic-slider-{{ slider.id }}" data-settings="{{ slider.settings|json_encode }}">
+<div id="supsystic-slider-{{ slider.id }}" class="supsystic-slider supsystic-slider-{{ slider.id }}" data-settings="{{ slider.settings|json_encode|e }}">
     <ul class="supsystic-slider-list">
         {% for image in slider.images %}
             <li class="supsystic-slider-list-item">

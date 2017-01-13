@@ -59,7 +59,7 @@
                     Shortcode:<br /><br />
                     <span class="rsCopyTextCode">[supsystic-slider id={{ slider.id }} position="center"]</span><br /><br />
                     PhpCode:<br /><br />
-                    <span class="rsCopyTextCode">{{ '<?php echo do_shortcode(\'[supsystic-slider id=' ~ slider.id ~ ' position="center"]\') ?>' }}</span><br /><br />
+                    <span class="rsCopyTextCode">{{ '<?php echo'|e }} do_shortcode('[supsystic-slider id={{slider.id}} position="center"]'); ?></span><br /><br />
                 </div>
             </div>
         </div>

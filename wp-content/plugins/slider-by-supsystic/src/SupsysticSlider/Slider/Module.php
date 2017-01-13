@@ -460,7 +460,7 @@ class SupsysticSlider_Slider_Module extends SupsysticSlider_Core_BaseModule
         $cache = $cacheModule->get($id);
 
         if ($cache !== false) {
-           return do_shortcode($cache);
+			return do_shortcode($cache);
         }
 
 
@@ -501,7 +501,8 @@ class SupsysticSlider_Slider_Module extends SupsysticSlider_Core_BaseModule
         }
 
         $data = $module->render($slider);
-        $cacheModule->set($id, $data);
+		$data = preg_replace('/\s+/', ' ', $data);	//Remove multiple spaces for prevent applying of wpautop filter / function
+		$cacheModule->set($id, $data);
         return do_shortcode($data);
     }
 

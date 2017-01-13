@@ -76,6 +76,10 @@ class Rsc_Environment
      */
     protected $dispatcher;
 
+	protected $adminAreaMenus = array();
+	
+	protected $baseModInited = false;
+
     /**
      * Constructor
      * @param string $pluginName Plugin name.
@@ -109,6 +113,14 @@ class Rsc_Environment
 
         add_action('init', array($this, 'wpInitCallback'));
     }
+
+	public function setBaseModInited( $newVal ) {
+		$this->baseModInited = $newVal;
+	}
+	
+	public function getBaseModInited() {
+		return $this->baseModInited;
+	}
 
     /**
      * Configure plugin environment
@@ -206,6 +218,13 @@ class Rsc_Environment
 //        $this->fc320fde997f9bea5c39d56e094bfb99();
         add_action('plugins_loaded', array($this, 'extend'));
     }
+
+	public function setAdminAreaMenus( $menus ) {
+		$this->adminAreaMenus = $menus;
+	}
+	public function getAdminAreaMenus() {
+		return $this->adminAreaMenus;
+	}
 
     /**
      * Registers activation hook
@@ -595,4 +614,11 @@ class Rsc_Environment
             $this->getPluginName()
         )->myPluginApiCall($def, $action, $args);
     }
+	public function getLangCode2Letter() {
+		$langCode = $this->getLangCode();
+		return strlen($langCode) > 2 ? substr($langCode, 0, 2) : $langCode;
+}
+	public function getLangCode() {
+		return get_locale();
+	}
 }

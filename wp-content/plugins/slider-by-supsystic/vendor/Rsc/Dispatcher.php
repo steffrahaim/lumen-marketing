@@ -75,6 +75,29 @@ class Rsc_Dispatcher
             $parameters
         );
     }
+	/**
+	 * Add filter
+	 * 
+	 * @param type $action
+	 * @param type $function
+	 * @param type $priority
+	 * @param type $args
+	 * @return \Rsc_Dispatcher
+	 * @throws InvalidArgumentException
+	 */
+	public function filter($action, $function, $priority = 10, $args = 1)
+    {
+        if (!is_callable($function)) {
+            throw new InvalidArgumentException(sprintf(
+                'Argument 2 passed to Rsc_Dispatcher::filter() must be a callable, %s given.',
+                gettype($function)
+            ));
+        }
+
+        add_filter($this->appendPrefix($action), $function, $priority, $args);
+
+        return $this;
+    }
 
     /**
      * Returns prefix for the hooks.
