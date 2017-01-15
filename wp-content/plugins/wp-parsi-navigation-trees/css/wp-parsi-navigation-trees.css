@@ -20,7 +20,7 @@
   left: 165px;
 }
 #wb_tree ul li ul .sub-menu {
-  left: 130px;
+  left: 150px;
 }
 
 #wb_tree ul .sub-menu ul,
@@ -51,13 +51,13 @@
 }
 
 .circle.first_child {
-  right: 36px;
+  right: 16px;
   top: 12px;
 }
 
 a.toggle_menu.first_child {
   display: block;
-  width: 86px;
+  width: 106px;
   margin-bottom: 2px;
   line-height: 1.5em;
 }
@@ -110,7 +110,7 @@ a.toggle_menu.first_child {
 }
 
 .menuBranches.lower {
-  left: 104px;
+  left: 124px;
   display: inline-block;
 }
 

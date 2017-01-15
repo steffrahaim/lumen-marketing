@@ -121,6 +121,7 @@ body.custom-background {
 /*-------------------------------
 MAIN CONTENT AREA
 -------------------------------*/
+
 @keyframes logoload{
     from {opacity: 0;}
     to {opacity: 1;}
@@ -154,8 +155,8 @@ MAIN CONTENT AREA
 	#content {
     height: 100%;
     padding-right: 15px;
-    width: 48%;
-    padding-top: 180px;
+    width: 43%;
+    padding-top: 130px;
 	}
 }
 
@@ -164,7 +165,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
-		width: 53% 
+		width: 48% 
 	}
 }
 
@@ -288,6 +289,20 @@ a.video-thumb:active{
 	font-variant: small-caps; 
 	border-bottom: 1px solid gainsboro;
 }
+
+
+@media screen and (min-width:768px) {
+	.video-production-page {
+    padding-top: 55px;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.video-installation-page {
+    padding-top: 115px;
+	}
+}
+
 /*-------------------------------
 HEADINGS 
 -------------------------------*/
@@ -1304,7 +1319,7 @@ div.pdfemb-toolbar {
 
 .videoWrapper {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 55.25%; /* 16:9 */
 	padding-top: 10px;
 	height: 0;
 }
@@ -1315,3 +1330,139 @@ div.pdfemb-toolbar {
 	width: 100%;
 	height: 100%;
 }
+
+
+
+/*Foobox*/
+
+
+.fbx-close-caption {
+display: none;
+}
+
+.fbx-caption-title {
+    padding: 5px;
+    font-variant: small-caps;
+    font-family: lato;
+    font-size: .9em;
+}
+
+.fbx-rounded .fbx-prev {
+    left: -22px;
+    background: transparent;
+}
+
+.fbx-rounded .fbx-next, .fbx-rounded .fbx-prev {
+width: 11px;
+}
+
+.fbx-rounded .fbx-next {
+    right: -20px;
+    background: transparent;
+}
+
+.fbx-rounded .fbx-close {
+    border: none;
+    top: -25px;
+    right: -25px;
+}
+
+.fbx-rounded .fbx-inner {
+	border: 25px solid transparent;
+	border-bottom: 50px solid transparent;
+	border-radius: 0px;
+	top: 45%;
+}
+
+.fbx-caption {
+	transition: none;
+	bottom: -35px;
+}
+
+.fbx-light .fbx-caption {
+    color: grey;
+    background-color: transparent;
+    font-weight: normal;
+
+}
+
+.fbx-caption.fbx-slide-caption{
+	transform:translateY(0%)
+}
+
+.fbx-stage {
+	overflow: visible;
+}
+
+.fbx-light .fbx-close {
+	background-color: transparent;
+}
+
+.fbx-fullscreen-mode .fbx-btn-shadow, 
+.fbx-fullscreen-mode .fbx-next.fbx-btn-shadow, 
+.fbx-fullscreen-mode .fbx-prev.fbx-btn-shadow, 
+.fbx-inner-shadow, .fbx-rounded .fbx-btn-shadow, 
+.fbx-rounded.fbx-inset-buttons.fbx-desktop .fbx-next.fbx-btn-shadow:before, 
+.fbx-rounded.fbx-inset-buttons.fbx-desktop .fbx-prev.fbx-btn-shadow:before, 
+.fbx-rounded.fbx-inset-buttons.fbx-tablet .fbx-next.fbx-btn-shadow:before, 
+.fbx-rounded.fbx-inset-buttons.fbx-tablet .fbx-prev.fbx-btn-shadow:before, 
+.fbx-sticky-buttons .fbx-next.fbx-btn-shadow, 
+.fbx-sticky-buttons .fbx-prev.fbx-btn-shadow,
+.fbx-rounded .fbx-prev.fbx-btn-shadow,
+.fbx-rounded .fbx-prev.fbx-btn-shadow:hover,
+.fbx-rounded .fbx-next.fbx-btn-shadow,
+.fbx-rounded .fbx-next.fbx-btn-shadow:hover,
+.fbx-rounded .fbx-btn-shadow:hover,
+.fbx-rounded .fbx-btn-shadow {
+	-moz-box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: 0 0 12px #000;
+	box-shadow: none;	
+}
+
+ {
+
+}
+
+.fbx-light .fbx-inner {
+	background-color: rgba(255, 255, 255) !important;
+}
+
+
+/*Foogallery Plugin*/
+
+.foogallery-simple_portfolio .bf-item > a:hover {
+opacity:.8;
+}
+
+
+.foogallery-simple_portfolio.brickfolio {
+height: 100% !important;
+}
+
+.foogallery-caption-title{
+font-variant: small-caps;
+}
+
+.foogallery-simple_portfolio .bf-caption > h4 {
+border-bottom: none;
+padding-bottom: 10px;
+padding-top: 0px;
+text-align: center;
+font-variant: small-caps;
+font-size: .9em;
+}
+
+.foogallery-simple_portfolio .bf-item {
+    float: left;
+    position: static !important;
+    margin-right: 14px !important;
+}
+
+
+.foogallery-simple_portfolio .bf-item > a:hover {
+opacity:.8;
+}
+

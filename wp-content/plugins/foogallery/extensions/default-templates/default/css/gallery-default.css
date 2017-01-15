@@ -186,7 +186,8 @@
 
 .foogallery-default.hover-effect-tint a:hover:before {
 	background-image: none !important;
-	background-color:rgba(0,0,0, 0.5);
+	background-color: white;
+	opacity: .2;
 }
 
 .foogallery-default.hover-effect-color a img {
