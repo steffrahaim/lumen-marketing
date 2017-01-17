@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
   const location = window.location.href.replace(/\/$/, '');
   jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
 
-  jQuery('#wb_tree a.toggle_menu:not([href])').click(toggle);
+  jQuery('#wb_tree a.toggle_menu').click(toggle);
 
   // Open parent link if on a child page.
   const openLink = jQuery('#wb_tree a').filter(
@@ -60,7 +60,6 @@ function drawMenu(className, width, childCount, childHeight) {
 function initializeBranches(parentLink, className, animate) {
   const childCount = parentLink.children().length;
   const column = parentLink.siblings('a').hasClass('first_child') ? 1 : 0;
-  console.log(column, parentLink)
 
   // This is just coincidental.
   const childHeight = 26;
@@ -88,7 +87,7 @@ function initializeBranches(parentLink, className, animate) {
 function toggle() {
   const node = jQuery(this);
   const opened = node.hasClass('active');
-  
+  console.log('opened', opened)
 
   if (!opened) {
     open(jQuery(this));

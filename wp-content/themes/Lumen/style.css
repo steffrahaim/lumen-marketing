@@ -1319,7 +1319,7 @@ div.pdfemb-toolbar {
 
 .videoWrapper {
 	position: relative;
-	padding-bottom: 55.25%; /* 16:9 */
+	padding-bottom: 54.5%; /* 16:9 */
 	padding-top: 10px;
 	height: 0;
 }
@@ -1466,3 +1466,14 @@ font-size: .9em;
 opacity:.8;
 }
 
+/*Password Protected Page*/
+
+.post_pass {
+	margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+	.pass-form {
+		margin-top: 155px;
+	}
+}

@@ -25,7 +25,7 @@
 </div>
 <div class="fullscreen-bg">
     <video muted autoplay class="fullscreen-bg__video">
-        <source src="http://localhost:8888/Lumen3.0/wp-content/uploads/2016/12/Lumen_Splash2000pxNO-LOGO_4sec.mp4" type="video/mp4">
+        <source src="http://localhost:8888/Lumen3.0/wp-content/uploads/2017/01/Lumen_Splash2000pxNO-LOGO_4sec.mp4" type="video/mp4">
     </video>
 </div>
 
