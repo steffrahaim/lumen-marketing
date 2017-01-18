@@ -209,4 +209,38 @@
 	} 
 	add_action('customize_register', 'lumen_theme_customizer');
 
+/** Remove Protected/Private from Post Title **/
+	function the_title_trim($title) {
+
+		$title = attribute_escape($title);
+
+		$findthese = array(
+			'#Protected:#',
+			'#Private:#'
+		);
+
+		$replacewith = array(
+			'', // What to replace "Protected:" with
+			'' // What to replace "Private:" with
+		);
+
+		$title = preg_replace($findthese, $replacewith, $title);
+		return $title;
+	}
+	add_filter('the_title', 'the_title_trim');
+
+	/** Customize Password Form **/
+
+	add_filter( 'the_password_form', 'custom_password_form' );
+	function custom_password_form() {
+	    global $post;
+	    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+	    $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post" style="margin-bottom: 15px;" class="pass-form">
+	    ' . __( "Please enter the password to view the " . get_the_title() . " project materials." ) . '
+	    <label class="pass-label" style="margin-top:15px" for="' . $label . '">' . __( "Password:" ) . ' </label><input name="post_password" class="post_pass" id="' . $label . '" type="password" /><input type="submit" name="Submit" class="button" value="' . esc_attr__( "Submit" ) . '" />
+	    </form><p style="margin:0px;">If you do not have a password and would like to view this project please contact us at <br>info@lumen-arts.com.</p>
+	    ';
+	    return $o;
+	}
+
 ?>

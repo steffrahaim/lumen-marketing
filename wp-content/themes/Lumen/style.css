@@ -155,7 +155,7 @@ MAIN CONTENT AREA
 	#content {
     height: 100%;
     padding-right: 15px;
-    width: 43%;
+    width: 45%;
     padding-top: 130px;
 	}
 }
@@ -165,7 +165,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
-		width: 48% 
+		width: 50% 
 	}
 }
 
@@ -1430,21 +1430,27 @@ width: 11px;
 	background-color: rgba(255, 255, 255) !important;
 }
 
-
-/*Foogallery Plugin*/
+/*-------------------------------
+FOOGALLERY PLUGIN
+-------------------------------*/
 
 .foogallery-simple_portfolio .bf-item > a:hover {
 opacity:.8;
 }
 
+/* Simple Portfolio Left Justify */
 
 .foogallery-simple_portfolio.brickfolio {
 height: 100% !important;
 }
 
-.foogallery-caption-title{
-font-variant: small-caps;
+.foogallery-simple_portfolio .bf-item {
+    float: left;
+    position: static !important;
+    margin-right: 14px !important;
 }
+
+/* Captions */
 
 .foogallery-simple_portfolio .bf-caption > h4 {
 border-bottom: none;
@@ -1455,18 +1461,13 @@ font-variant: small-caps;
 font-size: .9em;
 }
 
-.foogallery-simple_portfolio .bf-item {
-    float: left;
-    position: static !important;
-    margin-right: 14px !important;
+.foogallery-caption-title{
+font-variant: small-caps;
 }
 
-
-.foogallery-simple_portfolio .bf-item > a:hover {
-opacity:.8;
-}
-
-/*Password Protected Page*/
+/*-------------------------------
+PASSWORD PROTECT PAGE
+-------------------------------*/
 
 .post_pass {
 	margin-top: 15px;
