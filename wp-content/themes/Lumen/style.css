@@ -104,6 +104,7 @@ body.custom-background {
 	max-width:1125px;
 	border-left: 1px solid gainsboro;
 	border-right: 1px solid gainsboro;
+	border-top: 1px solid gainsboro;
 	min-height: 100vh;
 	}
 }
@@ -165,7 +166,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:820px) {
 	#content {
 		padding-right: 25px;
-		width: 50% 
+		width: 48% 
 	}
 }
 
@@ -437,12 +438,11 @@ input, select, textarea {
 	-webkit-appearance:none; 
 	-moz-appearance:none; 
 	border:1px solid #ccc; 
-	padding:2px 5px; 
+	padding: 3px 9px; 
 	background:none; 
 	font-size:1em; 
-	font-family:'Open Sans', 
-	sans-serif; 
-	border-radius:5px;
+    font-family: 'lato', sans-serif; 
+    font-weight: inherit;
 }
 
 input[type="submit"], 
@@ -451,9 +451,13 @@ input[type="button"],
 button {
 	cursor:pointer; 
 	border:0; 
-	padding:2px 5px; 
+	padding: 5px 9px; 
 	background:grey; 
 	color:#fff;
+	font-size: .9em;
+    text-transform: uppercase;
+    margin-left: 5px;
+    font-weight: inherit;
 }
 
 input[type="submit"]:hover, 
@@ -681,7 +685,7 @@ Full screen background on Div
 SIDEBAR
 -------------------------------*/
 #sidebar {
-	width: 45%;
+	width: 50%;
 	float:left; 
 	padding:0px; 
 	height: 100vh;
@@ -697,7 +701,7 @@ SIDEBAR
 		background:none;
 		height: 100%;
 		position: initial;
-		padding-bottom: 10px;
+		padding-bottom: 20px;
 	}
 }
 
@@ -1304,8 +1308,10 @@ div.pdfemb-toolbar {
 }
 
 /*VJS Video Player*/
-.vjs-poster {
-	background-color: white !important;
+.vjs-poster,
+.video-js, 
+.vjs-no-js {
+	background-color: transparent !important;
 
 }
 
@@ -1439,15 +1445,17 @@ opacity:.8;
 }
 
 /* Simple Portfolio Left Justify */
+@media screen and (min-width: 767px){
 
-.foogallery-simple_portfolio.brickfolio {
-height: 100% !important;
-}
+	.foogallery-simple_portfolio.brickfolio {
+	height: 100% !important;
+	}
 
-.foogallery-simple_portfolio .bf-item {
-    float: left;
-    position: static !important;
-    margin-right: 14px !important;
+	.foogallery-simple_portfolio .bf-item {
+	    float: left;
+	    position: static !important;
+	    margin-right: 14px !important;
+	}
 }
 
 /* Captions */
@@ -1475,6 +1483,29 @@ PASSWORD PROTECT PAGE
 
 @media screen and (min-width: 768px) {
 	.pass-form {
-		margin-top: 155px;
+		margin-top: 165px;
 	}
+}
+
+/* Ninja Forms */
+.nf-form-title {
+font-variant: small-caps;
+}
+
+.nf-form-layout {
+	border-top: 1px solid gainsboro;
+}
+
+.nf-before-form-content {
+	padding: 10px 0;
+	font-size: .9em;
+}
+
+.nf-field-label label {
+	font-variant: small-caps;
+	font-weight: normal !important;
+}
+
+.nf-form-cont {
+	 padding: 10px 10px 0 10px;
 }

@@ -149,3 +149,11 @@ a.toggle_menu.first_child {
 .kgvid_wrapper {
   margin:0px !important;
 }
+
+a.last_child {
+  display: block;
+  width: 123px;
+  line-height: 1.5em;
+  margin-bottom: 2px;
+}
+
