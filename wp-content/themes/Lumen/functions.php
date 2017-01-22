@@ -239,7 +239,7 @@
 	    ' . __( "Please enter the password to view the " . get_the_title() . " project materials." ) . '
 	    <label class="pass-label" style="margin-top:15px; font-variant: small-caps;" for="' . $label . '">' . __( "Password:" ) . ' </label><input name="post_password" class="post_pass" id="' . $label . '" type="password" /><input type="submit" name="Submit" class="button" value="' . esc_attr__( "Submit" ) . '" />
 	    </form><div><p style="margin:0px;">If you do not have a password and would like to view this project, please <a href="#fancyboxID-1" class="fancybox-inline" style="font-variant:small-caps;">contact</a> us.</p><div style="display:none" class="fancybox-hidden"><div id="fancyboxID-1" class="hentry" style="width:460px;max-width:100%;">
-[ninja_form id=3]
+[ninja_form id=4]
 </div></div></div>
 	    ';
 	    return $o;

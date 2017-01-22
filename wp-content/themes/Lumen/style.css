@@ -172,137 +172,7 @@ MAIN CONTENT AREA
 
 
 
-/*-------------------------------
-CUSTOM PAGE MODS
--------------------------------*/
 
-/*RW Main Page*/
-
-@media screen and (orientation:landscape){
-.content-ri-container{
-	position: relative;
-    height: 350px;
-	}
-}
-
-@media screen and (orientation:portrait){
-.content-ri-container{
-	position: relative;
-    height: 20vh;
-	}
-}
-.content-ri{
-	position: absolute;
-    width: 75%;
-    top: 50%;
-    left: 50%;
-    margin: 0px auto;
-    transform: translate(-50%, -50%);
-}
-
-/*Menu Page*/
-@media screen and (max-width: 766px){
-.menu-image{
-	margin-top: 0;
-
-	}
-}
-
-@media screen and (min-width: 767px){
-.menu-image{
-	margin-top: 90px;
-}
-
-}
-
-/*Thumbnails*/
-
-a.video-thumb:hover,
-a.video-thumb:focus,
-a.video-thumb:active{
-	opacity: .8;
-
-}
-
-/* Single Video Page - Vertical*/
-
-.v-single-video-container {
-	width: 100%; 
-	display: flex;
-}
-
-.v-single-video {
-	width: 47%; 
-	margin: 0px auto;
-}
-
-.v-single-video-caption {
-	width: 45%; 
-	margin: -4px auto;
-	font-variant: small-caps; 
-}
-
-.v-single-video-return {
-	text-align: left; 
-	font-variant: small-caps; 
-	margin-top: 5px;
-	margin-left: 12px;
-}
-
-/*Single Video Page - Horizontal*/
-
-.h-single-video-container {
-	margin:0px;
-}
-
-.h-single-video-return {
-	font-variant: small-caps;
-	margin-top: 50px;
-}
-
-.h-single-video-caption {
-	width: 100%; 
-	font-variant: small-caps; 
-	margin-top:20px;
-}
-
-/*Press Article Page*/
-.press-article-container{
-	border-top: 1px solid gainsboro; 
-	margin: 20px 0; 
-	padding-top:10px;
-}
-
-/*Press Page*/
-
-.press-page-container{
-	display: flex; 
-	width: 100%; 
-	font-variant: small-caps
-}
-
-.press-thumb{
-	border: 1px solid gainsboro; 
-	margin-bottom:5px;
-}
-
-.page-title-line {
-	font-variant: small-caps; 
-	border-bottom: 1px solid gainsboro;
-}
-
-
-@media screen and (min-width:768px) {
-	.video-production-page {
-    padding-top: 55px;
-	}
-}
-
-@media screen and (min-width:768px) {
-	.video-installation-page {
-    padding-top: 115px;
-	}
-}
 
 /*-------------------------------
 HEADINGS 
@@ -310,7 +180,7 @@ HEADINGS
 h1 {font-size:2.25em; line-height:1.25em;}
 h2 {font-size:1.80em; line-height:1.25em;}
 h3 {font-size:1.45em; line-height:1.5em;}
-h4 {font-size:1em; line-height:1.5em; color: grey;}
+h4 {font-size:1em; line-height:1.5em; font-variant: small-caps;}
 h5 {font-size:.9em; line-height:1.5em;}
 h6 {font-size:0.80em; line-height:2em;}
 
@@ -490,6 +360,159 @@ button {
 }
 
 /*-------------------------------
+CUSTOM PAGE MODS
+-------------------------------*/
+
+/*RW Main Page*/
+
+@media screen and (orientation:landscape){
+.content-ri-container{
+	position: relative;
+    height: 350px;
+	}
+}
+
+@media screen and (orientation:portrait){
+.content-ri-container{
+	position: relative;
+    height: 20vh;
+	}
+}
+.content-ri{
+	position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    margin: 0px auto;
+    transform: translate(-50%, -50%);
+}
+
+/*Menu Page*/
+@media screen and (max-width: 766px){
+.menu-image{
+	margin-top: 0;
+
+	}
+}
+
+@media screen and (min-width: 767px){
+.menu-image{
+	margin-top: 90px;
+}
+
+}
+
+/*Thumbnails*/
+
+a.video-thumb:hover,
+a.video-thumb:focus,
+a.video-thumb:active{
+	opacity: .8;
+
+}
+
+/* Single Video Page - Vertical*/
+
+.v-single-video-container {
+	width: 100%; 
+	display: flex;
+}
+
+.v-single-video {
+	width: 47%; 
+	margin: 0px auto;
+}
+
+.v-single-video-caption {
+	width: 45%; 
+	margin: -4px auto;
+	font-variant: small-caps; 
+}
+
+.v-single-video-return {
+	text-align: left; 
+	font-variant: small-caps; 
+	margin-top: 5px;
+	margin-left: 12px;
+}
+
+/*Single Video Page - Horizontal*/
+
+.h-single-video-container {
+	margin:0px;
+}
+
+.h-single-video-return {
+	font-variant: small-caps;
+	margin-top: 50px;
+}
+
+.h-single-video-caption {
+	width: 100%; 
+	font-variant: small-caps; 
+	margin-top:20px;
+}
+
+/*Press Article Page*/
+.press-article-container{
+	border-top: 1px solid gainsboro; 
+	margin: 20px 0; 
+	padding-top:10px;
+}
+
+/*Press Page*/
+
+.press-page-container{
+	display: flex; 
+	width: 100%; 
+	font-variant: small-caps
+}
+
+.press-thumb{
+	border: 1px solid gainsboro; 
+	margin-bottom:5px;
+}
+
+.page-title-line {
+	font-variant: small-caps; 
+	border-bottom: 1px solid gainsboro;
+}
+
+
+@media screen and (min-width:768px) {
+	.video-production-page {
+    padding-top: 55px;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.video-installation-page {
+    padding-top: 115px;
+	}
+}
+
+/*Contact Page*/
+
+.contact-buttons {
+font-variant: small-caps;
+box-sizing: border-box;
+padding: 3px 8px;
+margin-left: 5px;
+}
+
+.contact-buttons:hover,
+.contact-buttons:focus {
+border: 1px solid gainsboro;
+text-decoration: none;
+}
+
+/*Menu Page*/
+	@media screen and (min-width: 767px) {
+	#content.menu-page {
+		width: 74%
+	}
+}
+/*-------------------------------
 MOBILE BUTTON
 -------------------------------*/
 
@@ -587,7 +610,7 @@ body.front-page{
 	    left: 50%;
 	    top: 50%;
 	    position: absolute;
-	    transform: translate(-50%, -92%);
+	    transform: translate(-50%, -112%);
 	    -webkit-animation: logoload 3s; /* Safari, Chrome and Opera > 12.1 */
 	    -moz-animation: logoload 3s; /* Firefox < 16 */
 	    -ms-animation: logoload 3s; /* Internet Explorer */
