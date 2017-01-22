@@ -32,7 +32,7 @@ jQuery(document).ready(function() {
   const openLink = jQuery('#wb_tree a').filter(
     (i, e) =>  e.href && e.href.replace(/\/$/, '') == location
   );
-  open(openLink, false, true);
+  open(openLink, true, true);
 });
 
 function drawMenu(className, width, childCount, childHeight) {
@@ -87,11 +87,8 @@ function initializeBranches(parentLink, className, animate) {
 function toggle() {
   const node = jQuery(this);
   const opened = node.hasClass('active');
-  console.log('opened', opened)
 
-  if (!opened) {
-    open(jQuery(this));
-  } else {
+  if (opened) {
     close(node)
   }
 }
