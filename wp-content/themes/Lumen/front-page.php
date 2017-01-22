@@ -29,7 +29,7 @@
     </video>
 </div>
 
-<div>
+<div onClick="window.location.href='/Lumen3.0/menu'">>
 <a href="http://localhost:8888/Lumen3.0/menu" id="logo-link">
 <img src="http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/LA-logo-copy.png" id="splash-image" class="ri"/></a>
 </div>
