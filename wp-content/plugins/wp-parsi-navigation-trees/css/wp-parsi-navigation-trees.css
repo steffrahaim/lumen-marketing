@@ -145,10 +145,7 @@ a.toggle_menu.first_child {
   }
 }
 
-/*KG Vid Plugin Styling*/
-.kgvid_wrapper {
-  margin:0px !important;
-}
+
 
 a.last_child {
   display: block;

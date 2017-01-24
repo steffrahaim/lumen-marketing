@@ -73,7 +73,7 @@ function initializeBranches(parentLink, className, animate) {
       style="top:${top}px;" width="${width}" height="${height}"
     ></canvas>`;
   if (animate) {
-    const left = column == 1 ? "left:105px;" : '';
+    const left = column == 1 ? "left:130px;" : '';
     const wiper = `
       <div class="menuBranches wiper" 
         style="top:${top}px; ${left} width:200px; height:${height}px"

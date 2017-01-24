@@ -155,7 +155,7 @@ MAIN CONTENT AREA
 @media screen and (min-width:768px) {
 	#content {
     height: 100%;
-    padding-right: 15px;
+    padding-right: 20px;
     width: 45%;
     padding-top: 130px;
 	}
@@ -610,12 +610,13 @@ body.front-page{
 	    left: 50%;
 	    top: 50%;
 	    position: absolute;
-	    transform: translate(-50%, -112%);
+	    transform: translate(-50%, -92%);
 	    -webkit-animation: logoload 3s; /* Safari, Chrome and Opera > 12.1 */
 	    -moz-animation: logoload 3s; /* Firefox < 16 */
 	    -ms-animation: logoload 3s; /* Internet Explorer */
 	    -o-animation: logoload 3s; /* Opera < 12.1 */
 	    animation: logoload 3s;
+	    cursor: pointer;
 }
 
 img.ri
@@ -687,23 +688,6 @@ img.ri:focus {
     object-fit: cover;
 }
 
-
-
-/*
-Full screen background on Div
-
-#splash-screen {
-	background: url(http://localhost:8888/Lumen3.0/wp-content/uploads/2016/11/Lumen_Splash2000px.png);
-	width: 100vw;
-	height: 100vh;
-    background-clip: border-box;
-    background-size: cover;
-    background-position: center !important;
-    margin: 0;
-}
-
-/*
-
 /*-------------------------------
 SIDEBAR
 -------------------------------*/
@@ -757,7 +741,7 @@ SIDEBAR
 @media screen and (max-width:1040px) {
 #sidebar-widgets {
 	margin-left: -45px;
-	transform: scale(.8);
+	transform: scale(.75);
 }
 }
 
@@ -770,7 +754,7 @@ SIDEBAR
 @media screen and (max-width: 320px) {
 	#sidebar-widgets {
 		width: 65%;
-		transform: scale(.7);
+		transform: scale(.65);
 	}
 }
 
@@ -795,7 +779,7 @@ HEADER
 PAGE 
 -------------------------------*/
 .page-title {
-    color: white;
+    color: transparent;
 }
 
 .archive-description {display:block; font-style:italic;}
@@ -1170,7 +1154,7 @@ FOOTER
 }
 
 
-/*Slideshow Styling*/
+/*Supsystic Slider Styling*/
 
 .bx-viewport li {
 	background-size: contain !important;
@@ -1360,7 +1344,9 @@ div.pdfemb-toolbar {
 	height: 100%;
 }
 
-
+.kgvid_wrapper {
+  margin:0px !important;
+}
 
 /*Foobox*/
 
@@ -1484,18 +1470,28 @@ opacity:.8;
 /* Captions */
 
 .foogallery-simple_portfolio .bf-caption > h4 {
-border-bottom: none;
-padding-bottom: 10px;
-padding-top: 0px;
-text-align: center;
-font-variant: small-caps;
-font-size: .9em;
+	border-bottom: none;
+	padding-bottom: 10px;
+	padding-top: 0px;
+	text-align: center;
+	font-variant: small-caps;
+	font-size: .9em;
 }
 
 .foogallery-caption-title{
-font-variant: small-caps;
+	font-variant: small-caps;
 }
 
+/*Responsive thumbnail shrinking*/
+
+.foogallery-default a {
+	width: 18% !important;
+}
+
+.foogallery-default.spacing-width-15 a {
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
 /*-------------------------------
 PASSWORD PROTECT PAGE
 -------------------------------*/
@@ -1504,10 +1500,22 @@ PASSWORD PROTECT PAGE
 	margin-top: 15px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
 	.pass-form {
-		margin-top: 165px;
+		margin-top: 115px;
 	}
+}
+
+@media screen and (min-width: 1040px) {
+	.pass-form {
+		margin-top: 190px;
+	}
+}
+
+@media screen and (min-width: 1040px) {
+	.top-margin {
+		transform: translateY(68px);
+		}
 }
 
 /* Ninja Forms */
