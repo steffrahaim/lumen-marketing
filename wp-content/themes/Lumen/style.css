@@ -151,22 +151,27 @@ MAIN CONTENT AREA
 
 }
 
+@media screen and (min-width: 820px) {
+	#content {
+		padding-right: 50px;
+	}
+}
+
 /* LAPTOP CONTENT SCROLL */
 @media screen and (min-width:768px) {
 	#content {
     height: 100%;
-    padding-right: 20px;
-    width: 45%;
+    width: 47%;
     padding-top: 130px;
 	}
 }
 
 
 /*LAPTOP CONTENT SIZING*/
-@media screen and (min-width:820px) {
+@media screen and (min-width:1025px) {
 	#content {
 		padding-right: 25px;
-		width: 48% 
+		width: 50% 
 	}
 }
 
@@ -734,7 +739,7 @@ SIDEBAR
 
 /* WIDGETS */
 #sidebar-widgets {
-	width:96%; 
+	width:98%; 
 	float:right;
 }
 

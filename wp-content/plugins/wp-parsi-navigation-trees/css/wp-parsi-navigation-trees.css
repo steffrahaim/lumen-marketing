@@ -20,7 +20,7 @@
   left: 174px;
 }
 #wb_tree ul li ul .sub-menu {
-  left: 156px;
+  left: 162px;
 }
 
 #wb_tree ul .sub-menu ul,
@@ -51,13 +51,13 @@
 }
 
 .circle.first_child {
-  right: 10px;
+  right: 4px;
   top: 12px;
 }
 
 a.toggle_menu.first_child {
   display: block;
-  width: 112px;
+  width: 118px;
   margin-bottom: 2px;
   line-height: 1.5em;
 }
@@ -110,7 +110,7 @@ a.toggle_menu.first_child {
 }
 
 .menuBranches.lower {
-  left: 130px;
+  left: 136px;
   display: inline-block;
 }
 
@@ -149,7 +149,7 @@ a.toggle_menu.first_child {
 
 a.last_child {
   display: block;
-  width: 130px;
+  width: 111px;
   line-height: 1.5em;
   margin-bottom: 2px;
 }
