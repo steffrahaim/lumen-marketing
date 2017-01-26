@@ -17,7 +17,7 @@
   max-width: 200px;
 }
 #wb_tree ul .sub-menu {
-  left: 165px;
+  left: 174px;
 }
 #wb_tree ul li ul .sub-menu {
   left: 156px;
@@ -95,7 +95,7 @@ a.toggle_menu.first_child {
 
 #menu-primary {
   text-align: right;
-  width: 10rem;
+  width: 10.5rem;
   font-size: .95em;
 }
 
@@ -149,7 +149,7 @@ a.toggle_menu.first_child {
 
 a.last_child {
   display: block;
-  width: 123px;
+  width: 130px;
   line-height: 1.5em;
   margin-bottom: 2px;
 }

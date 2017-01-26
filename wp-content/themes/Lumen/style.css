@@ -734,13 +734,13 @@ SIDEBAR
 
 /* WIDGETS */
 #sidebar-widgets {
-	width:95%; 
+	width:96%; 
 	float:right;
 }
 
 @media screen and (max-width:1040px) {
 #sidebar-widgets {
-	margin-left: -45px;
+	margin-left: -53px;
 	transform: scale(.75);
 }
 }
