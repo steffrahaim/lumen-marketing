@@ -36,7 +36,7 @@ table {
 
 
 /* BODY */
-body {font-family:'Open Sans', sans-serif; font-size:1em; color:#333; line-height:1.5em; word-wrap:break-word;}
+body {background:none; color:#333; font-family:'Open Sans', sans-serif; font-size:1em; line-height:1.5em; word-wrap:break-word;}
 
 
 /* HEADINGS */
@@ -49,7 +49,7 @@ h6 {font-size:0.80em; line-height:2em;}
 
 
 /* LINKS AND HTML TAGS */
-a {text-decoration:none; color:#e77776;}
+a {text-decoration:none; color:#999;}
 a:hover {text-decoration:underline;}
 
 strong, b {font-weight:bold;}
@@ -57,11 +57,11 @@ small {font-size:0.80em;}
 big {font-size:1.20em;}
 sub {vertical-align:sub; font-size:0.9em;}
 sup {vertical-align:super; font-size:0.9em;}
-ins, mark {font-weight:bold; background:none; text-decoration:none; color:#e77776;}
+ins, mark {font-weight:bold; background:none; text-decoration:none; color:#999;}
 cite, em, abbr, acronym {font-style:italic;}
 code, kbd, samp, var {font-family:monospace, monospace;}
-pre {margin:10px 0; padding:5px 10px; white-space:pre-wrap; border:1px solid #ccc; border-radius:5px;}
-blockquote, q {margin:10px 0; padding:0 0 0 20px; display:block; font-size:1.2em; line-height:1.5em; font-style:italic; border-left:2px solid #e77776;}
+pre {margin:10px 0; padding:5px 10px; white-space:pre-wrap; border:1px solid #999;}
+blockquote, q {margin:10px 0; padding:0 0 0 20px; display:block; font-size:1.2em; line-height:1.5em; font-style:italic; border-left:2px solid #999;}
 address {margin:10px 0; font-size:1.2em; line-height:1.5em; font-style:italic;}
 p {margin:0 0 10px;}
 
@@ -74,7 +74,7 @@ p {margin:0 0 10px;}
 
 /* TABLE AND LISTS */
 table {margin:10px 0; border-collapse:collapse;}
-table, th, td {border:1px solid #ccc; padding:5px 10px;}
+table, th, td {border:1px solid #999; padding:5px 10px;}
 table th {font-weight:bold;}
 
 ul {list-style:square; margin:10px 0;}

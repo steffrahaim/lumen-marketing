@@ -71,14 +71,10 @@
 
 
 // Enqueues scripts and styles for front-end
-
-	//Add google fonts//
-	
-
 	function leftside_scripts() {
 		wp_enqueue_style( 'leftside-style', get_stylesheet_uri() );
 		wp_enqueue_script( 'leftside-nav', get_template_directory_uri() . '/js/nav.js', array( 'jquery' ) );
-		wp_enqueue_style( 'leftside-googlefonts', '//fonts.googleapis.com/css?family=Lato:100,300,400,700' );
+		wp_enqueue_style( 'leftside-googlefonts', '//fonts.googleapis.com/css?family=Open+Sans' ); 
 
 		// Add html5 support for IE 8 and older 
 		wp_enqueue_script( 'leftside_html5', get_template_directory_uri() . '/js/ie.js' );

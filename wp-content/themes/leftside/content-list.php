@@ -9,7 +9,7 @@
 		<h4 class="sticky-title"><?php _e( 'Featured post', 'leftside' ); ?></h4>
 	<?php endif; ?>
 
-	<h2 class="post-title">
+	<h2 class="post-title entry-title">
 		<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permalink to %s', 'leftside'), the_title_attribute('echo=0')); ?>"> <?php the_title(); ?></a> 
 	</h2>
 
@@ -19,7 +19,9 @@
 		the_post_thumbnail(); 
 	} ?>
 
-	<?php the_excerpt(); ?>
+	<div class="entry-content">
+		<?php the_excerpt(); ?>
+	</div>
 
 	<div class="more">
 		<a class="readmore" href="<?php the_permalink() ?>" rel="bookmark"><?php _e( 'Read More &raquo;', 'leftside' ); ?></a>

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LeftSide\n"
-"POT-Creation-Date: 2016-10-09 17:56+0200\n"
+"POT-Creation-Date: 2017-01-28 10:13+0100\n"
 "PO-Revision-Date: 2015-11-15 18:20+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Permalink to %s"
 msgstr ""
 
-#: content-list.php:25
+#: content-list.php:27
 msgid "Read More &raquo;"
 msgstr ""
 
@@ -94,10 +94,6 @@ msgstr ""
 
 #: footer.php:25
 msgid "Copyright"
-msgstr ""
-
-#: footer.php:25
-msgid "LeftSide WordPress Theme"
 msgstr ""
 
 #: functions.php:18
@@ -156,7 +152,7 @@ msgstr ""
 msgid "This will overwrite the default title."
 msgstr ""
 
-#: page.php:27 single.php:33
+#: page.php:27 single.php:35
 msgid "Edit"
 msgstr ""
 

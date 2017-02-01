@@ -22,10 +22,11 @@
 	<div id="sidebar">
 		<div class="logo"> 
 			<?php if ( get_theme_mod( 'leftside_logo' ) ) : ?> 
+				<a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
 				<img src='<?php echo esc_url( get_theme_mod( 'leftside_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a> 
 			<?php else : ?> 
 				<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
-				<h2><?php bloginfo('description'); ?></h2>
+				<h2><?php bloginfo('description'); ?></h2> 
 			<?php endif; ?>
 		</div>
 
@@ -35,9 +36,9 @@
 			} else {
 				$menu_title = esc_attr__( 'Menu', 'leftside' );
 			} ?>
-			<h3 class="nav-head-title"><?php echo $menu_title; ?></h3>
+			<h3 class="nav-primary-title"><?php echo $menu_title; ?></h3>
 
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'nav-head' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'nav-primary' ) ); ?>
 		<?php endif; ?>
 
 		<?php if ( is_front_page() ) {?> 
