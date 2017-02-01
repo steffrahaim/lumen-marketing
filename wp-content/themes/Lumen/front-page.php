@@ -21,7 +21,7 @@
 
 <body class="front-page">
 <div id="buttonDiv">
-<button id="splash-button" type="submit" onClick="window.location.href='/lumen-arts/menu'">Enter</button>
+<button id="splash-button" type="submit" onClick="window.location.href='menu'">Enter</button>
 </div>
 <div class="fullscreen-bg">
     <video muted autoplay class="fullscreen-bg__video">
@@ -29,7 +29,7 @@
     </video>
 </div>
 
-<div onClick="window.location.href='/lumen-arts/menu'">
+<div onClick="window.location.href='menu'">
 <div id="logo-link">
 <img src="/lumen-arts/wp-content/uploads/2016/11/LA-logo-copy.png" id="splash-image" class="ri"/></div>
 </div>
