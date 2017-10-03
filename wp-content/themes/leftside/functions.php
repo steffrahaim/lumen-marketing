@@ -22,7 +22,7 @@
 			add_theme_support( 'title-tag' );
 
 		// Add editor styles
-			add_editor_style( 'custom-editor-style.css' );
+			add_editor_style( array( 'custom-editor-style.css', leftside_font_url() ) );
 
 		// Custom header	
 			$header_args = array(		
@@ -65,7 +65,7 @@
 			add_theme_support( 'custom-background', $background_args ); 
 
 		// Post formats
-			add_theme_support( 'post-formats', array( 'aside', 'status', 'image', 'video', 'gallery', 'audio' ) );
+			add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'gallery', 'audio' ) );
 	}
 	add_action( 'after_setup_theme', 'leftside_setup' ); 
 
@@ -74,7 +74,7 @@
 	function leftside_scripts() {
 		wp_enqueue_style( 'leftside-style', get_stylesheet_uri() );
 		wp_enqueue_script( 'leftside-nav', get_template_directory_uri() . '/js/nav.js', array( 'jquery' ) );
-		wp_enqueue_style( 'leftside-googlefonts', '//fonts.googleapis.com/css?family=Open+Sans' ); 
+		wp_enqueue_style( 'leftside-googlefonts', leftside_font_url() ); 
 
 		// Add html5 support for IE 8 and older 
 		wp_enqueue_script( 'leftside_html5', get_template_directory_uri() . '/js/ie.js' );
@@ -83,15 +83,15 @@
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
-
-		// mobile nav args
-		$leftside_mobile_nav_args = array(
-			'navText' => __( 'Menu', 'leftside' )
-		);
-		// localize script with data for mobile nav
-		wp_localize_script( 'leftside-nav', 'objectL10n', $leftside_mobile_nav_args );
 	}
 	add_action( 'wp_enqueue_scripts', 'leftside_scripts' );
+
+
+// Font family
+	function leftside_font_url() {
+		$font_url = '//fonts.googleapis.com/css?family=Open+Sans';
+		return esc_url_raw( $font_url );
+	}
 
 
 // Sidebars

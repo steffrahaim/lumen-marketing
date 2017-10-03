@@ -28,7 +28,9 @@ if ( !class_exists( 'FooBox_Free_Script_Generator' ) ) {
 			$hideScrollbars      = self::is_option_checked( $fbx_options, 'hide_scrollbars', true );
 			$close_overlay_click = self::is_option_checked( $fbx_options, 'close_overlay_click', true );
 			$show_count          = self::is_option_checked( $fbx_options, 'show_count', true );
+			$count_message       = self::get_option( $fbx_options, 'count_message', 'image %index of %total' );
 			$powered_by_link     = self::is_option_checked( $fbx_options, 'powered_by_link', false );
+			$hide_caption        = self::is_option_checked( $fbx_options, 'hide_caption', false );
 			$captions_hover      = self::is_option_checked( $fbx_options, 'captions_show_on_hover', false );
 
 			//force to show the powered by link on the settings page, so the user can see what it will look like
@@ -61,8 +63,15 @@ if ( !class_exists( 'FooBox_Free_Script_Generator' ) ) {
 			if ( !$show_count ) {
 				$options['showCount'] = 'showCount:false';
 			}
-			if ( $captions_hover ) {
-				$options['captions'] = 'captions: { onlyShowOnHover: true }';
+			if ( $count_message != 'item %index of %total' ) {
+				$options['countMessage'] = 'countMessage:\'' . addslashes( $count_message ) . '\'';
+			}
+			if ( $hide_caption ) {
+				$options['images'] = 'images: { showCaptions:false }';
+			} else {
+				if ( $captions_hover ) {
+					$options['captions'] = 'captions: { onlyShowOnHover: true }';
+				}
 			}
 
 			$js_excludes[] = '.fbx-link';

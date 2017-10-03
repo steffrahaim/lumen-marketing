@@ -107,7 +107,7 @@ function mg_smtp_mail_filter(array $args)
     $mg_headers = mg_parse_headers($headers);
 
     // Filter the `From:` header
-    $from_header = (isset($mg_headers['From'])) ? $mg_headers['From'] : null;
+    $from_header = (isset($mg_headers['From'])) ? $mg_headers['From'][0] : null;
 
     list($from_name, $from_addr) = array(null, null);
     if (!is_null($from_header)) {
@@ -128,14 +128,23 @@ function mg_smtp_mail_filter(array $args)
         }
     }
 
+    if (!isset($from_name)) {
+        $from_name = null;
+    }
+
+    if (!isset($from_addr)) {
+        $from_addr = null;
+    }
+
     $from_name = mg_detect_from_name($from_name);
     $from_addr = mg_detect_from_address($from_addr);
 
     $from_header['value'] = sprintf('%s <%s>', $from_name, $from_addr);
-    $mg_headers['From'] = $from_header;
+    $mg_headers['From'] = array($from_header);
 
     // Header compaction
     $headers = mg_dump_headers($mg_headers);
 
     return compact('to', 'subject', 'message', 'headers', 'attachments');
 }
+

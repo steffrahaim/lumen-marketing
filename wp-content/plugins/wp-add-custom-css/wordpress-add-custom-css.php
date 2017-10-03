@@ -3,7 +3,7 @@
 Plugin Name: WP Add Custom CSS
 Plugin URI: http://www.danieledesantis.net
 Description: Add custom css to the whole website and to specific posts, pages and custom post types.
-Version: 1.0.0
+Version: 1.0.1
 Author: Daniele De Santis
 Author URI: http://www.danieledesantis.net
 Text Domain: wp-add-custom-css
@@ -12,7 +12,7 @@ License: GPL2
 */
 
 /*
-Copyright 2014-2016  Daniele De Santis  (email : hello@danieledesantis.net)
+Copyright 2014-2017  Daniele De Santis  (email : hello@danieledesantis.net)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -204,8 +204,14 @@ if(!class_exists('Wpacc'))
 			if ( isset($this->options['main_custom_style']) && $this->options['main_custom_style'] != '') {
 				if ( function_exists('icl_object_id') ) {
 					$css_base_url = site_url();
+					if ( is_ssl() ) {
+						$css_base_url = site_url('/', 'https');
+					}
 				} else {
 					$css_base_url = get_bloginfo('url');
+					if ( is_ssl() ) {
+						$css_base_url = str_replace('http://', 'https://', $css_base_url);
+					}
 				}
 				wp_register_style( 'wp-add-custom-css', $css_base_url . '?display_custom_css=css' );
 				wp_enqueue_style( 'wp-add-custom-css' );	

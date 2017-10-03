@@ -316,6 +316,9 @@ function kgvid_load_videojs(video_vars) {
 	if ( video_vars.nativecontrolsfortouch == "true" ) {
 		videojs_options.nativeControlsForTouch = true;
 	}
+	if ( video_vars.playback_rate == "true" ) {
+		videojs_options.playbackRates = [0.5, 1, 1.25, 1.5, 2];
+	}
 	if ( video_vars.enable_resolutions_plugin == "true" ) {
 
 		if ( videojs.VERSION.split('.')[0] >= 5 ) {
@@ -351,7 +354,10 @@ function kgvid_setup_video(id) {
 	jQuery('#video_'+id+'_embed, #click_trap_'+id).appendTo('#video_'+id+'_div');
 	jQuery('#click_trap_'+id).on('click', function(){ kgvid_share_icon_click(id); });
 	jQuery('#video_'+id+'_meta').attr('style', ''); //shows the hidden meta div
-	if ( video_vars.autoplay == "true" ) { jQuery('#video_'+id+'_meta').removeClass('kgvid_video_meta_hover'); }
+	if ( video_vars.autoplay == "true" ) {
+		kgvid_video_counter(id, 'play');
+		jQuery('#video_'+id+'_meta').removeClass('kgvid_video_meta_hover');
+	}
 
 	if ( video_vars.right_click != "on" ) {
 		jQuery('#video_'+id+'_div').bind('contextmenu',function() { return false; });
@@ -370,16 +376,17 @@ function kgvid_setup_video(id) {
 		if ( videojs.VERSION.split('.')[0] >= 5 && videojs.browser.TOUCH_ENABLED == true ) {
 
 			if ( video_vars.nativecontrolsfortouch == "true" && videojs.browser.IS_ANDROID ) {
-
 				jQuery('.vjs-big-play-button').hide();
-
 			}
 
 			if ( player.controls() == false && player.muted() == false ) { //mobile browsers allow autoplay only if the player is muted
-
 				player.controls(true);
-
 			}
+		}
+
+		if ( video_vars.autoplay == "true" && !player.paused() && player.hasClass('vjs-paused') ) {
+			player.pause();
+			player.play();
 		}
 
 		player.on('loadedmetadata', function(){
@@ -985,7 +992,7 @@ function kgvid_video_counter(id, event) {
 	if ( changed == true
 		&& video_vars.count_views != 'false'
 		&& (
-			video_vars.count_views == 'all'
+			video_vars.count_views == 'quarters'
 			|| ( video_vars.count_views == 'start_complete' && ( event == 'play' || event == 'end' ) )
 			|| ( video_vars.count_views == 'start' && event == 'play' )
 		)

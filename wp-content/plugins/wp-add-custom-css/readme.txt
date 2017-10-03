@@ -2,8 +2,8 @@
 Contributors: danieledesantis
 Tags: css, custom css, style, styles, stylesheet, custom stylesheet, single post css, site css, single page css, custom post type css, product css
 Requires at least: 4.0
-Tested up to: 4.6
-Stable tag: 1.0.0
+Tested up to: 4.8
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ Click on the "Screen option" link from your post/page editing area and be sure t
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed issues with ssl on some server configurations
+
 = 1.0.0 =
 * Added support for custom post types
 
@@ -92,6 +95,9 @@ Click on the "Screen option" link from your post/page editing area and be sure t
 * First release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+* Fixed issues with ssl on some server configurations
 
 = 1.0.0 =
 * Added support for custom post types

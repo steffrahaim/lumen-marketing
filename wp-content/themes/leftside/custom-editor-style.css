@@ -3,10 +3,6 @@ Used to style the post and page TinyMCE editor.
 */
 
 
-/* IMPORT FONT */
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
-
-
 /* RESET STYLESHEET */
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, ins, mark, 
 em, img, q, small, strong, sub, sup, b, dl, dt, dd, ol, ul, li, table, caption, tr, th, td {
@@ -40,16 +36,16 @@ body {background:none; color:#333; font-family:'Open Sans', sans-serif; font-siz
 
 
 /* HEADINGS */
-h1 {font-size:2.25em; line-height:1.25em;}
-h2 {font-size:1.80em; line-height:1.25em;}
-h3 {font-size:1.45em; line-height:1.5em;}
-h4 {font-size:1.20em; line-height:1.5em;}
-h5 {font-size:1em; line-height:1.5em;}
-h6 {font-size:0.80em; line-height:2em;}
+h1 {clear:both; margin:0 0 10px; font-size:2.25em; line-height:1.25em;}
+h2 {clear:both; margin:0 0 10px; font-size:1.80em; line-height:1.25em;}
+h3 {clear:both; margin:0 0 10px; font-size:1.45em; line-height:1.5em;}
+h4 {clear:both; margin:0 0 10px; font-size:1.20em; line-height:1.5em;}
+h5 {clear:both; margin:0 0 10px; font-size:1em; line-height:1.5em;}
+h6 {clear:both; margin:0 0 10px; font-size:0.80em; line-height:2em;}
 
 
 /* LINKS AND HTML TAGS */
-a {text-decoration:none; color:#999;}
+a {text-decoration:none; color:#21759b;}
 a:hover {text-decoration:underline;}
 
 strong, b {font-weight:bold;}
@@ -57,13 +53,14 @@ small {font-size:0.80em;}
 big {font-size:1.20em;}
 sub {vertical-align:sub; font-size:0.9em;}
 sup {vertical-align:super; font-size:0.9em;}
-ins, mark {font-weight:bold; background:none; text-decoration:none; color:#999;}
+ins, mark {font-weight:bold; background:none; text-decoration:none; color:#21759b;}
 cite, em, abbr, acronym {font-style:italic;}
 code, kbd, samp, var {font-family:monospace, monospace;}
-pre {margin:10px 0; padding:5px 10px; white-space:pre-wrap; border:1px solid #999;}
-blockquote, q {margin:10px 0; padding:0 0 0 20px; display:block; font-size:1.2em; line-height:1.5em; font-style:italic; border-left:2px solid #999;}
-address {margin:10px 0; font-size:1.2em; line-height:1.5em; font-style:italic;}
+pre {margin:0 0 10px; padding:5px 10px; white-space:pre-wrap; border:1px solid #999;}
+blockquote, q {margin:0 0 10px; padding:0 0 0 20px; display:block; font-size:1.2em; line-height:1.5em; font-style:italic; border-left:2px solid #999;}
+address {margin:0 0 10px; font-style:italic;}
 p {margin:0 0 10px;}
+hr {height:1px; background:#999; border:0; margin:0 0 10px;}
 
 
 /* ALIGNMENTS */
@@ -73,15 +70,15 @@ p {margin:0 0 10px;}
 
 
 /* TABLE AND LISTS */
-table {margin:10px 0; border-collapse:collapse;}
+table {margin:0 0 10px; border-collapse:collapse;}
 table, th, td {border:1px solid #999; padding:5px 10px;}
 table th {font-weight:bold;}
 
-ul {list-style:square; margin:10px 0;}
-ol {list-style:decimal; margin:10px 0;}
+ul {list-style:square; margin:0 0 10px;}
+ol {list-style:decimal; margin:0 0 10px;}
 li {margin:0 0 0 20px;}
 li > ul, li > ol {margin:0;}
-dl {margin:10px 0;}
+dl {margin:0 0 10px;}
 dt {font-weight:bold;}
 dd {margin:0 0 0 20px;}
 

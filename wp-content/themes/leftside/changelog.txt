@@ -1,9 +1,47 @@
 CHANGELOG
 =========
 
+LeftSide version 5.2 - september 2017
+- fixed display issue with mobile menu
+- added div container around mobile menu
+- updated files header and style
+
+LeftSide version 5.1 - july 2017
+- file style and custom-editor-style: added clear and margin-bottom to headings
+
+LeftSide version 5.0 - june 2017
+- file style: minor changes
+
+LeftSide version 4.9 - june 2017
+- new jquery navigation for mobile screens
+- replaced select menu with toggle menu 
+- files nav, header and style: added and removed code regarding new navigation
+- files style and custom-editor-style: changed margin of several html tags to avoid margin collapsing
+- if you're using a child theme that contains file header: copy-paste code regarding new navigation
+
+LeftSide version 4.8 - april 2017
+- file single: added post class .post-single
+- file style: changed margin and padding of several elements (layout improvement)
+
+LeftSide version 4.7 - march 2017
+- file style: changed margin of several elements to avoid margin collapsing
+- cleaned up file style
+- updated files content-list and custom-editor-style
+- file functions: improved font family registering
+
+LeftSide version 4.6 - march 2017
+- file style: fixed alignment issue of #respond
+
+LeftSide version 4.5 - march 2017
+- file style: minor changes in html tags
+- file style: styling of select tag (cross-browser compatibility)
+- file style: added width and float to several elements (for better alignment)
+- file functions and single: removed post format (status)
+- several small adjustments
+
 LeftSide version 4.4 - january 2017
 - some logical changes in class elements
-- files style, header and nav: changed .nav-head info .nav-primary
+- files style, header and nav: changed .nav-head into .nav-primary
 - files style and header: changed .nav-head-title into .nav-primary-title
 - added support for hentry tags
 - updated files content-postmeta, content-list and single

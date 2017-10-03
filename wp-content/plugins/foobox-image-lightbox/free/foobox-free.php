@@ -152,7 +152,32 @@ if (!class_exists('Foobox_Free')) {
 
 		function inline_dynamic_js() {
 			$foobox_js = $this->generate_javascript();
-			echo '<script type="text/javascript">' . $foobox_js . '</script>';
+
+			$defer_js = !$this->is_option_checked( 'disable_defer_js', true );
+
+			$script_type = $defer_js ? 'text/foobox' : 'text/javascript';
+
+			echo '<script type="' . $script_type . '">' . $foobox_js . '</script>';
+
+			if ( $defer_js ) {
+				?>
+				<script type="text/javascript">
+					if (window.addEventListener){
+						window.addEventListener("DOMContentLoaded", function() {
+							var arr = document.querySelectorAll("script[type='text/foobox']");
+							for (var x = 0; x < arr.length; x++) {
+								var script = document.createElement("script");
+								script.type = "text/javascript";
+								script.innerHTML = arr[x].innerHTML;
+								arr[x].parentNode.replaceChild(script, arr[x]);
+							}
+						});
+					} else {
+						console.log("FooBox does not support the current browser.");
+					}
+				</script>
+				<?php
+			}
 		}
 
 		/**

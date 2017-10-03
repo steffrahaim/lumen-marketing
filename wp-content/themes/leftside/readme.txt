@@ -1,9 +1,9 @@
 === LeftSide ===
 Contributors: Guido07111975
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=donation%40guidovanderleest%2enl
-Version: 4.4
+Version: 5.2
 Requires at least: 4.2
-Tested up to: 4.7
+Tested up to: 4.8
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, left-sidebar, custom-background, custom-header, custom-menu, featured-images, footer-widgets, post-formats, sticky-post, blog, editor-style, microformats, translation-ready
@@ -35,9 +35,7 @@ Set a logo to replace site title and tagline via WordPress Dashboard > Appearanc
 You can add your own background(image) via WordPress Dashboard > Appearance > Customize.
 
 = Menu = 
-Theme offers a menu that can contain subpages (2 levels deep).
-
-You can create and set menu via WordPress Dashboard > Appearance > Menus.
+You can create and set a menu via WordPress Dashboard > Appearance > Menus.
 
 = Menu title =
 You can change the menu title via WordPress Dashboard > Appearance > Customize.
@@ -51,19 +49,19 @@ You can change the menu title via WordPress Dashboard > Appearance > Customize.
 * Apache License, version 2.0
 * http://www.apache.org/licenses/LICENSE-2.0.html
 
-= Scripts =
-* Script: nav.js
-* Source: http://maxfoundry.com/articles/116/responsive-mobile-navigation-in-wordpress
-* Copyright author: John Hartley
-* GNU General Public License v3 or later
-* http://www.gnu.org/licenses/gpl-3.0.html
-
 = Images =
 * Item: boats.jpg
 * Copyright author: Guido van der Leest
 * Author URI: http://www.guidovanderleest.nl
 * GNU General Public License v3 or later
 * http://www.gnu.org/licenses/gpl-3.0.html
+
+= Reset stylesheet =
+* Included in file style.css
+* Source: http://meyerweb.com/eric/tools/css/reset
+* Author: Eric Meyer
+* Author URI: http://meyerweb.com/ 
+* License: none (public domain) 
 
 
 == Notes ==

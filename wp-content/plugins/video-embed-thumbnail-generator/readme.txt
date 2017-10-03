@@ -3,8 +3,8 @@ Contributors: kylegilman
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=kylegilman@gmail.com&item_name=Video%20Embed%20And%20Thumbnail%20Generator%20Plugin%20Donation
 Tags: video, video player, video gallery, video thumbnail, ffmpeg, resolution
 Requires at least: 4.4
-Tested up to: 4.7
-Stable tag: 4.6.14
+Tested up to: 4.8
+Stable tag: 4.6.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -245,6 +245,23 @@ Enter the username & password in the plugin settings "FFMPEG Settings" tab, or u
 4. Shortcode inserted into the post content by the plugin.
 
 == Changelog ==
+
+= 4.6.17 - June 10, 2017 =
+* Updated Video.js to version 5.19.2
+* Better fix for big play button overlay remaining visible on autoplay Video.js videos.
+
+= 4.6.16 - March 19, 2017 =
+* Updated Video.js to version 5.18.4
+* Added option for variable playback rates in Video.js and WordPress Default players.
+* Fixed bug that didn't save views when quarter counting was enabled (new installations only).
+* Fixed bug that allowed big play button to remain on screen when videos autoplayed in Firefox and Edge.
+* Fixed query for converting URLs to post IDs when a blank _wp_attached_file is present in the database.
+
+= 4.6.15 - February 27, 2017 =
+* Updated Video.js to version 5.16.0
+* Changed source filetype checking to account for URLs with query strings, which allows for signed URLs.
+* Changed VP9 encoding CRF value to the H.264 setting. Using the WEBM setting led to unnecessarily high bitrates.
+* Removed French translation files from distribution to allow updated language packs.
 
 = 4.6.14 - January 24, 2017 =
 * Updated Video.js to version 5.15.1

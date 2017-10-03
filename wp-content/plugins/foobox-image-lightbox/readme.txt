@@ -1,32 +1,32 @@
-=== FooBox Image Lightbox ===
+=== FooBox Image Lightbox WordPress Plugin ===
 Contributors: bradvin, fooplugins, freemius
 Donate link: http://fooplugins.com
 Tags: lightbox,media,images,gallery,modal
 Requires at least: 3.5.1
-Tested up to: 4.7
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A responsive image lightbox for WordPress galleries & Foo Gallery
+A responsive image lightbox for WordPress galleries, WordPress attachments & FooGallery
 
 == Description ==
 
 FooBox was the first lightbox to take responsive layout seriously. Not only does it scale images to look better on phones, but it rearranges it's button controls to look great in both portrait or landscape orientation.
 
-Works with most image gallery plugins, but works best with our free [FooGallery](http://wordpress.org/plugins/foogallery/) plugin.
+Works with most image gallery plugins, but works best with our [FooGallery Image Gallery WordPress Plugin](http://foo.gallery).
 
 **Now includes a 7-day free trial of FooBox Pro!**
 
-**Features**
+**FooBox Image Lightbox Features:**
 
 *	Responsive design
 *	Sexy lightbox design
+*	Zero configuration!
 *	Works with WordPress galleries
 *	Works with WordPress captioned images
-*	Zero configuration
 
-**Upgrade to the [PRO version of FooBox](http://fooplugins.com/plugins/foobox/?utm_source=fooboxfreeplugin&utm_medium=fooboxfreeprolink&utm_campaign=foobox_free_wprepo) and also get**
+**[FooBox PRO](http://fooplugins.com/plugins/foobox/?utm_source=fooboxfreeplugin&utm_medium=fooboxfreeprolink&utm_campaign=foobox_free_wprepo) Features:**
 
 *	Social sharing (10+ networks)
 *	Video support
@@ -38,22 +38,17 @@ Works with most image gallery plugins, but works best with our free [FooGallery]
 *	5 color schemes, 12 buttons icons and 11 loader icons
 *	85+ settings to customize
 
-**The [PRO version](http://fooplugins.com/plugins/foobox/?utm_source=fooboxfreeplugin&utm_medium=fooboxfreeprolink&utm_campaign=foobox_free_wprepo) also supports these galleries and plugins**
+**[FooBox PRO](http://fooplugins.com/plugins/foobox/?utm_source=fooboxfreeplugin&utm_medium=fooboxfreeprolink&utm_campaign=foobox_free_wprepo) Works With:**
 
-*	[FooGallery](http://foo.gallery)
+*	[The Best Image Gallery Plugin for WordPress](http://foo.gallery)
 *	NextGen
 *	[Justified Image Grid](http://codecanyon.net/item/justified-image-grid-premium-wordpress-gallery/2594251)
+*   Envira Gallery
 *	WooCommerce product images
 *	JetPack Tiled Gallery
+*	AutOptimize
 
 Check out the [full feature comparison](http://fooplugins.com/foobox-feature-comparison/?utm_source=fooboxfreeplugin&utm_medium=fooboxcomparelink&utm_campaign=foobox_free_wprepo).
-
-**Partners**
-
-FooBox works great with most themes and gallery plugins right out of the box. But some vendors go that extra mile to ensure 100% FooBox compatibility:
-
-* [FooGallery](http://foo.gallery)
-* [Bottomless Design WordPress Themes](http://www.mojo-themes.com/user/bottomlessdesign)
 
 **Translations**
 
@@ -66,6 +61,10 @@ FooBox works great with most themes and gallery plugins right out of the box. Bu
 
 == Frequently Asked Questions ==
 
+= FooBox is not working. There is an error in the console "Uncaught ReferenceError: FooBox is not defined" =
+
+Some plugins or themes defer javascript in the page, which causes the FooBox initialization code to run BEFORE the FooBox main script is loaded. This has been fixed in version 1.2.24. Please upgrade.
+
 = My theme has a built-in lightbox and it shows under FooBox. What can I do? =
 
 There is a setting to try and disable hard coded lightboxes, but this is not a sure-fire solution for every scenario. If that setting does not work for you, you might need to deregister certain javascript files, or uncomment certain lines of code in your theme to remove it's lightbox.
@@ -76,6 +75,26 @@ There is a setting to try and disable hard coded lightboxes, but this is not a s
 2. Phone example
 
 == Changelog ==
+
+= 1.2.27 =
+* Fix : default caption state was disabled when no settings were saved.
+* Updated to latest Freemius SDK 1.2.1.7.1
+
+= 1.2.26 =
+* Fix : disappearing captions. Renamed "Show Captions" setting to "Hide Captions" and default to disabled.
+
+= 1.2.25 =
+* Added setting to disable captions
+* Added setting to change image counter text
+
+= 1.2.24 =
+* Added better browser support for defer javascript loading added in 1.2.23
+
+= 1.2.23 =
+* Added support for plugins that defer javascript loading, e.g. AutOptimize
+
+= 1.2.22 =
+* Updated to latest JS and CSS fixing multiple issues and bugs
 
 = 1.1.11 =
 * Updated to latest JS and CSS fixing some bugs

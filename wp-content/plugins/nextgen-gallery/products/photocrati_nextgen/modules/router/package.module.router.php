@@ -27,7 +27,7 @@ class C_Http_Response_Controller extends C_Component
         }
         return self::$_instance;
     }
-    function define()
+    function define($context = FALSE)
     {
         $this->add_mixin('Mixin_Http_Response_Actions');
         $this->implement('I_Http_Response');
@@ -215,8 +215,8 @@ class Mixin_Router extends Mixin
      */
     function get_request_uri($with_params = TRUE)
     {
-        if (!empty($_SERVER['ORIG_REQUEST_URI'])) {
-            $retval = $_SERVER['ORIG_REQUEST_URI'];
+        if (!empty($_SERVER['NGG_ORIG_REQUEST_URI'])) {
+            $retval = $_SERVER['NGG_ORIG_REQUEST_URI'];
         } elseif (!empty($_SERVER['PATH_INFO'])) {
             $retval = $_SERVER['PATH_INFO'];
         } else {

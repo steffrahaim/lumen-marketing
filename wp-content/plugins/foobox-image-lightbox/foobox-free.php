@@ -4,7 +4,7 @@
 Plugin Name: FooBox Image Lightbox
 Plugin URI: http://fooplugins.com/plugins/foobox/
 Description: The best responsive lightbox for WordPress.
-Version: 1.1.11
+Version: 1.2.27
 Author: FooPlugins
 Author URI: http://fooplugins.com
 License: GPL2
@@ -16,11 +16,12 @@ Domain Path: /languages
 if ( !class_exists( 'FooBox' ) ) {
     define( 'FOOBOX_BASE_FILE', __FILE__ );
     define( 'FOOBOX_BASE_SLUG', 'foobox-image-lightbox' );
+    define( 'FOOBOX_BASE_PAGE_SLUG_OPTIN', 'foobox-image-lightbox-optin' );
     define( 'FOOBOX_BASE_PAGE_SLUG_SETTINGS', 'foobox-settings' );
     define( 'FOOBOX_BASE_ACTIVATION_REDIRECT_TRANSIENT_KEY', '_foobox_activation_redirect' );
     define( 'FOOBOX_BASE_PATH', plugin_dir_path( __FILE__ ) );
     define( 'FOOBOX_BASE_URL', plugin_dir_url( __FILE__ ) );
-    define( 'FOOBOX_BASE_VERSION', '1.1.11' );
+    define( 'FOOBOX_BASE_VERSION', '1.2.27' );
     // Create a helper function for easy SDK access.
     function foobox_fs()
     {
@@ -38,9 +39,13 @@ if ( !class_exists( 'FooBox' ) ) {
                 'has_addons'     => false,
                 'has_paid_plans' => true,
                 'menu'           => array(
-                'slug'       => 'foobox-image-lightbox',
-                'first-path' => 'admin.php?page=foobox-image-lightbox',
+                'slug'       => FOOBOX_BASE_SLUG,
+                'first-path' => 'admin.php?page=' . FOOBOX_BASE_SLUG,
                 'contact'    => false,
+            ),
+                'trial'          => array(
+                'days'               => 7,
+                'is_require_payment' => false,
             ),
                 'is_live'        => true,
             ) );
@@ -76,20 +81,10 @@ if ( !class_exists( 'FooBox' ) ) {
                 add_action( FOOBOX_ACTION_ADMIN_MENU_RENDER_GETTING_STARTED, array( $this, 'render_page_getting_started' ) );
                 foobox_fs()->add_filter( 'support_forum_submenu', array( $this, 'override_support_menu_text' ) );
                 foobox_fs()->add_filter( 'support_forum_url', array( $this, 'override_support_forum_url' ) );
+                foobox_fs()->add_filter( 'connect_url', array( $this, 'override_connect_url' ) );
                 add_action( 'admin_menu', array( $this, 'remove_admin_menu_items_on_mobile' ), WP_FS__LOWEST_PRIORITY + 1 );
                 foobox_fs()->add_action( 'after_premium_version_activation', array( 'FooBox', 'activate' ) );
-                foobox_fs()->add_filter(
-                    'connect_message',
-                    array( $this, 'custom_connect_message' ),
-                    10,
-                    6
-                );
-                foobox_fs()->add_filter(
-                    'connect_message_on_update',
-                    array( $this, 'custom_connect_message' ),
-                    10,
-                    6
-                );
+                add_action( 'admin_page_access_denied', array( $this, 'check_for_access_denies_after_account_deletion' ) );
             }
             
             //register activation hook for free
@@ -97,23 +92,12 @@ if ( !class_exists( 'FooBox' ) ) {
             require_once FOOBOX_BASE_PATH . 'free/foobox-free.php';
         }
         
-        public function custom_connect_message(
-            $message,
-            $user_first_name,
-            $plugin_title,
-            $user_login,
-            $site_link,
-            $freemius_link
-        )
+        public function override_connect_url( $url )
         {
-            return sprintf(
-                __fs( 'hey-x' ) . '<br>' . __( 'Never miss an important update: opt-in to our security and feature email updates, as well as non-sensitive diagnostic tracking with the Freemius.com service.', 'foobox-image-lightbox' ) . '<br>' . __( 'If you skip this, that\'s okay! %2$s will still work just fine.', 'foobox-image-lightbox' ),
-                $user_first_name,
-                '<b>' . $plugin_title . '</b>',
-                '<b>' . $user_login . '</b>',
-                $site_link,
-                $freemius_link
-            );
+            if ( is_object( foobox_fs()->get_site() ) ) {
+                return 'admin.php?page=' . FOOBOX_BASE_PAGE_SLUG_OPTIN;
+            }
+            return $url;
         }
         
         public function override_support_menu_text( $text )
@@ -124,6 +108,16 @@ if ( !class_exists( 'FooBox' ) ) {
         public function override_support_forum_url( $url )
         {
             return $url;
+        }
+        
+        public function check_for_access_denies_after_account_deletion()
+        {
+            global  $plugin_page ;
+            if ( FOOBOX_BASE_PAGE_SLUG_OPTIN === $plugin_page ) {
+                if ( !is_object( foobox_fs()->get_site() ) ) {
+                    fs_redirect( 'admin.php?page=' . FOOBOX_BASE_SLUG );
+                }
+            }
         }
         
         /**

@@ -235,6 +235,19 @@ class Mixin_Album_Mapper extends Mixin
         }
     }
 }
+class C_Exif_Writer_Wrapper
+{
+    // Because our C_Exif_Writer class relies on PEL (a library which uses namespaces) we wrap
+    // its use through this method which performs a PHP version check before loading the class file
+    public static function copy_metadata($old_file, $new_file)
+    {
+        if (version_compare(phpversion(), '5.3.0', '<')) {
+            return;
+        }
+        require_once __DIR__ . DIRECTORY_SEPARATOR . 'pel-0.9.6' . DIRECTORY_SEPARATOR . 'class.exif_writer.php';
+        C_Exif_Writer::copy_metadata($old_file, $new_file);
+    }
+}
 class Mixin_NextGen_Gallery_Validation
 {
     /**
@@ -867,6 +880,14 @@ class Mixin_GalleryStorage_Driver_Base extends Mixin
     {
         return $this->object->get_image_url($image, 'full', $check_existance);
     }
+    function get_image_checksum($image, $size = 'full')
+    {
+        $retval = NULL;
+        if ($image_abspath = $this->get_image_abspath($image, $size, TRUE)) {
+            $retval = md5_file($image_abspath);
+        }
+        return $retval;
+    }
     /**
      * Gets the dimensions for a particular-sized image
      *
@@ -1198,46 +1219,51 @@ class Mixin_GalleryStorage_Driver_Base extends Mixin
             if (!is_writable($upload_dir)) {
                 throw new E_InsufficientWriteAccessException(FALSE, $upload_dir, FALSE);
             }
-            // Save the image
-            if ($image_id = $this->object->_image_mapper->save($image)) {
-                try {
-                    // Try writing the image
-                    $fp = fopen($abs_filename, 'w');
-                    fwrite($fp, $data);
-                    fclose($fp);
-                    if ($settings->imgBackup) {
-                        $this->object->backup_image($image);
-                    }
-                    if ($settings->imgAutoResize) {
-                        $this->object->generate_image_clone($abs_filename, $abs_filename, $this->object->get_image_size_params($image_id, 'full'));
-                    }
-                    // Ensure that fullsize dimensions are added to metadata array
-                    $dimensions = getimagesize($abs_filename);
-                    $full_meta = array('width' => $dimensions[0], 'height' => $dimensions[1]);
-                    if (!isset($image->meta_data) or is_string($image->meta_data) && strlen($image->meta_data) == 0) {
-                        $image->meta_data = array();
-                    }
-                    $image->meta_data = array_merge($image->meta_data, $full_meta);
-                    $image->meta_data['full'] = $full_meta;
-                    // Generate a thumbnail for the image
-                    $this->object->generate_thumbnail($image);
-                    // Set gallery preview image if missing
-                    C_Gallery_Mapper::get_instance()->set_preview_image($gallery, $image_id, TRUE);
-                    // Notify other plugins that an image has been added
-                    do_action('ngg_added_new_image', $image);
-                    // delete dirsize after adding new images
-                    delete_transient('dirsize_cache');
-                    // Seems redundant to above hook. Maintaining for legacy purposes
-                    do_action('ngg_after_new_images_added', $gallery_id, array($image->{$image_key}));
-                } catch (E_No_Image_Library_Exception $ex) {
-                    throw $ex;
-                } catch (E_Clean_Exit $ex) {
-                    // pass
-                } catch (Exception $ex) {
-                    throw new E_InsufficientWriteAccessException(FALSE, $abs_filename, FALSE, $ex);
+            try {
+                // Try writing the image
+                $fp = fopen($abs_filename, 'wb');
+                fwrite($fp, $this->maybe_base64_decode($data));
+                fclose($fp);
+                // Save the image
+                $image_id = $this->object->_image_mapper->save($image);
+                if (!$image_id) {
+                    throw new E_InvalidEntityException();
                 }
-            } else {
-                throw new E_InvalidEntityException();
+                if ($settings->imgBackup) {
+                    $this->object->backup_image($image);
+                }
+                if ($settings->imgAutoResize) {
+                    $this->object->generate_image_clone($abs_filename, $abs_filename, $this->object->get_image_size_params($image_id, 'full'));
+                }
+                $this->object->_image_mapper->_use_cache = FALSE;
+                $image = $this->object->_image_mapper->find($image_id);
+                $this->object->_image_mapper->_use_cache = TRUE;
+                // Ensure that fullsize dimensions are added to metadata array
+                $dimensions = getimagesize($abs_filename);
+                $full_meta = array('width' => $dimensions[0], 'height' => $dimensions[1], 'md5' => $this->object->get_image_checksum($image, 'full'));
+                if (!isset($image->meta_data) or is_string($image->meta_data) && strlen($image->meta_data) == 0) {
+                    $image->meta_data = array();
+                }
+                $image->meta_data = array_merge($image->meta_data, $full_meta);
+                $image->meta_data['full'] = $full_meta;
+                // Don't forget to append the 'full' entry in meta_data in the db
+                $this->object->_image_mapper->save($image);
+                // Generate a thumbnail for the image
+                $this->object->generate_thumbnail($image);
+                // Set gallery preview image if missing
+                C_Gallery_Mapper::get_instance()->set_preview_image($gallery, $image_id, TRUE);
+                // Notify other plugins that an image has been added
+                do_action('ngg_added_new_image', $image);
+                // delete dirsize after adding new images
+                delete_transient('dirsize_cache');
+                // Seems redundant to above hook. Maintaining for legacy purposes
+                do_action('ngg_after_new_images_added', $gallery_id, array($image->{$image_key}));
+            } catch (E_No_Image_Library_Exception $ex) {
+                throw $ex;
+            } catch (E_Clean_Exit $ex) {
+                // pass
+            } catch (Exception $ex) {
+                throw new E_InsufficientWriteAccessException(FALSE, $abs_filename, FALSE, $ex);
             }
         } else {
             throw new E_EntityNotFoundException();
@@ -1246,6 +1272,18 @@ class Mixin_GalleryStorage_Driver_Base extends Mixin
             @ini_set('memory_limit', $memory_limit . 'M');
         }
         return $retval;
+    }
+    function maybe_base64_decode($data)
+    {
+        $decoded = base64_decode($data);
+        if ($decoded === FALSE) {
+            return $data;
+        } else {
+            if (base64_encode($decoded) == $data) {
+                return base64_decode($data);
+            }
+        }
+        return $data;
     }
     function import_gallery_from_fs($abspath, $gallery_id = FALSE, $create_new_gallerypath = TRUE, $gallery_title = NULL, $filenames = array())
     {
@@ -1623,6 +1661,7 @@ class Mixin_GalleryStorage_Driver_Base extends Mixin
      * @param string $image_path
      * @param string $clone_path
      * @param array $params
+     * @param bool $save Whether to call the image save() method
      * @return object
      */
     function generate_image_clone($image_path, $clone_path, $params)
@@ -1757,13 +1796,7 @@ class Mixin_GalleryStorage_Driver_Base extends Mixin
                 }
                 $thumbnail = apply_filters('ngg_before_save_thumbnail', $thumbnail);
                 $thumbnail->save($destpath, $quality);
-                // IF the original contained IPTC metadata we should attempt to copy it
-                if (isset($detailed_size['APP13']) && function_exists('iptcembed')) {
-                    $metadata = @iptcembed($detailed_size['APP13'], $destpath);
-                    $fp = @fopen($destpath, 'wb');
-                    @fwrite($fp, $metadata);
-                    @fclose($fp);
-                }
+                C_Exif_Writer_Wrapper::copy_metadata($image_path, $destpath);
             }
         }
         return $thumbnail;
@@ -1938,7 +1971,7 @@ class Mixin_Gallery_Image_Mapper extends Mixin
     function _save_entity($entity)
     {
         $entity->updated_at = time();
-        // If successfully saved, then import metadata and
+        // If successfully saved then import metadata
         $retval = $this->call_parent('_save_entity', $entity);
         if ($retval) {
             include_once NGGALLERY_ABSPATH . '/admin/functions.php';
@@ -2098,7 +2131,59 @@ class C_Image_Wrapper
             $columns = 0;
         }
         // Public variables
-        $defaults = array('errmsg' => '', 'error' => FALSE, 'imageURL' => '', 'thumbURL' => '', 'imagePath' => '', 'thumbPath' => '', 'href' => '', 'thumbPrefix' => 'thumbs_', 'thumbFolder' => '/thumbs/', 'galleryid' => 0, 'pid' => 0, 'filename' => '', 'description' => '', 'alttext' => '', 'imagedate' => '', 'exclude' => '', 'thumbcode' => '', 'name' => '', 'path' => '', 'title' => '', 'pageid' => 0, 'previewpic' => 0, 'style' => $columns > 0 ? 'style="width:' . floor(100 / $columns) . '%;"' : '', 'hidden' => FALSE, 'permalink' => '', 'tags' => '');
+        $defaults = array(
+            'errmsg' => '',
+            // Error message to display, if any
+            'error' => FALSE,
+            // Error state
+            'imageURL' => '',
+            // URL Path to the image
+            'thumbURL' => '',
+            // URL Path to the thumbnail
+            'imagePath' => '',
+            // Server Path to the image
+            'thumbPath' => '',
+            // Server Path to the thumbnail
+            'href' => '',
+            // A href link code
+            // Mostly constant
+            'thumbPrefix' => 'thumbs_',
+            // FolderPrefix to the thumbnail
+            'thumbFolder' => '/thumbs/',
+            // Foldername to the thumbnail
+            // Image Data
+            'galleryid' => 0,
+            // Gallery ID
+            'pid' => 0,
+            // Image ID
+            'filename' => '',
+            // Image filename
+            'description' => '',
+            // Image description
+            'alttext' => '',
+            // Image alttext
+            'imagedate' => '',
+            // Image date/time
+            'exclude' => '',
+            // Image exclude
+            'thumbcode' => '',
+            // Image effect code
+            // Gallery Data
+            'name' => '',
+            // Gallery name
+            'path' => '',
+            // Gallery path
+            'title' => '',
+            // Gallery title
+            'pageid' => 0,
+            // Gallery page ID
+            'previewpic' => 0,
+            // Gallery preview pic
+            'style' => $columns > 0 ? 'style="width:' . floor(100 / $columns) . '%;"' : '',
+            'hidden' => FALSE,
+            'permalink' => '',
+            'tags' => '',
+        );
         // convert the image to an array and apply the defaults
         $this->_orig_image = $image;
         $image = (array) $image;
@@ -2603,11 +2688,8 @@ class C_NextGen_Metadata extends C_Component
     function get_saved_meta($object = false)
     {
         $meta = $this->image->meta_data;
-        if (!isset($meta['saved'])) {
-            $meta['saved'] = FALSE;
-        }
-        //check if we already import the meta data to the database
-        if (!is_array($meta) || $meta['saved'] != true) {
+        // Check if we already import the meta data to the database
+        if (!is_array($meta) || !isset($meta['saved']) || $meta['saved'] !== TRUE) {
             return false;
         }
         // return one element if requested

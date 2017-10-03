@@ -47,37 +47,6 @@ if ( !class_exists( 'FooBox_Free_Settings' ) ) {
 				'tab'     => 'general'
 			);
 
-			$sections['show_love'] = array(
-				'tab' => 'settings',
-				'name' => __('Show us some love! We would really appreciate your support.', 'foobox-image-lightbox')
-			);
-
-			$settings[] = array(
-				'id'      => 'powered_by_link',
-				'title'   => __( 'Show "powered by" link', 'foobox-image-lightbox' ),
-				'desc'    => __( 'Help support this free plugin by displaying a small "powered by foobox" link under the lightbox.', 'foobox-image-lightbox' )
-					. '<br />' . __('View the demo on this page to see the "powered by" link in action.', 'foobox-image-lightbox'),
-				'default' => 'off',
-				'type'    => 'checkbox',
-				'section' => 'show_love',
-				'tab'     => 'general'
-			);
-
-			$become_affiliate_link = sprintf( '<br /><a target="_blank" href="%s">%s</a> %s',
-				Foobox_Free::BECOME_AFFILIATE_URL,
-				__( 'Become an affiliate', 'foobox-image-lightbox' ),
-				__( ' and paste in your affiliate URL above.', 'foobox-image-lightbox' )
-			);
-
-			$settings[] = array(
-				'id'      => 'powered_by_url',
-				'title'   => __( 'Affiliate Link', 'foobox-image-lightbox' ),
-				'desc'    => __( 'If you show the "powered by" link, you can promote FooBox and make a commission from sales. Everybody wins!', 'foobox-image-lightbox' ) . $become_affiliate_link,
-				'type'    => 'text',
-				'section' => 'show_love',
-				'tab'     => 'general'
-			);
-
 			$sections['settings'] = array(
 				'tab' => 'settings',
 				'name' => __('Display Settings', 'foobox-image-lightbox')
@@ -112,6 +81,26 @@ if ( !class_exists( 'FooBox_Free_Settings' ) ) {
 				'section' => 'settings',
 				'tab'     => 'general'
 			);
+
+			$settings[] = array(
+				'id'      => 'count_message',
+				'title'   => __( 'Count Message', 'foobox' ),
+				'desc'    => __( 'the message to use as the item counter. The fields <code>%index</code> and <code>%total</code> can be used to substitute the correct values. <br/ >Example : <code>item %index / %total</code> would result in <code>item 1 / 7</code>', 'foobox-image-lightbox' ),
+				'default' => 'item %index of %total',
+				'type'    => 'text',
+				'section' => 'settings',
+				'tab'     => 'general'
+			);
+
+			$settings[] = array(
+				'id'      => 'hide_caption',
+				'title'   => __( 'Hide Captions', 'foobox' ),
+				'desc'    => __( 'Whether or not to hide captions for images.', 'foobox' ),
+				'type'    => 'checkbox',
+				'section' => 'settings',
+				'tab'     => 'general'
+			);
+
 			$settings[] = array(
 				'id'      => 'captions_show_on_hover',
 				'title'   => __( 'Show Captions On Hover', 'foobox-image-lightbox' ),
@@ -142,6 +131,14 @@ if ( !class_exists( 'FooBox_Free_Settings' ) ) {
 				'title'   => __( 'Close On Overlay Click', 'foobox-image-lightbox' ),
 				'desc'    => __( 'Should the FooBox lightbox close when the overlay is clicked.', 'foobox-image-lightbox' ),
 				'default' => 'on',
+				'type'    => 'checkbox',
+				'tab'     => 'advanced'
+			);
+
+			$settings[] = array(
+				'id'      => 'disable_defer_js',
+				'title'   => __( 'Disable Defer Javascript', 'foobox' ),
+				'desc'    => __( 'By default, we defer running the FooBox javascript to work with most optimization plugins. You can choose to turn this off if there are problems.', 'foobox-image-lightbox' ),
 				'type'    => 'checkbox',
 				'tab'     => 'advanced'
 			);

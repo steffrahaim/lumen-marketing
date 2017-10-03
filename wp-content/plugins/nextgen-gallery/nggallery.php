@@ -3,8 +3,8 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 
 /**
  * Plugin Name: NextGEN Gallery
- * Description: The most popular gallery plugin for WordPress and one of the most popular plugins of all time with over 16 million downloads.
- * Version: 2.1.77
+ * Description: The most popular gallery plugin for WordPress and one of the most popular plugins of all time with over 18 million downloads.
+ * Version: 2.2.14
  * Author: Imagely
  * Plugin URI: https://www.imagely.com/wordpress-gallery-plugin/nextgen-gallery/
  * Author URI: https://www.imagely.com
@@ -60,7 +60,7 @@ if (!function_exists('nextgen_esc_url')) {
 }
 
 /**
- * NextGEN Gallery is built on top of the Photocrati Pope Framework:
+ * NextGEN Gallery is built on top of the Pope Framework:
  * https://bitbucket.org/photocrati/pope-framework
  *
  * Pope constructs applications by assembling modules.
@@ -160,7 +160,7 @@ class C_NextGEN_Bootstrap
 
 	function is_activating()
 	{
-        $retval =  strpos($_SERVER['REQUEST_URI'], 'plugins.php') !== FALSE && isset($_REQUEST['action']) && in_array($_REQUEST['action'], array('activate', 'activate-selected'));
+        $retval =  strpos($_SERVER['REQUEST_URI'], 'plugins.php') !== FALSE && isset($_REQUEST['action']) && in_array($_REQUEST['action'], array('activate-selected'));
 
 		if (!$retval && strpos($_SERVER['REQUEST_URI'], 'update.php') !== FALSE && isset($_REQUEST['action']) && $_REQUEST['action'] == 'install-plugin' && isset($_REQUEST['plugin']) && strpos($_REQUEST['plugin'], 'nextgen-gallery') === 0) {
 			$retval = TRUE;
@@ -178,10 +178,17 @@ class C_NextGEN_Bootstrap
 		// Load caching component
 		include_once('non_pope/class.photocrati_transient_manager.php');
 
-		if (isset($_REQUEST['ngg_flush']) OR isset($_REQUEST['ngg_flush_expired'])) {
+		if (isset($_REQUEST['ngg_flush']))
+		{
 			C_Photocrati_Transient_Manager::flush();
 			die("Flushed all caches");
 		}
+
+        if (isset($_REQUEST['ngg_flush_expired']))
+        {
+            C_Photocrati_Transient_Manager::get_instance()->flush_expired();
+            die("Flushed all expired caches");
+        }
 
 		// Load Settings Manager
 		include_once('non_pope/class.photocrati_settings_manager.php');
@@ -209,6 +216,7 @@ class C_NextGEN_Bootstrap
         // If a plugin wasn't activated/deactivated siliently, we can listen for these things
 	    if (did_action('activate_plugin') || did_action('deactivate_plugin')) return;
 	    else if (strpos($_SERVER['REQUEST_URI'], 'plugins') !== FALSE) return;
+	    else if (!$this->is_page_request()) return;
 
 		$plugins = get_option('active_plugins');
 
@@ -384,12 +392,12 @@ class C_NextGEN_Bootstrap
 		// Delete displayed gallery transients periodically
 		if (NGG_CRON_ENABLED) {
 			add_filter('cron_schedules', array(&$this, 'add_ngg_schedule'));
-			add_action('ngg_delete_expired_transients', array(&$this, 'delete_expired_transients'));
+			add_action('ngg_delete_expired_transients', array($this, 'delete_expired_transients'));
 			add_action('wp', array(&$this, 'schedule_cron_jobs'));
 		}
 
 		// Update modules
-		add_action('init', array(&$this, 'update'), PHP_INT_MAX-1);
+		add_action('init', array(&$this, 'update'), PHP_INT_MAX-2);
 
 		// Start the plugin!
 		add_action('init', array(&$this, 'route'), 11);
@@ -493,7 +501,7 @@ class C_NextGEN_Bootstrap
 	 */
 	function delete_expired_transients()
 	{
-		C_Photocrati_Transient_Manager::flush();
+        C_Photocrati_Transient_Manager::get_instance()->flush_expired();
 	}
 
 	/**
@@ -606,6 +614,11 @@ class C_NextGEN_Bootstrap
 		}
 	}
 
+    function is_page_request()
+    {
+        return !(defined('DOING_AJAX') && DOING_AJAX) && !(defined('DOING_CRON') && DOING_CRON) && !(defined('NGG_AJAX_SLUG') && strpos($_SERVER['REQUEST_URI'], NGG_AJAX_SLUG) !== FALSE);
+    }
+
 	/**
 	 * Run the uninstaller
 	 */
@@ -631,7 +644,7 @@ class C_NextGEN_Bootstrap
 		define('NGG_PRODUCT_URL', path_join(str_replace("\\", '/', NGG_PLUGIN_URL), 'products'));
 		define('NGG_MODULE_URL', path_join(str_replace("\\", '/', NGG_PRODUCT_URL), 'photocrati_nextgen/modules'));
 		define('NGG_PLUGIN_STARTED_AT', microtime());
-		define('NGG_PLUGIN_VERSION', '2.1.77');
+		define('NGG_PLUGIN_VERSION', '2.2.14');
 
 		if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG)
 			define('NGG_SCRIPT_VERSION', (string)mt_rand(0, mt_getrandmax()));
@@ -1003,7 +1016,6 @@ function ngg_fs( $activate_for_all = false ) {
 	*/
 
 	// Hook to the custom message filter.
-	$ngg_fs->add_filter( 'connect_message', 'ngg_fs_custom_connect_message', 10, 6 );
 	$ngg_fs->add_action( 'after_uninstall', 'ngg_fs_uninstall' );
 
 	// Hook to new gallery creation event.

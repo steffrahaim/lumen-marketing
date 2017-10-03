@@ -1,6 +1,28 @@
 Changelog
 =========
 
+1.5.8.5 (2017-09-05):
+- Change default click tracking setting to `htmlonly` (https://github.com/mailgun/wordpress-plugin/pull/58)
+- Change PHPMailer set-up stanza to use TLS
+
+1.5.8.4 (2017-06-28):
+- Packaging fix which takes care of an odd filtering issue (https://wordpress.org/support/topic/1-5-8-3-broke-the-mg_mutate_message_body-filter)
+
+1.5.8.3 (2017-06-13):
+- Fix a bug causing only the last header value to be used when multiple headers of the same type are specified (https://wordpress.org/support/topic/bug-with-mg_parse_headers/)
+- Added `pt_BR` translations (thanks @emersonbroga)
+
+1.5.8.2 (2017-02-27):
+- Fix a bug causing empty tags to be sent with messages (#51)
+- Add `mg_mutate_message_body` hook to allow other plugins to modify the message body before send
+- Add `mg_mutate_attachments` hook to allow other plugins to modify the message attachments before send
+- Fix a bug causing the AJAX test to fail incorrectly.
+
+1.5.8.1 (2017-02-06):
+- Fix "Undefined property: MailgunAdmin::$hook_suffix" (#48)
+- Fix "Undefined variable: from_name on every email process" (API and SMTP) (#49)
+- Admin code now loads only on admin user access
+
 1.5.8 (2017-01-23):
 * Rewrite a large chunk of old SMTP code
 * Fix a bug with SMTP + "override from" that was introduced in 1.5.7

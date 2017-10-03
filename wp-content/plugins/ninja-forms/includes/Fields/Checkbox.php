@@ -42,12 +42,15 @@ class NF_Fields_Checkbox extends NF_Abstracts_Input
     {
         $checked = ( $value ) ? "checked" : "";
 
-        return "<input type='checkbox' name='fields[$id]' id='' $checked>";
+        return "<input type='hidden' name='fields[$id]' value='0' >
+                <input type='checkbox' name='fields[$id]' id='' $checked>";
     }
 
     public function custom_columns( $value, $field )
     {
-        if( 'checkbox' == $field->get_setting( 'type' ) ){
+        if( 'checkbox' == $field->get_setting( 'type' ) ) {
+            if ( __( 'checked', 'ninja-forms' ) == $value ||
+                 __( 'unchecked', 'ninja-forms' ) == $value ) return $value;
             $value = ( $value ) ? __( 'checked', 'ninja-forms' ) : __( 'unchecked', 'ninja-forms' );
         }
         return $value;
@@ -55,23 +58,8 @@ class NF_Fields_Checkbox extends NF_Abstracts_Input
 
     public function filter_merge_tag_value( $value, $field )
     {
-        if( $value ){
-            if( isset( $field[ 'checked_calc_value' ] ) && '' != $field[ 'checked_calc_value' ] ) {
-                return $field['checked_calc_value'];
-            } else {
-                return __( 'checked', 'ninja-forms' );
-            }
-        }
-
-        if( ! $value ){
-            if( isset( $field[ 'unchecked_calc_value' ] ) && '' != $field[ 'unchecked_calc_value' ] ) {
-                return $field['unchecked_calc_value'];
-            } else {
-                return __( 'unchecked', 'ninja-forms' );
-            }
-        }
-
-        return $value;
+        if( $value ) return __( 'checked', 'ninja-forms' );
+        return __( 'unchecked', 'ninja-forms' );
     }
 
     public function filter_merge_tag_value_calc( $value, $field )
@@ -80,7 +68,9 @@ class NF_Fields_Checkbox extends NF_Abstracts_Input
     }
 
     public function export_value( $value ) {
-        if ( 1 == $value ) {
+        if ( __( 'checked', 'ninja-forms' ) == $value ||
+             __( 'unchecked', 'ninja-forms' ) == $value ) return $value;
+        if ( $value ) {
             return __( 'checked', 'ninja-forms' );
         } else {
             return __( 'unchecked', 'ninja-forms' );
