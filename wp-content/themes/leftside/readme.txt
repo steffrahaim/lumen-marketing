@@ -1,7 +1,7 @@
 === LeftSide ===
 Contributors: Guido07111975
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=donation%40guidovanderleest%2enl
-Version: 5.2
+Version: 5.3
 Requires at least: 4.2
 Tested up to: 4.8
 License: GNU General Public License v3 or later
@@ -39,6 +39,11 @@ You can create and set a menu via WordPress Dashboard > Appearance > Menus.
 
 = Menu title =
 You can change the menu title via WordPress Dashboard > Appearance > Customize.
+
+= Blog =
+You can set a page title and content above your posts via WordPress Dashboard > Appearance > Customize.
+
+And you can change the way how posts are displayed via WordPress Dashboard > Appearance > Customize.
 
 
 == Copyright ==

@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+LeftSide version 5.3 - november 2017
+- last update: this theme will be removed from repository
+- you can keep using theme, but without updates and without support from author
+- added new options in customizer for blog page and posts
+- file style: relocated border-bottom from css class .more to css class .post-list
+
 LeftSide version 5.2 - september 2017
 - fixed display issue with mobile menu
 - added div container around mobile menu

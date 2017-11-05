@@ -1,7 +1,7 @@
 /*
 Theme Name: LeftSide
 Theme URI: http://www.guidovanderleest.nl/leftside
-Version: 5.2
+Version: 5.3
 Author: Guido van der Leest
 Author URI: http://www.guidovanderleest.nl
 Description: LeftSide is a free, clean, minimalistic, responsive, mobile-friendly WordPress theme. Features: sidebar, sidebar navigation, footer widgets, custom header image, custom background, custom logo to replace site title and tagline. For more info please check readme file. Enjoy.
@@ -189,12 +189,13 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 
 /* PAGE */
 .page-title {margin:0 0 20px;}
+.blog-page-text {clear:both; margin:0 0 20px;}
 .archive-description {width:100%; clear:both; float:left; font-style:italic;}
 .pagelink {width:100%; clear:both; float:left; padding:20px 0 10px;}
 
 
 /* POST */
-.post-list {width:100%; clear:both; float:left;}
+.post-list {width:100%; clear:both; float:left; margin:0 0 20px; border-bottom:1px solid #ccc;}
 .post-single {width:100%; clear:both; float:left;}
 .post-title {margin:0 0 20px;}
 .post-title a:hover {color:#333; text-decoration:none;}
@@ -202,7 +203,7 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 .entry-content {width:100%; clear:both; float:left; margin:0 0 20px;}
 .sticky-title {margin:0 0 20px; padding:2px 0; border-top:1px solid #ccc; border-bottom:1px solid #ccc; text-align:center;}
 .postmetadata {clear:both; margin:0 0 20px; padding:5px 10px; background:#f8f8f8; border:1px solid #ccc; border-radius:5px;}
-.more {width:100%; clear:both; float:left; margin:0 0 20px; padding:0 0 20px; border-bottom:1px solid #ccc;}
+.more {width:100%; clear:both; float:left; padding:0 0 20px;}
 a.readmore {float:right; padding:2px 5px; background:#e77776; color:#fff; text-decoration:none; border-radius:5px;}
 a.readmore:hover {background:#666; color:#ddd; text-decoration:none;}
 

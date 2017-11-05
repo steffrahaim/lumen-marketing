@@ -6,6 +6,18 @@
 
 <?php get_header(); ?>
 <div id="content">
+	<?php if ( is_home() ) { ?> 
+		<?php if ( get_theme_mod( 'leftside_blog_title' ) ) : ?>
+			<h1 class="page-title">
+				<?php echo esc_attr( get_theme_mod('leftside_blog_title') ); ?>
+			</h1>
+		<?php endif; ?>
+		<?php if ( get_theme_mod( 'leftside_blog_content' ) ) : ?>
+			<div class="blog-page-text">
+				<?php echo wpautop(wp_kses_post( get_theme_mod('leftside_blog_content') ) ); ?>
+			</div>
+		<?php endif; ?>
+	<?php } ?>
 	<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>

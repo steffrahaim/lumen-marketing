@@ -201,7 +201,65 @@
 			'section' => 'leftside_menu_title_section', 
 			'settings' => 'leftside_menu_title', 
 		) ) );
-
+		$wp_customize->add_section( 'leftside_blog_section' , array( 
+			'title' => __( 'Blog Page', 'leftside' ), 
+			'priority' => 32, 
+			'description' => __( 'Set a page title and content above your posts.', 'leftside' ),
+		) );
+		$wp_customize->add_setting( 'leftside_blog_title', array( 
+			'capability' => 'edit_theme_options', 
+			'sanitize_callback' => 'sanitize_text_field', 
+		) ); 
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'leftside_blog_title', array( 
+			'label' => __( 'Title', 'leftside' ), 
+			'section' => 'leftside_blog_section', 
+			'settings' => 'leftside_blog_title', 
+		) ) );
+		$wp_customize->add_setting( 'leftside_blog_content', array( 
+			'capability' => 'edit_theme_options', 
+			'sanitize_callback' => 'wp_kses_post', 
+		) ); 
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'leftside_blog_content', array( 
+			'label' => __( 'Content', 'leftside' ), 
+			'type' => 'textarea', 
+			'section' => 'leftside_blog_section', 
+			'settings' => 'leftside_blog_content', 
+		) ) );
+		$wp_customize->add_section( 'leftside_post_section' , array( 
+			'title' => __( 'Posts', 'leftside' ), 
+			'priority' => 33, 
+			'description' => __( 'Customize the way how posts are displayed.', 'leftside' ),
+		) );
+		$wp_customize->add_setting( 'leftside_content_type', array( 
+			'capability' => 'edit_theme_options', 
+			'sanitize_callback' => 'sanitize_text_field', 
+			'default' => 'yes', 
+		) ); 
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'leftside_content_type', array( 
+			'label' => __( 'Show a summary', 'leftside' ), 
+			'section' => 'leftside_post_section', 
+			'settings' => 'leftside_content_type', 
+			'type' => 'radio', 
+			'choices' => array( 
+				'yes' => __('Yes', 'leftside'), 
+				'no' => __('No', 'leftside'), 
+			), 
+		) ) );
+		$wp_customize->add_setting( 'leftside_read_more', array( 
+			'capability' => 'edit_theme_options', 
+			'sanitize_callback' => 'sanitize_text_field', 
+			'default' => 'yes', 
+		) ); 
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'leftside_read_more', array( 
+			'label' => __( 'Show Read More button', 'leftside' ), 
+			'section' => 'leftside_post_section', 
+			'settings' => 'leftside_read_more', 
+			'type' => 'radio', 
+			'choices' => array( 
+				'yes' => __('Yes', 'leftside'), 
+				'no' => __('No', 'leftside'), 
+			), 
+		) ) );
 	} 
 	add_action('customize_register', 'leftside_theme_customizer');
 

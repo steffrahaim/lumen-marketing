@@ -271,6 +271,12 @@ p {
 	text-align: justify;
 }
 
+@media screen and (max-width:769px){
+	p {
+	text-align: left;
+	}
+}
+
 p.caption {
 	text-align: center;
 }
@@ -414,6 +420,35 @@ a.video-thumb:focus,
 a.video-thumb:active{
 	opacity: .8;
 
+}
+
+
+
+/*nggallery thumbnails - LG VPs*/
+.thumbnails-container {
+	width: 100%; 
+	margin 0;
+	clear: none !important;
+	display: flex;
+	font-variant: small-caps;
+	font-size: .9em;
+	padding-bottom: 50px;
+
+}
+
+@media screen and (max-width: 767px){
+	.thumbnails-container {
+		font-size: .6em;
+		line-height: 1.5em;
+		padding-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.thumbnail-captions {
+		font-size: .7em;
+		line-height: 1.5em;
+	}
 }
 
 /* Single Video Page - Vertical*/
@@ -661,15 +696,14 @@ img.ri:focus {
 	}
 }
 
-#logo-link:empty
-{
+#logo-link:empty {
 	left: 50%;
 	top: 50%;
 }
 
 
 /*Video Background*/
-.fullscreen-bg {
+.fullscreen-bg{
     position: fixed;
     top: 0;
     right: 0;
@@ -679,7 +713,24 @@ img.ri:focus {
     z-index: -100;
 }
 
-.fullscreen-bg__video {
+.mobile-bg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100vw;
+	height: 100vh;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	object-position: center;
+	object-fit: cover;
+	display: none;
+}
+
+
+
+.fullscreen-bg__video{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -692,6 +743,16 @@ img.ri:focus {
     object-position: center;
     object-fit: cover;
 }
+
+@media screen and (max-width: 736px) {
+	.fullscreen-bg__video {
+		display: none;
+	}
+	.mobile-bg {
+		display: initial;
+	}
+}
+
 
 /*-------------------------------
 SIDEBAR
@@ -1353,6 +1414,15 @@ div.pdfemb-toolbar {
   margin:0px !important;
 }
 
+/* hide play button in mobile*/
+@media screen and (max-width: 769px){
+	.kgvid_wrapper 
+	.video-js.vjs-controls-enabled.vjs-paused 
+	.vjs-big-play-button {
+		display: none !important;
+	}
+}
+
 /*Foobox*/
 
 
@@ -1497,6 +1567,7 @@ opacity:.8;
     margin-right: 2%;
     margin-bottom: 2%;
 }
+
 /*-------------------------------
 PASSWORD PROTECT PAGE
 -------------------------------*/
@@ -1544,5 +1615,8 @@ font-variant: small-caps;
 
 .nf-form-cont {
 	 padding: 10px 10px 0 10px;
+
 }
+
+
 

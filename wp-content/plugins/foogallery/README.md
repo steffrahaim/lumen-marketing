@@ -1,7 +1,7 @@
 ![Plugin Banner](https://s3.amazonaws.com/foogallery/banner-772x250.jpg)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fooplugins/foogallery/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/fooplugins/foogallery/?branch=develop)
-# FooGallery - Image Gallery WordPress Plugin #
+# Foo Gallery #
 **Contributors:** bradvin, fooplugins
 
 **Donate link:** http://fooplugins.com
@@ -10,7 +10,7 @@
 
 **Requires at least:** 3.9
 
-**Tested up to:** 4.8
+**Tested up to:** 4.6.1
 
 **Stable tag:** trunk
 
@@ -18,11 +18,12 @@
 
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
-FooGallery is the best image gallery plugin for WordPress. Why? Stunning gallery layouts, responsive, retina-ready, lightning fast, easy to use.
+
+Foo Gallery is the most intuitive and extensible gallery management tool ever created for WordPress.
 
 ## Description ##
 
-FooGallery is the best image gallery plugin for WordPress. Why? Stunning gallery layouts, responsive, retina-ready, lightning fast, easy to use. Built to be highly configurable and extensible for developers or freelancers.
+Foo Gallery allows for better image and video gallery management within WordPress. Built to be simple for users and highly flexible for developers.
 
 [View the Foo Gallery Homepage & DEMO](http://foo.gallery/)
 
@@ -155,44 +156,6 @@ Hell, yes! Check out our [developer page](http://foo.gallery/developers/)
 Update now to support FooVideo and many other improvements!
 
 ## Changelog ##
-
-### 1.3.8 ###
-
-* New : Built in support for FooBox, fixing a lot of issues where FooBox option is not available
-* Fix : More reliable extension active status on extensions listing
-* Fix : More obvious wording for 3rd party plugins when they are not installed
-
-### 1.3.7 ###
-
-* Fix : Activation redirect bug showing "Sorry, you are not allowed to access this page."
-
-### 1.3.6 ###
-
-* New : Freemius integration!
-* New : Added support for the Responsive Lightbox by dFactory
-* New : New custom class field for an attachment
-* New : Added more system info for better debugging when there are server issues
-* Fix : Visual editor FooGallery edit button
-* Fix : Image Viewer hover effect none now works as expected
-* Fix : Disable HTML caching for randomly ordered galleries
-
-### 1.2.20 ###
-
-* New : Force Use Original thumb setting on gallery edit page
-* Fix : PHP warning from thumbnail class since 1.2.19
-
-### 1.2.19 ###
-
-* New : Gallery output caching! Saves database requests improving load time
-* New : Gallery usage column in admin gallery listing
-* New : Better support for animated gifs
-* New : Hover icons retina support
-* New : Uninstall button on settings
-* New : Save thumb dimensions per attachment. (needed in future versions)
-* Fix : Extensions refactor and many issues resolved
-* Fix : Better retina support for all templates
-* Fix : Colorize / Greyscale CSS filters
-* Fix : Even better wpthumb compatibility
 
 ### 1.2.18 ###
 

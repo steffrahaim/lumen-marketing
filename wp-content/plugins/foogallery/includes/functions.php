@@ -141,7 +141,7 @@ function foogallery_admin_add_gallery_url() {
  * @return string The Url to the FooGallery help page in admin
  */
 function foogallery_admin_help_url() {
-	return admin_url( add_query_arg( array( 'page' => FOOGALLERY_ADMIN_MENU_HELP_SLUG ), foogallery_admin_menu_parent_slug() ) );
+	return admin_url( add_query_arg( array( 'page' => 'foogallery-help' ), foogallery_admin_menu_parent_slug() ) );
 }
 
 /**
@@ -150,7 +150,7 @@ function foogallery_admin_help_url() {
  * @return string The Url to the FooGallery settings page in admin
  */
 function foogallery_admin_settings_url() {
-	return admin_url( add_query_arg( array( 'page' => FOOGALLERY_ADMIN_MENU_SETTINGS_SLUG ), foogallery_admin_menu_parent_slug() ) );
+	return admin_url( add_query_arg( array( 'page' => 'foogallery-settings' ), foogallery_admin_menu_parent_slug() ) );
 }
 
 /**
@@ -159,7 +159,7 @@ function foogallery_admin_settings_url() {
  * @return string The Url to the FooGallery extensions page in admin
  */
 function foogallery_admin_extensions_url() {
-	return admin_url( add_query_arg( array( 'page' => FOOGALLERY_ADMIN_MENU_EXTENSIONS_SLUG ), foogallery_admin_menu_parent_slug() ) );
+	return admin_url( add_query_arg( array( 'page' => 'foogallery-extensions' ), foogallery_admin_menu_parent_slug() ) );
 }
 
 /**
@@ -168,7 +168,7 @@ function foogallery_admin_extensions_url() {
  * @return string The Url to the FooGallery system info page in admin
  */
 function foogallery_admin_systeminfo_url() {
-	return admin_url( add_query_arg( array( 'page' => FOOGALLERY_ADMIN_MENU_SYSTEMINFO_SLUG ), foogallery_admin_menu_parent_slug() ) );
+	return admin_url( add_query_arg( array( 'page' => 'foogallery-systeminfo' ), foogallery_admin_menu_parent_slug() ) );
 }
 
 /**
@@ -761,45 +761,4 @@ function foogallery_retina_options() {
         '3x' => __('3x', 'foogallery'),
         '4x' => __('4x', 'foogallery')
     ) );
-}
-
-/**
- * Does a full uninstall of the plugin including all data and settings!
- */
-function foogallery_uninstall() {
-
-	if ( !current_user_can( 'install_plugins' ) ) exit;
-
-	//delete all gallery posts first
-	global $wpdb;
-	$query = "SELECT p.ID FROM {$wpdb->posts} AS p WHERE p.post_type IN (%s)";
-	$gallery_post_ids = $wpdb->get_col( $wpdb->prepare( $query, FOOGALLERY_CPT_GALLERY ) );
-
-	if ( !empty( $gallery_post_ids ) ) {
-		$deleted = 0;
-		foreach ( $gallery_post_ids as $post_id ) {
-			$del = wp_delete_post( $post_id );
-			if ( false !== $del ) {
-				++$deleted;
-			}
-		}
-	}
-
-	//delete all options
-	if ( is_network_admin() ) {
-		delete_site_option( FOOGALLERY_SLUG );
-	} else {
-		delete_option( FOOGALLERY_SLUG );
-	}
-	delete_option( FOOGALLERY_OPTION_VERSION );
-	delete_option( FOOGALLERY_OPTION_THUMB_TEST );
-	delete_option( FOOGALLERY_EXTENSIONS_SLUGS_OPTIONS_KEY );
-	delete_option( FOOGALLERY_EXTENSIONS_LOADING_ERRORS );
-	delete_option( FOOGALLERY_EXTENSIONS_LOADING_ERRORS_RESPONSE );
-	delete_option( FOOGALLERY_EXTENSIONS_SLUGS_OPTIONS_KEY );
-	delete_option( FOOGALLERY_EXTENSIONS_ACTIVATED_OPTIONS_KEY );
-	delete_option( FOOGALLERY_EXTENSIONS_ERRORS_OPTIONS_KEY );
-
-	//let any extensions clean up after themselves
-	do_action( 'foogallery_uninstall' );
 }

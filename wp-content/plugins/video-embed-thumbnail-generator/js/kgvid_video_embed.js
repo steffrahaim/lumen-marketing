@@ -303,7 +303,13 @@ function kgvid_add_hover(id) {
 
 function kgvid_load_videojs(video_vars) {
 
-	var videojs_options = { "html5": { "nativeTextTracks" : false }, "language": video_vars.locale };
+	var videojs_options = { "language": video_vars.locale };
+
+	if ( videojs.browser.IS_IPHONE == true ) {
+		videojs_options.html5 = { "nativeTextTracks" : true };
+	}
+	else { videojs_options.html5 = { "nativeTextTracks" : false }; }
+
 	if ( video_vars.resize == "true" || video_vars.fullwidth == "true" ) {
 		videojs_options.fluid = true;
 	}

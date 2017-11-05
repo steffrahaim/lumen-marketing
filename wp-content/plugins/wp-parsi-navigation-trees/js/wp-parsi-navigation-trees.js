@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
     .addClass('first_child');
 
   const location = window.location.href.replace(/\/$/, '');
-  jQuery('#wb_tree ul li a[href="' + location + '"').siblings('ul').show();
+  jQuery('#wb_tree ul li a[href="' + location + '"]').siblings('ul').show();
 
   jQuery('#wb_tree a.toggle_menu').click(toggle);
 

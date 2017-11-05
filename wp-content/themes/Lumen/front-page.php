@@ -24,6 +24,8 @@
 <button id="splash-button" type="submit" onClick="window.location.href='menu'">Enter</button>
 </div>
 <div class="fullscreen-bg">
+	<img class="mobile-bg" src="/lumen-arts/wp-content/uploads/2017/11/Lumen_Splash2000pxNO-LOGO-1024x791.jpg">
+  	</img>
     <video muted autoplay class="fullscreen-bg__video">
         <source src="/lumen-arts/wp-content/uploads/2017/01/Lumen_Splash2000pxNO-LOGO_4sec.mp4" type="video/mp4">
     </video>

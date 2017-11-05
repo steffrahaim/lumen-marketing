@@ -1,14 +1,14 @@
 <?php
 
 //common includes
+require_once( FOOGALLERY_PATH . 'includes/constants.php' );
 require_once( FOOGALLERY_PATH . 'includes/functions.php' );
 require_once( FOOGALLERY_PATH . 'includes/class-posttypes.php' );
 require_once( FOOGALLERY_PATH . 'includes/class-foogallery.php' );
 require_once( FOOGALLERY_PATH . 'includes/class-foogallery-attachment.php' );
 require_once( FOOGALLERY_PATH . 'includes/class-thumbnails.php' );
-require_once( FOOGALLERY_PATH . 'includes/extensions/class-extension.php' );
-require_once( FOOGALLERY_PATH . 'includes/extensions/class-extensions-api.php' );
-require_once( FOOGALLERY_PATH . 'includes/extensions/class-extensions-loader.php' );
+require_once( FOOGALLERY_PATH . 'includes/class-extensions-api.php' );
+require_once( FOOGALLERY_PATH . 'includes/class-extensions-loader.php' );
 require_once( FOOGALLERY_PATH . 'includes/class-attachment-filters.php' );
 require_once( FOOGALLERY_PATH . 'includes/class-retina.php' );
 
@@ -19,6 +19,7 @@ if ( ! class_exists( 'WP_Thumb' ) ) {
 	remove_filter( 'image_downsize', 'wpthumb_post_image', 99 );
 }
 require_once( FOOGALLERY_PATH . 'includes/class-wpthumb-enhancements.php' );
+
 
 //include bundled extensions
 require_once( FOOGALLERY_PATH . 'extensions/albums/class-albums-extension.php' );
@@ -33,12 +34,6 @@ require_once( FOOGALLERY_PATH . 'includes/public/class-foogallery-template-loade
 require_once( FOOGALLERY_PATH . 'includes/class-polylang-compatibility.php' );
 
 require_once( FOOGALLERY_PATH . 'includes/class-version-check.php' );
-require_once( FOOGALLERY_PATH . 'includes/class-foogallery-animated-gif-support.php' );
-require_once( FOOGALLERY_PATH . 'includes/class-foogallery-cache.php' );
-require_once( FOOGALLERY_PATH . 'includes/class-thumbnail-dimensions.php' );
-require_once( FOOGALLERY_PATH . 'includes/class-foobox-support.php' );
-require_once( FOOGALLERY_PATH . 'includes/class-responsive-lightbox-dfactory-support.php' );
-require_once( FOOGALLERY_PATH . 'includes/class-foogallery-attachment-custom-class.php' );
 
 //Datasource includes
 require_once( FOOGALLERY_PATH . 'includes/interface-foogallery-datasource.php' );
