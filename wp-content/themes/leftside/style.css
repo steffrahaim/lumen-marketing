@@ -1,13 +1,13 @@
 /*
 Theme Name: LeftSide
-Theme URI: http://www.guidovanderleest.nl/leftside
-Version: 5.3
+Theme URI: https://www.guidovanderleest.nl/leftside
+Version: 5.6
 Author: Guido van der Leest
-Author URI: http://www.guidovanderleest.nl
+Author URI: https://www.guidovanderleest.nl
 Description: LeftSide is a free, clean, minimalistic, responsive, mobile-friendly WordPress theme. Features: sidebar, sidebar navigation, footer widgets, custom header image, custom background, custom logo to replace site title and tagline. For more info please check readme file. Enjoy.
 Tags: two-columns, left-sidebar, custom-background, custom-header, custom-menu, featured-images, footer-widgets, post-formats, sticky-post, blog, editor-style, microformats, translation-ready
 License: GNU General Public License v3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: leftside
 
 This theme, like WordPress, is licensed under the GPL.
@@ -59,8 +59,8 @@ table {
 
 
 /* BODY AND CONTAINER */
-body {background:#eee; color:#333; font-family:'Open Sans', sans-serif; font-size:1em; line-height:1.5em; text-align:left; word-wrap:break-word;}
-#container {max-width:1200px; position:relative; background:#fff; margin:10px auto 10px;}
+body {-webkit-text-size-adjust:100%; background:#eee; color:#333; font-family:'Open Sans', sans-serif; font-size:16px; line-height:1.5; text-align:left; word-wrap:break-word;}
+#container {max-width:1200px; position:relative; background:#fff; margin:10px auto;}
 #container:after {content:''; display:block; height:0; clear:both;}
 
 
@@ -69,12 +69,12 @@ body {background:#eee; color:#333; font-family:'Open Sans', sans-serif; font-siz
 
 
 /* HEADINGS */
-h1 {clear:both; margin:0 0 10px; font-size:2.25em; line-height:1.25em;}
-h2 {clear:both; margin:0 0 10px; font-size:1.80em; line-height:1.25em;}
-h3 {clear:both; margin:0 0 10px; font-size:1.45em; line-height:1.5em;}
-h4 {clear:both; margin:0 0 10px; font-size:1.20em; line-height:1.5em;}
-h5 {clear:both; margin:0 0 10px; font-size:1em; line-height:1.5em;}
-h6 {clear:both; margin:0 0 10px; font-size:0.80em; line-height:2em;}
+h1 {clear:both; margin:0 0 10px; font-size:2.2em; line-height:1.25;}
+h2 {clear:both; margin:0 0 10px; font-size:1.75em; line-height:1.25;}
+h3 {clear:both; margin:0 0 10px; font-size:1.45em; line-height:1.5;}
+h4 {clear:both; margin:0 0 10px; font-size:1.2em; line-height:1.5;}
+h5 {clear:both; margin:0 0 10px; font-size:1em; line-height:2;}
+h6 {clear:both; margin:0 0 10px; font-size:0.8em; line-height:2;}
 
 
 /* LINKS AND HTML TAGS */
@@ -82,15 +82,15 @@ a {text-decoration:none; color:#e77776;}
 a:hover {text-decoration:underline;}
 
 strong, b {font-weight:bold;}
-small {font-size:0.80em;}
-big {font-size:1.20em;}
+small {font-size:0.8em;}
+big {font-size:1.2em;}
 sub {vertical-align:sub; font-size:0.9em;}
 sup {vertical-align:super; font-size:0.9em;}
 ins, mark {font-weight:bold; background:none; text-decoration:none; color:#e77776;}
 cite, em, abbr, acronym {font-style:italic;}
 code, kbd, samp, var {font-family:monospace, monospace;}
 pre {margin:0 0 10px; padding:5px 10px; white-space:pre-wrap; border:1px solid #ccc; border-radius:5px;}
-blockquote, q {margin:0 0 10px; padding:0 0 0 20px; display:block; font-size:1.2em; line-height:1.5em; font-style:italic; border-left:2px solid #e77776;}
+blockquote, q {margin:0 0 10px; padding:0 0 0 20px; display:block; font-size:1.2em; font-style:italic; border-left:2px solid #e77776;}
 address {margin:0 0 10px; font-style:italic;}
 p {margin:0 0 10px;}
 hr {height:1px; background:#ccc; border:0; margin:0 0 10px;}
@@ -122,7 +122,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button {cursor:
 input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, button:hover {background:#666; color:#ddd;}
 input[type="checkbox"] {-webkit-appearance:checkbox; -moz-appearance:checkbox;}
 input[type="radio"] {-webkit-appearance:radio; -moz-appearance:radio;}
-select {max-width:100%; -webkit-appearance:menulist; -moz-appearance:menulist; background:#fff; color:#333;}
+select {-webkit-appearance:menulist; -moz-appearance:menulist; max-width:100%; background:#fff; color:#333;}
 button {font-size:1em; font-family:'Open Sans', sans-serif;}
 
 
@@ -191,7 +191,7 @@ button {font-size:1em; font-family:'Open Sans', sans-serif;}
 .page-title {margin:0 0 20px;}
 .blog-page-text {clear:both; margin:0 0 20px;}
 .archive-description {width:100%; clear:both; float:left; font-style:italic;}
-.pagelink {width:100%; clear:both; float:left; padding:20px 0 10px;}
+.pagelink {width:100%; clear:both; float:left; padding:20px 0;}
 
 
 /* POST */
@@ -234,12 +234,11 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 
 .wp-post-image, .single-image {float:left; margin:0.4em 1em 0.4em 0;}
 
-.wp-caption {max-width:100%;}
 .wp-caption-text {text-align:center;}
 
+.gallery-item {margin:0 0 10px !important;}
 .gallery img {border:0 !important;}
-.gallery dl, .gallery dt, .gallery dd {margin:0; padding:0;}
-.gallery-caption {max-width:100%; text-align:center;}
+.gallery-caption {margin:0 !important;}
 
 
 /* SEARCHFORM */
@@ -255,7 +254,7 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 .comment-list .children > li {margin:0 0 0 10px;}
 .comment-body {background:#f8f8f8; border:1px solid #ccc; border-radius:5px; padding:10px; margin:0 0 20px;}
 .comment-content {padding:10px 0;}
-.comment-notes, .form-allowed-tags {font-size:0.80em; padding:5px 0;}
+.comment-notes, .form-allowed-tags {font-size:0.8em; padding:5px 0;}
 .comments-title {margin:0 0 20px; font-size:1.45em;}
 .comment-reply-title, .no-comments {margin:0; font-size:1.45em;}
 .comment-author .avatar {margin:0 5px 0 0; border-radius:5px;}
@@ -294,9 +293,9 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 /* MOBILE */
 @media screen and (max-width:767px) { 
 	/* BODY AND CONTAINER */
-	body {font-size:1em; line-height:1.5em;}
+	body {font-size:16px; line-height:1.5;}
 	body.custom-background {background-image:none !important;}
-	#container {width:98%; padding:10px 1% 0; margin:0 auto 0;}
+	#container {width:96%; padding:10px 2% 0; margin:0 auto;}
 
 	/* MAIN CONTENT AREA */
 	#content {width:100%; clear:both; float:left; padding:10px 0 20px;}
@@ -306,8 +305,7 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 
 	/* SIDEBAR LOGO */
 	.logo {padding:10px 0 20px;}
-	.logo h1 {font-size:2.25em;}
-	.logo h2 {padding:0; font-size:1.45em;}
+	.logo h2 {padding:0;}
 	.logo img {padding:0;}
 
 	/* SIDEBAR MENU */
@@ -332,12 +330,8 @@ img.aligncenter {display:block; margin:0.4em auto 0.4em auto;}
 	/* HEADER IMAGE MOBILE */
 	#header-image-mobile {display:block; width:100%; float:left; margin:0 0 20px;}
 
-	/* HEADINGS */
-	.post-title, .page-title, .post-title-single {font-size:1.80em;}
-	.widgettitle, .comments-title, .comment-reply-title, .no-comments {font-size:1.45em;}
-
 	/* IMAGES */
-	.wp-post-image, .single-image {width:50%; margin:0.3em 0.5em 0.3em 0;}
+	.wp-post-image, .single-image {max-width:50%;}
 
 	/* FOOTER */
 	#footer {padding:10px 0;}

@@ -1,6 +1,23 @@
 CHANGELOG
 =========
 
+LeftSide version 5.6 - february 2018
+- several small adjustments
+- updated files style and custom-editor-style
+
+LeftSide version 5.5 - february 2018
+- several small adjustments
+- updated file style and functions
+
+LeftSide version 5.4 - february 2018
+- please ignore my notification in previous version regarding removal from repository
+- decided not to remove it yet
+- added a static font-size in body tag
+- now other font-sizes will scale better
+- updated h1-h6 headings
+- updated files style and custom-editor-style
+- several small adjustments
+
 LeftSide version 5.3 - november 2017
 - last update: this theme will be removed from repository
 - you can keep using theme, but without updates and without support from author

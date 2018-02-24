@@ -16,9 +16,10 @@
 			<div class="entry-content">
 				<?php the_content(); ?>
 
-				<?php if ( $multipage ) { ?>
-					<div class="pagelink"><?php wp_link_pages(); ?></div>
-				<?php } ?> 
+				<?php wp_link_pages( array(
+					'before' => '<div class="pagelink">' . __( 'Pages:', 'leftside' ),
+					'after'  => '</div>',
+				) ); ?>
 			</div>
 
 			<?php get_template_part( 'content-postmeta-single' ); ?>

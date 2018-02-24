@@ -16,9 +16,10 @@
 
 		<?php the_content(); ?>
 
-		<?php if ( $multipage ) { ?>
-			<div class="pagelink"><?php wp_link_pages(); ?></div>
-		<?php } ?> 
+		<?php wp_link_pages( array(
+			'before' => '<div class="pagelink">' . __( 'Pages:', 'leftside' ),
+			'after'  => '</div>',
+		) ); ?>
 
 		<?php comments_template(); ?>
 

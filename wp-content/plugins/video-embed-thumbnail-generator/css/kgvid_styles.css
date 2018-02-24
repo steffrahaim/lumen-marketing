@@ -504,12 +504,16 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
     z-index: 2;
 }
 
+.kgvid_wrapper .wp-video-shortcode {
+	max-height: 100%;
+}
+
 /* fix iPhone play button */
 .kgvid_wrapper video::-webkit-media-controls-start-playback-button { display: none; }
 .kgvid_wrapper .video-js.vjs-controls-enabled .vjs-big-play-button { display: none; }
 .kgvid_wrapper .video-js.vjs-controls-enabled.vjs-paused .vjs-big-play-button { display: block; }
 
-/* mep-feature-sourcechooser plugin styles */
+/* mejs-sourcechooser plugin styles */
 
 .kgvid_wrapper .mejs-controls div.mejs-sourcechooser-button button {
     background: none;
@@ -523,7 +527,8 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 	content: "\f111";
 }
 
-.mejs-container .mejs-controls div.mejs-menu-arrow {
+/* mep-feature-sourcechooser backwards compatible plugin styles */
+.kgvid_wrapper.kgvid_compat_mep .mejs-container .mejs-controls div.mejs-menu-arrow {
 	display: none;
     position: absolute;
     bottom: -7px;
@@ -537,7 +542,7 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
     border-top-color: rgba(40, 40, 40, 0.5);
 }
 
-div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
+.kgvid_wrapper.kgvid_compat_mep div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
 	visibility: inherit;
 	bottom: 17px;
     right: -28px;
@@ -550,109 +555,187 @@ div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
     box-shadow: -0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2);
 }
 
-div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector span {
+.kgvid_wrapper.kgvid_compat_mep div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector span {
     color: white;
     padding: 0px 10px 5px 10px;
     display: block;
     white-space: nowrap;
 }
 
-div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li {
+.kgvid_wrapper.kgvid_compat_mep div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li {
     margin: 3px 0 3px 0;
     padding: 2px 10px 5px 10px;
     cursor: pointer;
 }
 
-div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li.mejs-sourcechooser-selected {
+.kgvid_wrapper.kgvid_compat_mep div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li.mejs-sourcechooser-selected {
 	background: rgba(20,20,20,0.8);
 }
 
-div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li:hover {
+.kgvid_wrapper.kgvid_compat_mep div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li:hover {
     color: #111;
     background-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.75);
 }
 
-.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input {
+.kgvid_wrapper.kgvid_compat_mep .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input {
 	display: none;
 }
 
-div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label {
+.kgvid_wrapper.kgvid_compat_mep div.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label {
 	width: auto;
 }
 
-.mejs__speed-button, .mejs-speed-button {
+/* mejs-sourcechooser new plugin styles */
+
+.mejs__sourcechooser-button .mejs__sourcechooser-selector,
+.mejs-sourcechooser-button .mejs-sourcechooser-selector {
+    background: rgba(50, 50, 50, 0.7);
+    border: solid 1px transparent;
+    border-radius: 0;
+    bottom: 40px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.mejs__sourcechooser-selector ul,
+.mejs-sourcechooser-selector ul {
+    display: block;
+    list-style-type: none !important;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.mejs__sourcechooser-selector li,
+.mejs-sourcechooser-selector li {
+    color: #fff;
+    display: block;
+    list-style-type: none !important;
+    margin: 0;
+    overflow: hidden;
+    padding: 5px 10px 5px 0px;
+}
+
+.mejs-sourcechooser-selector li.sourcechooser-selected {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mejs__sourcechooser-selector li:hover,
+.mejs-sourcechooser-selector li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.mejs__sourcechooser-selector input,
+.mejs-sourcechooser-selector input {
+    clear: both;
+    float: left;
+	margin: 3px 3px 0 0;
+	visibility: hidden;
+}
+
+.mejs__sourcechooser-selector label,
+.mejs-sourcechooser-selector label {
+	color: #fff;
+    display: inline-block;
+    float: left;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 4px 0 0;
+}
+
+/* mejs-speed styles */
+.mejs__speed-button,
+.mejs-speed-button {
     position: relative;
 }
 
-.mejs__speed-button > button, .mejs-speed-button > button {
+.mejs__speed-button > button,
+.mejs-speed-button > button {
     background: transparent;
-    width: 36px;
-    margin: 11px 0 0 0;
+    color: #fff;
     font-size: 11px;
     line-height: normal;
-    color: #ffffff;
+    margin: 11px 0 0;
+    width: 36px;
 }
 
-.mejs__speed-selector, .mejs-speed-selector {
-    visibility: hidden;
-    position: absolute;
-    top: -100px;
-    left: -10px;
-    width: 60px;
-    height: 100px;
+.mejs__speed-selector,
+.mejs-speed-selector {
     background: rgba(50, 50, 50, 0.7);
     border: solid 1px transparent;
-    padding: 0;
-    overflow: hidden;
     border-radius: 0;
+    left: -10px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -100px;
+    visibility: hidden;
+    width: 60px;
 }
 
-.mejs__speed-selector, .mejs-speed-selector {
+.mejs__speed-selector,
+.mejs-speed-selector {
     visibility: visible;
 }
 
-.mejs__speed-selector-list, .mejs-speed-selector-list  {
+.mejs__speed-selector-list,
+.mejs-speed-selector-list  {
+    display: block;
+    list-style-type: none !important;
     margin: 0;
+    overflow: hidden;
     padding: 0;
-    display: block;
-    list-style-type: none !important;
-    overflow: hidden;
 }
 
-.mejs__speed-selector-list-item, .mejs-speed-selector-list-item {
-    margin: 0 0 6px 0;
-    padding: 0 10px;
-    list-style-type: none !important;
-    display: block;
+.mejs__speed-selector-list-item,
+.mejs-speed-selector-list-item {
     color: #fff;
+    display: block;
+    list-style-type: none !important;
+    margin: 0 0 6px;
     overflow: hidden;
+    padding: 0 10px;
 }
 
-.mejs__speed-selector-list-item:hover, .mejs-speed-selector-list-item:hover {
+.mejs__speed-selector-list-item:hover,
+.mejs-speed-selector-list-item:hover {
     background-color: rgb(200, 200, 200) !important;
     background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-.mejs__speed-selector-input, .mejs-speed-selector-input {
+.mejs__speed-selector-input,
+.mejs-speed-selector-input {
     clear: both;
     float: left;
+    left: -1000px;
     margin: 3px 3px 0 5px;
     position: absolute;
-    left: -1000px;
 }
 
-.mejs__speed-selector-label, .mejs-speed-selector-label {
-    width: 60px;
-    float: left;
-    padding: 4px 0 0 0;
-    line-height: 15px;
-    font-size: 11px;
+.mejs__speed-selector-label,
+.mejs-speed-selector-label {
     color: white;
-    margin-left: 5px;
     cursor: pointer;
+    float: left;
+    font-size: 10px;
+    line-height: 14px;
+    margin-left: 5px;
+    padding: 4px 0 0;
+    width: 60px;
 }
 
-.mejs__speed-selected, .mejs-speed-selected {
-    color: rgba(33, 248, 248, 1);
+li.mejs-speed-selected {
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.mejs__speed-selector,
+.mejs-speed-selector {
+    visibility: hidden;
+}
+.mejs__speed-button:hover .mejs__speed-selector,
+.mejs-speed-button:hover .mejs-speed-selector {
+    visibility: visible;
 }
